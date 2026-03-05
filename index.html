@@ -122,6 +122,10 @@
         /* Hero Video Container */
         .hero-video-container { position: absolute; inset: 0; overflow: hidden; z-index: 0; background-color: #2C241B; }
         .hero-video-container iframe { position: absolute; top: 50%; left: 50%; width: 300vw; height: 300vh; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); pointer-events: none; opacity: 0.6; scale: 1.1; }
+
+        /* Cookie Banner */
+        #cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        #cookie-banner.show { transform: translateY(0); }
     </style>
 </head>
 <body class="font-sans text-brand-text overflow-x-hidden overflow-y-auto bg-brand-light">
@@ -143,6 +147,20 @@
             
             <button onclick="checkPassword()" class="w-full bg-brand-caramel/90 backdrop-blur-md text-white hover:bg-white hover:text-brand-dark px-8 py-5 font-bold uppercase tracking-[0.2em] text-[0.75rem] rounded-full transition-all duration-500 shadow-glow">Vstoupit do rezidence</button>
             <p id="password-error" class="text-red-400 text-xs mt-6 opacity-0 transition-opacity font-medium tracking-widest">Neplatné heslo. Zkuste to prosím znovu.</p>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="bg-brand-dark text-white p-6 md:p-8 shadow-premium border-t border-brand-caramel/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-sm font-light leading-relaxed max-w-3xl">
+                <p class="mb-2"><strong class="font-serif text-brand-caramel tracking-widest text-base">Vážíme si vašeho soukromí</strong></p>
+                K poskytování těch nejlepších služeb používáme my a naši partneři technologie, jako jsou soubory cookies. Vaše volba nám umožní vylepšovat náš web a nabídnout vám služby šité na míru. Svůj souhlas můžete kdykoliv změnit v nastavení.
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                <button onclick="acceptCookies('all')" class="bg-brand-caramel text-white hover:bg-white hover:text-brand-dark px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full transition-colors shadow-glow whitespace-nowrap">Přijmout vše</button>
+                <button onclick="acceptCookies('necessary')" class="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full transition-colors whitespace-nowrap">Pouze nezbytné</button>
+            </div>
         </div>
     </div>
 
@@ -795,6 +813,13 @@
             lucide.createIcons();
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
+            // Kontrola Cookie Banneru
+            if (!localStorage.getItem('cookies_accepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').classList.add('show');
+                }, 1500); // Ukázat po 1.5s pro lepší UX
+            }
+
             if (sessionStorage.getItem('aranka_auth') === 'true') {
                 const overlay = document.getElementById('password-protection');
                 overlay.style.display = 'none';
@@ -847,6 +872,14 @@
                 if(e.key === 'ArrowLeft') prevImage();
             });
         });
+
+        // Logika Cookie Banneru
+        function acceptCookies(type) {
+            localStorage.setItem('cookies_accepted', type);
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.remove('show');
+            // Zde by normálně následovalo spuštění Google Analytics atd., pokud type === 'all'
+        }
 
         function checkPassword() {
             const pwdInput = document.getElementById('site-password');
