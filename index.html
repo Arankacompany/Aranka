@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubytování Aranka Žatec | Prémiové apartmány — Rezervace online</title>
     <meta name="description" content="Prémiové ubytování Aranka v Žatci od 550 Kč/noc. Čisté, klidné apartmány a mezonety. Soukromá zahrada s pergolou, 5 minut od centra.">
-    <meta name="theme-color" content="#1a1715">
+    <meta name="theme-color" content="#2C241B">
     <link rel="canonical" href="https://arankacompany.eu/">
     
     <!-- Open Graph -->
@@ -28,8 +28,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            caramel: '#c28e62', dark: '#1a1715', light: '#fdfbf9',
-                            sand: '#f5f2eb', text: '#3d3935', muted: '#8a857a'
+                            caramel: '#c28e62', 
+                            dark: '#2C241B', /* Teplá tmavě hnědá (Espresso) místo studené černé */
+                            light: '#fdfbf9',
+                            sand: '#f5f2eb', 
+                            text: '#4A423C', /* Měkčí hnědošedá barva textu pro lepší čitelnost */
+                            muted: '#8c7e71'
                         }
                     },
                     fontFamily: {
@@ -37,9 +41,9 @@
                         serif: ['Cinzel', 'serif'],
                     },
                     boxShadow: {
-                        'premium': '0 25px 50px -12px rgba(26, 23, 21, 0.15)',
-                        'premium-hover': '0 35px 60px -15px rgba(26, 23, 21, 0.25)',
-                        'glow': '0 0 40px -10px rgba(194, 142, 98, 0.3)',
+                        'premium': '0 25px 50px -12px rgba(44, 36, 27, 0.15)',
+                        'premium-hover': '0 35px 60px -15px rgba(44, 36, 27, 0.25)',
+                        'glow': '0 0 40px -10px rgba(194, 142, 98, 0.4)',
                     },
                     animation: {
                         'fade-in': 'fadeIn 1s ease-out forwards',
@@ -56,7 +60,7 @@
 
     <style>
         /* Base & Animations */
-        body { -webkit-font-smoothing: antialiased; background-color: #fdfbf9; color: #3d3935; overflow-x: hidden; }
+        body { -webkit-font-smoothing: antialiased; background-color: #fdfbf9; color: #4A423C; overflow-x: hidden; }
         
         /* Moderní odhalování prvků pomocí Intersection Observeru */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
@@ -66,12 +70,12 @@
         #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #c28e62; z-index: 99999; transition: width 0.1s ease-out; }
 
         /* Ochrana heslem - VIP Brána */
-        #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(26, 23, 21, 0.98); backdrop-filter: blur(20px); }
+        #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(44, 36, 27, 0.98); backdrop-filter: blur(20px); }
         .pwd-input-line { border-bottom: 2px solid rgba(255,255,255,0.2); transition: border-color 0.4s ease; }
         .pwd-input-line:focus-within { border-color: #c28e62; }
 
         /* Modals & Overlays */
-        .overlay { visibility: hidden; opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: fixed; inset: 0; z-index: 9000; background: rgba(26, 23, 21, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .overlay { visibility: hidden; opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: fixed; inset: 0; z-index: 9000; background: rgba(44, 36, 27, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1rem; }
         .overlay.active { visibility: visible; opacity: 1; }
         .modal-content { max-height: 95vh; overflow-y: auto; width: 100%; border-radius: 20px; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7); background-color: #fdfbf9; scrollbar-width: none; transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .overlay.active .modal-content { transform: scale(1); }
@@ -80,13 +84,13 @@
         /* Navigation */
         #site-nav { transform: translateY(-100%); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); background: rgba(253, 251, 249, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(194, 142, 98, 0.05); }
         #site-nav.nav-visible { transform: translateY(0); }
-        #site-nav.nav-scrolled { box-shadow: 0 10px 40px -10px rgba(26, 23, 21, 0.08); padding-top: 1rem !important; padding-bottom: 1rem !important; }
+        #site-nav.nav-scrolled { box-shadow: 0 10px 40px -10px rgba(44, 36, 27, 0.08); padding-top: 1rem !important; padding-bottom: 1rem !important; }
         
         /* Buttons & Forms */
-        .b2b-field { border-bottom: 1px solid #cfcac1; padding: 12px 0; background: transparent; outline: none; transition: border-color 0.3s; font-size: 1rem; color: #1a1715; width: 100%; border-top: none; border-left: none; border-right: none; }
+        .b2b-field { border-bottom: 1px solid #cfcac1; padding: 12px 0; background: transparent; outline: none; transition: border-color 0.3s; font-size: 1rem; color: #2C241B; width: 100%; border-top: none; border-left: none; border-right: none; }
         .b2b-field:focus { border-color: #c28e62; box-shadow: none; }
-        .b2b-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #8a857a; display: block; margin-bottom: 4px; }
-        .btn-premium { background-color: #1a1715; color: #fff; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #1a1715; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;}
+        .b2b-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #8c7e71; display: block; margin-bottom: 4px; }
+        .btn-premium { background-color: #2C241B; color: #fff; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #2C241B; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;}
         .btn-premium:hover { background-color: #c28e62; border-color: #c28e62; transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(194, 142, 98, 0.4); }
         .btn-outline { border: 1px solid #c28e62; color: #c28e62; background: transparent; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .btn-outline:hover { background-color: #c28e62; color: white; transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(194, 142, 98, 0.4); }
@@ -96,11 +100,11 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* Room Cards (Quiet Luxury Style) */
-        .mood-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border-radius: 20px; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; background-color: #1a1715; aspect-ratio: 4/5; transform: translateZ(0); }
-        .mood-card:hover { transform: translateY(-12px); box-shadow: 0 40px 60px -15px rgba(26, 23, 21, 0.4); z-index: 10; }
+        .mood-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; border-radius: 20px; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; background-color: #2C241B; aspect-ratio: 4/5; transform: translateZ(0); }
+        .mood-card:hover { transform: translateY(-12px); box-shadow: 0 40px 60px -15px rgba(44, 36, 27, 0.4); z-index: 10; }
         .mood-card img { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0.75; }
         .mood-card:hover img { transform: scale(1.05); opacity: 0.9; }
-        .card-gradient { background: linear-gradient(to top, rgba(26,23,21,0.98) 0%, rgba(26,23,21,0.4) 50%, transparent 100%); position: absolute; inset: 0; pointer-events: none; transition: opacity 0.5s ease; }
+        .card-gradient { background: linear-gradient(to top, rgba(44, 36, 27, 0.98) 0%, rgba(44, 36, 27, 0.4) 50%, transparent 100%); position: absolute; inset: 0; pointer-events: none; transition: opacity 0.5s ease; }
         .mood-card:hover .card-gradient { opacity: 1; }
         .card-content { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(10px); }
         .mood-card:hover .card-content { transform: translateY(0); }
@@ -108,20 +112,20 @@
         /* Filter Widget specific styling */
         .filter-input { background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); border-radius: 0; color: white; padding: 0.5rem 0; transition: border-color 0.3s ease; }
         .filter-input:focus { border-color: #c28e62; box-shadow: none; outline: none; }
-        .filter-input option { background: #1a1715; color: white; }
+        .filter-input option { background: #2C241B; color: white; }
         .filter-input::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.7); cursor: pointer; transition: opacity 0.3s; }
         .filter-input::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 
         /* Slider Gallery */
         .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 24px; padding: 20px 0; scroll-behavior: smooth; }
         .slider-container::-webkit-scrollbar { display: none; }
-        .slider-item { flex: 0 0 clamp(280px, 30vw, 450px); scroll-snap-align: center; aspect-ratio: 4/3; cursor: zoom-in; position: relative; border-radius: 16px; overflow: hidden; background-color: #1a1715; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease; }
-        .slider-item:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15); z-index: 10; }
+        .slider-item { flex: 0 0 clamp(280px, 30vw, 450px); scroll-snap-align: center; aspect-ratio: 4/3; cursor: zoom-in; position: relative; border-radius: 16px; overflow: hidden; background-color: #2C241B; box-shadow: 0 10px 30px rgba(44, 36, 27, 0.1); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease; }
+        .slider-item:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(44, 36, 27, 0.2); z-index: 10; }
         .slider-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); opacity: 0.9; }
         .slider-item:hover img { transform: scale(1.08); opacity: 1; }
 
         /* Hero Video Container */
-        .hero-video-container { position: absolute; inset: 0; overflow: hidden; z-index: 0; background-color: #1a1715; }
+        .hero-video-container { position: absolute; inset: 0; overflow: hidden; z-index: 0; background-color: #2C241B; }
         .hero-video-container iframe { position: absolute; top: 50%; left: 50%; width: 300vw; height: 300vh; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); pointer-events: none; opacity: 0.6; scale: 1.1; }
     </style>
 </head>
@@ -347,7 +351,7 @@
             </div>
         </section>
 
-        <!-- SJEDNOCENÁ SEKCE: APARTMÁNY A STUDIA (Filtr + Karty) -->
+        <!-- SJEDNOCENÁ SEKCE: APARTMÁNY A STUDIA (Zjednodušený filtr + Karty) -->
         <section id="ubytovani" class="pt-24 pb-32 bg-brand-sand text-brand-dark border-b border-[#e5e0d8] relative z-10">
             <div class="max-w-7xl mx-auto px-6 w-full">
                 
@@ -356,32 +360,32 @@
                     <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-brand-dark">Naše apartmány & studia</h2>
                 </div>
 
-                <!-- 1. CHYTRÝ FILTR -->
+                <!-- 1. CHYTRÝ FILTR ZJEDNODUŠENÝ -->
                 <div class="bg-brand-dark rounded-[2rem] shadow-premium-hover p-8 md:p-12 mb-20 reveal relative overflow-hidden text-white border border-[#332e2a]">
                     <div class="absolute top-[-30%] right-[-20%] w-[600px] h-[600px] bg-brand-caramel/15 blur-[120px] rounded-full pointer-events-none"></div>
                     
                     <div class="relative z-10">
                         <div class="text-center mb-10">
-                            <h3 class="font-serif text-2xl md:text-3xl text-white mb-2">Chytrý asistent výběru</h3>
-                            <p class="text-white/60 font-light text-sm max-w-xl mx-auto">Zadejte své požadavky a náš systém Vám doporučí ty nejvhodnější pokoje pro Váš dokonalý pobyt.</p>
+                            <h3 class="font-serif text-2xl md:text-3xl text-white mb-2">Najděte svůj ideální prostor</h3>
+                            <p class="text-white/60 font-light text-sm max-w-xl mx-auto">Vyberte pouze termín a pro kolik osob pokoj hledáte. O zbytek se postaráme.</p>
                         </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-8 items-end text-left mb-10 bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 items-end text-left mb-10 bg-white/5 p-6 rounded-2xl border border-white/10 max-w-4xl mx-auto">
                             
                             <!-- Příjezd -->
-                            <div class="border-b border-white/20 pb-2 relative lg:col-span-1">
+                            <div class="border-b border-white/20 pb-2 relative">
                                 <label for="filter-checkin" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Příjezd</label>
                                 <input type="date" id="filter-checkin" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer bg-transparent">
                             </div>
 
                             <!-- Odjezd -->
-                            <div class="border-b border-white/20 pb-2 relative lg:col-span-1">
+                            <div class="border-b border-white/20 pb-2 relative">
                                 <label for="filter-checkout" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Odjezd</label>
                                 <input type="date" id="filter-checkout" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer bg-transparent">
                             </div>
 
                             <!-- Osoby -->
-                            <div class="border-b border-white/20 pb-2 lg:col-span-1">
+                            <div class="border-b border-white/20 pb-2">
                                 <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Hosté</label>
                                 <div class="flex items-center justify-between pb-1">
                                     <button onclick="updatePeople(-1)" class="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Odebrat osobu"><i data-lucide="minus" class="w-4 h-4"></i></button>
@@ -391,37 +395,13 @@
                             </div>
 
                             <!-- Pokoje -->
-                            <div class="border-b border-white/20 pb-2 lg:col-span-1">
+                            <div class="border-b border-white/20 pb-2">
                                 <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Pokoje</label>
                                 <div class="flex items-center justify-between pb-1">
                                     <button onclick="updateRooms(-1)" class="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Odebrat pokoj"><i data-lucide="minus" class="w-4 h-4"></i></button>
                                     <span id="rooms-val" class="font-serif text-xl font-medium" aria-live="polite">1</span>
                                     <button onclick="updateRooms(1)" class="w-8 h-8 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Přidat pokoj"><i data-lucide="plus" class="w-4 h-4"></i></button>
                                 </div>
-                            </div>
-                            
-                            <!-- Účel -->
-                            <div class="border-b border-white/20 pb-2 relative lg:col-span-1">
-                                <label for="filter-mood" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Účel cesty</label>
-                                <select id="filter-mood" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer">
-                                    <option value="romantika">Romantika & Klid</option>
-                                    <option value="prace">Pracovní cesta</option>
-                                    <option value="rodina">Rodina & Přátelé</option>
-                                    <option value="cena">Chytrá volba</option>
-                                </select>
-                                <i data-lucide="chevron-down" class="absolute right-0 bottom-3 w-4 h-4 text-white/50 pointer-events-none"></i>
-                            </div>
-
-                            <!-- Ceny -->
-                            <div class="border-b border-white/20 pb-2 relative lg:col-span-1">
-                                <label for="filter-price" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Cenový limit</label>
-                                <select id="filter-price" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer">
-                                    <option value="1500">Do 1 500 Kč</option>
-                                    <option value="2500">Do 2 500 Kč</option>
-                                    <option value="3600">Do 3 600 Kč</option>
-                                    <option value="9999" selected>Neomezeně</option>
-                                </select>
-                                <i data-lucide="chevron-down" class="absolute right-0 bottom-3 w-4 h-4 text-white/50 pointer-events-none"></i>
                             </div>
                         </div>
                         
@@ -787,7 +767,7 @@
             openOverlay('bookingOverlay');
         }
 
-        // Simulace asynchronního odeslání B2B formuláře (Backend/Frontend vylepšení)
+        // Simulace asynchronního odeslání B2B formuláře
         function submitB2BForm(e) {
             e.preventDefault();
             const btn = e.target.querySelector('button[type="submit"]');
@@ -801,7 +781,7 @@
             // Simulace zpracování serverem (1.5s)
             setTimeout(() => {
                 btn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5"></i> Úspěšně odesláno!';
-                btn.classList.remove('bg-[#1a1715]', 'border-[#1a1715]');
+                btn.classList.remove('bg-[#2C241B]', 'border-[#2C241B]');
                 btn.classList.add('bg-green-700', 'border-green-700', 'text-white');
                 lucide.createIcons();
                 
@@ -811,7 +791,7 @@
                     setTimeout(() => {
                         btn.innerHTML = originalText;
                         btn.classList.remove('bg-green-700', 'border-green-700', 'opacity-80', 'cursor-not-allowed');
-                        btn.classList.add('bg-[#1a1715]', 'border-[#1a1715]');
+                        btn.classList.add('bg-[#2C241B]', 'border-[#2C241B]');
                         e.target.reset();
                     }, 500);
                 }, 2000);
@@ -820,24 +800,24 @@
 
         // --- DATA POKOJŮ ---
         const roomsData = [
-            { id: 8300, capacity: 1, price: 790, bedrooms: 1, mood: 'prace', name: "Pokoj Standard s vyvýšeným lůžkem", photo: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=400&q=80" },
-            { id: 8301, capacity: 4, price: 1400, bedrooms: 1, mood: 'rodina', name: "Velké Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
-            { id: 8302, capacity: 2, price: 1400, bedrooms: 1, mood: 'prace', name: "Studio s vlastní kuchyní a vanou", photo: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" },
-            { id: 8303, capacity: 2, price: 1000, bedrooms: 1, mood: 'prace', name: "Dvoulůžkový pokoj s vlastní koupelnou", photo: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80" },
-            { id: 8304, capacity: 1, price: 550, bedrooms: 1, mood: 'cena', name: "Pokoj Economy pro jednoho", photo: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80" },
-            { id: 8305, capacity: 3, price: 1000, bedrooms: 1, mood: 'cena', name: "Třílůžkový pokoj Economy", photo: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=400&q=80" },
-            { id: 8306, capacity: 3, price: 1750, bedrooms: 1, mood: 'rodina', name: "Apartmán se společenskou místností", photo: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" },
-            { id: 8307, capacity: 2, price: 1400, bedrooms: 1, mood: 'prace', name: "Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" },
-            { id: 8308, capacity: 6, price: 3600, bedrooms: 2, mood: 'romantika', name: "Velkorysý Mezonet GRAND s terasou (3+3 os.)", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
-            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, mood: 'prace', name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80" },
-            { id: 8310, capacity: 6, price: 3450, bedrooms: 2, mood: 'rodina', name: "Prostorný Mezonet GRAND (2+4 os.)", photo: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=400&q=80" },
-            { id: 8311, capacity: 2, price: 1700, bedrooms: 1, mood: 'romantika', name: "Mezonetové Studio s vlastním venkovním posezením", photo: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=400&q=80" },
-            { id: 8312, capacity: 3, price: 2100, bedrooms: 1, mood: 'romantika', name: "Mezonet COMFORT s terasou (2+1 os.)", photo: "https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=400&q=80" },
-            { id: 8313, capacity: 3, price: 2350, bedrooms: 1, mood: 'romantika', name: "Mezonet s podkrovní ložnicí a terasou", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
-            { id: 8314, capacity: 4, price: 2450, bedrooms: 2, mood: 'rodina', name: "Apartmán s balkonem a vanou (2+2 os.)", photo: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=400&q=80" },
-            { id: 8315, capacity: 6, price: 2880, bedrooms: 2, mood: 'rodina', name: "Prostorný byt se dvěma třílůžkovými pokoji", photo: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=400&q=80" },
-            { id: 8316, capacity: 6, price: 2900, bedrooms: 2, mood: 'rodina', name: "Apartmán COMFORT s balkonem", photo: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=400&q=80" },
-            { id: 8317, capacity: 6, price: 2800, bedrooms: 2, mood: 'rodina', name: "Apartmán COMFORT v přízemí", photo: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80" }
+            { id: 8300, capacity: 1, price: 790, bedrooms: 1, name: "Pokoj Standard s vyvýšeným lůžkem", photo: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=400&q=80" },
+            { id: 8301, capacity: 4, price: 1400, bedrooms: 1, name: "Velké Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
+            { id: 8302, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní a vanou", photo: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" },
+            { id: 8303, capacity: 2, price: 1000, bedrooms: 1, name: "Dvoulůžkový pokoj s vlastní koupelnou", photo: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80" },
+            { id: 8304, capacity: 1, price: 550, bedrooms: 1, name: "Pokoj Economy pro jednoho", photo: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80" },
+            { id: 8305, capacity: 3, price: 1000, bedrooms: 1, name: "Třílůžkový pokoj Economy", photo: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=400&q=80" },
+            { id: 8306, capacity: 3, price: 1750, bedrooms: 1, name: "Apartmán se společenskou místností", photo: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" },
+            { id: 8307, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" },
+            { id: 8308, capacity: 6, price: 3600, bedrooms: 2, name: "Velkorysý Mezonet GRAND s terasou (3+3 os.)", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
+            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80" },
+            { id: 8310, capacity: 6, price: 3450, bedrooms: 2, name: "Prostorný Mezonet GRAND (2+4 os.)", photo: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=400&q=80" },
+            { id: 8311, capacity: 2, price: 1700, bedrooms: 1, name: "Mezonetové Studio s vlastním venkovním posezením", photo: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=400&q=80" },
+            { id: 8312, capacity: 3, price: 2100, bedrooms: 1, name: "Mezonet COMFORT s terasou (2+1 os.)", photo: "https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=400&q=80" },
+            { id: 8313, capacity: 3, price: 2350, bedrooms: 1, name: "Mezonet s podkrovní ložnicí a terasou", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
+            { id: 8314, capacity: 4, price: 2450, bedrooms: 2, name: "Apartmán s balkonem a vanou (2+2 os.)", photo: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=400&q=80" },
+            { id: 8315, capacity: 6, price: 2880, bedrooms: 2, name: "Prostorný byt se dvěma třílůžkovými pokoji", photo: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=400&q=80" },
+            { id: 8316, capacity: 6, price: 2900, bedrooms: 2, name: "Apartmán COMFORT s balkonem", photo: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=400&q=80" },
+            { id: 8317, capacity: 6, price: 2800, bedrooms: 2, name: "Apartmán COMFORT v přízemí", photo: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80" }
         ];
 
         // Logika pro ovládání osob/pokojů ve filtru
@@ -864,8 +844,6 @@
                 return;
             }
 
-            const mood = document.getElementById('filter-mood').value;
-            const price = parseInt(document.getElementById('filter-price').value);
             const rc = document.getElementById('filter-results');
             
             // Animace načítání (UX)
@@ -881,7 +859,7 @@
                 
                 let capableRooms = [];
                 
-                // Algoritmus pro výběr jednotek na základě počtu osob a pokojů
+                // Algoritmus pro výběr jednotek pouze na základě počtu osob a pokojů
                 roomsData.forEach(r => {
                     let unitsNeededForRooms = Math.ceil(roomsCount / r.bedrooms);
                     if ((r.capacity * unitsNeededForRooms) >= peopleCount) {
@@ -889,26 +867,20 @@
                     }
                 });
 
-                let exactMatches = capableRooms.filter(r => r.price <= price && r.mood === mood).sort((a,b) => (a.price * a.unitsNeeded) - (b.price * b.unitsNeeded));
                 let finalRooms = [];
                 let html = '';
                 
-                if(exactMatches.length > 0) {
-                    finalRooms = exactMatches.slice(0,4); // Max 4 výsledky
-                    html += '<h4 class="font-serif text-white text-xl mb-6 flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-brand-caramel"></i> Ideální shoda pro Váš pobyt:</h4>';
-                } else if (capableRooms.length > 0) {
-                    finalRooms = capableRooms.sort((a,b) => (a.price * a.unitsNeeded) - (b.price * b.unitsNeeded)).slice(0, 3);
-                    html += `
-                    <div class="bg-brand-caramel/10 border border-brand-caramel/30 p-5 rounded-2xl mb-6 text-left">
-                        <p class="text-white/90 text-sm m-0 leading-relaxed"><i data-lucide="info" class="w-5 h-5 inline-block mr-2 text-brand-caramel align-text-bottom"></i> Pro Vaše konkrétní parametry nemáme zcela přesnou shodu v rámci zvolené nálady či ceny. <strong>Tady jsou však skvělé alternativy</strong>, které bez problému pojmou požadovaný počet osob i oddělených místností:</p>
-                    </div>`;
+                if (capableRooms.length > 0) {
+                    // Seřadíme podle ceny a ořízneme na 4 nejlepší (nejlevnější) možnosti
+                    finalRooms = capableRooms.sort((a,b) => (a.price * a.unitsNeeded) - (b.price * b.unitsNeeded)).slice(0, 4);
+                    html += '<h4 class="font-serif text-white text-xl mb-6 flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-brand-caramel"></i> Volné kapacity pro Váš pobyt:</h4>';
                 } else {
                     rc.innerHTML = `
                     <div class="bg-white/5 p-10 rounded-2xl border border-white/10 text-center">
                         <i data-lucide="users" class="w-10 h-10 text-brand-caramel mx-auto mb-4 opacity-80"></i>
-                        <h4 class="font-serif text-xl text-white mb-2">Pro větší skupiny připravujeme nabídky na míru.</h4>
-                        <p class="text-white/60 font-light text-sm mb-6">Můžeme Vám chytře propojit více apartmánů dohromady.</p>
-                        <button onclick="openOverlay('b2bOverlay')" class="btn-outline px-8 py-3 text-xs rounded-full uppercase tracking-widest font-bold">Odeslat individuální poptávku</button>
+                        <h4 class="font-serif text-xl text-white mb-2">Pro takto velkou skupinu připravujeme nabídky na míru.</h4>
+                        <p class="text-white/60 font-light text-sm mb-6">Rádi Vám chytře propojíme více apartmánů dohromady.</p>
+                        <button onclick="openOverlay('b2bOverlay')" class="btn-outline px-8 py-3 text-xs rounded-full uppercase tracking-widest font-bold">Odeslat poptávku</button>
                     </div>`;
                     lucide.createIcons();
                     return;
@@ -930,7 +902,7 @@
                             <h4 class="font-serif text-lg text-brand-dark mb-1 leading-tight">${r.name}</h4>
                             <p class="text-brand-dark text-xs mb-2">${bookingDescription}</p>
                             <p class="text-brand-muted font-light text-xs mb-3 flex items-center gap-3">
-                                <span><i data-lucide="users" class="w-3 h-3 inline"></i> ${r.capacity * r.unitsNeeded} os.</span>
+                                <span><i data-lucide="users" class="w-3 h-3 inline"></i> Max. ${r.capacity * r.unitsNeeded} os.</span>
                                 <span><i data-lucide="wallet" class="w-3 h-3 inline"></i> ${r.price} Kč / noc</span>
                             </p>
                             <div class="flex items-center justify-between w-full">
@@ -989,7 +961,7 @@
         function nextImage() { currentImgIndex = (currentImgIndex + 1) % galleryImagesData.length; updateLightbox(); }
         function prevImage() { currentImgIndex = (currentImgIndex - 1 + galleryImagesData.length) % galleryImagesData.length; updateLightbox(); }
 
-        // AI Logika (Vyladěný Copywriting)
+        // AI Logika
         async function generateItinerary() {
             const container = document.getElementById('ai-result-container');
             const resultArea = document.getElementById('ai-result');
@@ -1001,7 +973,6 @@
             loader.classList.remove('hidden'); 
             loader.classList.add('flex');
             
-            // Asynchronní simulace pro lepší pocit
             setTimeout(() => {
                 loader.classList.add('hidden'); loader.classList.remove('flex');
                 
