@@ -36,10 +36,10 @@
     }
     </script>
 
-    <!-- Fonty: Inter (text), Playfair Display (nadpisy), Great Vibes (podpis) -->
+    <!-- Fonty: Inter (čistý text) a Playfair Display (seriózní luxusní nadpisy) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -62,7 +62,6 @@
                     fontFamily: {
                         sans: ['"Inter"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
-                        signature: ['"Great Vibes"', 'cursive'],
                     },
                     boxShadow: {
                         'premium': '0 25px 50px -12px rgba(44, 36, 27, 0.15)',
@@ -87,6 +86,13 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #c28e62; z-index: 99999; transition: width 0.1s ease-out; }
+
+        /* Ken Burns Cinematic Zoom Effect */
+        @keyframes ken-burns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .animate-zoom { animation: ken-burns 30s alternate infinite ease-in-out; transform-origin: center center; }
 
         #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(44, 36, 27, 0.98); backdrop-filter: blur(20px); }
         .pwd-input-line { border-bottom: 2px solid rgba(255,255,255,0.2); transition: border-color 0.4s ease; }
@@ -315,39 +321,35 @@
     <!-- HLAVNÍ OBSAH -->
     <main>
         <!-- HERO -->
-        <section class="relative w-full flex flex-col items-center justify-center min-h-screen bg-brand-dark overflow-hidden">
-            <!-- POUŽITÍ NAHRANÉ FOTKY S JEMNĚJŠÍM PŘEKRYVEM -->
-            <div class="absolute inset-0 z-0 bg-brand-dark">
-                <img src="image_3258f7.jpg" alt="Aranka Žatec ubytování" class="w-full h-full object-cover opacity-80">
+        <section class="relative w-full min-h-screen flex flex-col justify-end overflow-hidden pb-16 pt-32">
+            <!-- ZÁŘIVÁ FOTOGRAFIE S KEN BURNS EFEKTEM A POJISTKOU -->
+            <div class="absolute inset-0 z-0 bg-brand-dark overflow-hidden">
+                <img src="hlavni-foto.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1920&q=80';" alt="Aranka Žatec ubytování" class="w-full h-full object-cover animate-zoom opacity-95">
             </div>
-            <!-- Zeslabený přechod pro prosvětlení stránky -->
-            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/20 to-brand-dark/90 z-0"></div>
+            <!-- Velmi jemný gradient pouze v dolní části pro čitelnost bílého textu -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-dark/90 z-0"></div>
             
-            <div class="relative z-10 w-full max-w-6xl mx-auto px-6 text-center pb-12 pt-24 flex flex-col items-center animate-fade-in">
-                <span class="text-brand-caramel uppercase tracking-[0.4em] font-bold text-[0.65rem] mb-6 block animate-slide-up" style="animation-delay: 0.2s">Prémiové apartmány v Žatci</span>
+            <div class="relative z-10 w-full max-w-6xl mx-auto px-6 text-center animate-fade-in flex flex-col items-center">
                 
-                <!-- ZDE JE UPRAVENÝ NADPIS (Více prostoru a žádné stísnění) -->
-                <h1 class="mb-8 drop-shadow-2xl flex flex-col items-center animate-slide-up gap-4 md:gap-6" style="animation-delay: 0.4s">
-                    <span class="text-white font-sans font-light uppercase tracking-[0.5em] md:tracking-[0.8em] text-2xl md:text-4xl lg:text-5xl pl-[0.5em] md:pl-[0.8em]">UBYTOVÁNÍ</span>
-                    <span class="font-signature text-brand-caramel text-7xl md:text-8xl lg:text-[10rem] drop-shadow-lg font-normal py-4">Aranka</span>
+                <!-- MINIMALISTICKÝ, SERIÓZNÍ NADPIS -->
+                <h1 class="mb-8 drop-shadow-2xl flex flex-col items-center animate-slide-up" style="animation-delay: 0.4s">
+                    <span class="text-white font-sans font-light uppercase tracking-[0.4em] md:tracking-[0.8em] text-3xl md:text-5xl lg:text-6xl mb-2 pl-[0.4em] md:pl-[0.8em]">UBYTOVÁNÍ</span>
+                    <span class="font-serif text-brand-caramel italic font-semibold text-6xl md:text-8xl lg:text-[8.5rem] tracking-normal drop-shadow-lg mt-2">Aranka</span>
                 </h1>
                 
-                <!-- ZDE JE UPRAVENÝ TEXT S VĚTŠÍM ODSTUPEM -->
-                <p class="text-white/90 text-lg md:text-2xl font-light max-w-2xl mx-auto drop-shadow-md leading-relaxed mb-16 mt-4 animate-slide-up" style="animation-delay: 0.6s">
+                <!-- ZJEMNĚNÝ TEXT -->
+                <p class="text-white/90 text-sm md:text-lg font-light max-w-2xl mx-auto drop-shadow-md leading-relaxed mb-12 animate-slide-up" style="animation-delay: 0.6s">
                     Klidný přístav v srdci Žatce. Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
                 </p>
                 
+                <!-- ELEGANTNÍ NAVIGACE Z POLOPRŮHLEDNÉHO SKLA -->
                 <nav aria-label="Rychlá navigace" class="flex flex-nowrap overflow-x-auto justify-start lg:justify-center items-center gap-3 w-full no-scrollbar snap-x px-2 pb-6 animate-slide-up" style="animation-delay: 0.8s">
-                    <a href="#o-nas" class="snap-center shrink-0 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-300">Příběh</a>
-                    <a href="#ubytovani" class="snap-center shrink-0 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-300">Pokoje</a>
-                    <a href="#pro-firmy" class="snap-center shrink-0 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-300">Pro firmy</a>
-                    <button onclick="openBooking('all')" class="snap-center shrink-0 px-10 py-4 rounded-full border border-brand-caramel bg-brand-caramel text-white text-[0.7rem] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-brand-dark hover:border-white transition-all duration-300 shadow-glow ml-0 lg:ml-2 flex items-center gap-2">Zjistit dostupnost <i data-lucide="calendar" class="w-4 h-4"></i></button>
+                    <a href="#o-nas" class="snap-center shrink-0 px-8 py-3 rounded-full border border-white/30 bg-black/20 backdrop-blur-md text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300">Příběh</a>
+                    <a href="#ubytovani" class="snap-center shrink-0 px-8 py-3 rounded-full border border-white/30 bg-black/20 backdrop-blur-md text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300">Pokoje</a>
+                    <a href="#pro-firmy" class="snap-center shrink-0 px-8 py-3 rounded-full border border-white/30 bg-black/20 backdrop-blur-md text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300">Pro firmy</a>
+                    <button onclick="openBooking('all')" class="snap-center shrink-0 px-10 py-3.5 rounded-full border border-white bg-white text-brand-dark text-[0.65rem] font-bold uppercase tracking-[0.2em] hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all duration-300 shadow-glow ml-0 lg:ml-2 flex items-center gap-2">Zjistit dostupnost</button>
                 </nav>
             </div>
-            
-            <a href="#o-nas" aria-label="Pokračovat dolů" class="absolute bottom-10 z-10 text-white/40 hover:text-brand-caramel transition-colors animate-bounce">
-                <i data-lucide="chevron-down" class="w-10 h-10"></i>
-            </a>
         </section>
 
         <!-- CHYTRÝ FILTR -->
