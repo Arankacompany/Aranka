@@ -95,25 +95,6 @@
         }
         .animate-zoom { animation: ken-burns 30s alternate infinite ease-in-out; transform-origin: center center; }
 
-        /* EFEKT 3D NÁPISU NA FASÁDĚ - KOVOVÁ EXTRUZE PRO ZATÍMNÍ ŘEŠENÍ */
-        .architectural-sign {
-            color: #fffaf0;
-            text-shadow:
-                0 1px 0 #ccc,
-                0 2px 0 #c9c9c9,
-                0 3px 0 #bbb,
-                0 4px 0 #b9b9b9,
-                0 5px 0 #aaa,
-                0 6px 1px rgba(0,0,0,.1),
-                0 0 5px rgba(0,0,0,.1),
-                0 1px 3px rgba(0,0,0,.3),
-                0 3px 5px rgba(0,0,0,.2),
-                0 5px 10px rgba(0,0,0,.25),
-                0 10px 10px rgba(0,0,0,.2),
-                0 20px 20px rgba(0,0,0,.15);
-            letter-spacing: 0.2em;
-        }
-
         #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(44, 36, 27, 0.98); backdrop-filter: blur(20px); }
         .pwd-input-line { border-bottom: 2px solid rgba(255,255,255,0.2); transition: border-color 0.4s ease; }
         .pwd-input-line:focus-within { border-color: #c28e62; }
@@ -344,24 +325,11 @@
         <section class="relative w-full min-h-screen flex flex-col justify-end overflow-hidden pb-16 pt-32">
             <!-- ZÁŘIVÁ FOTOGRAFIE S KEN BURNS EFEKTEM A POJISTKOU -->
             <div class="absolute inset-0 z-0 bg-brand-dark overflow-hidden">
-                <img src="hlavni-foto.jpg.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1920&q=80';" alt="Aranka Žatec ubytování" class="w-full h-full object-cover animate-zoom opacity-95">
+                <img src="hlavní-foto.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1920&q=80';" alt="Aranka Žatec ubytování" class="w-full h-full object-cover animate-zoom opacity-95">
             </div>
             
             <!-- Jemný gradient v dolní části, aby byly vidět tlačítka menu -->
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-dark/90 to-transparent z-0 pointer-events-none"></div>
-            
-            <!-- NÁPIS NA BARÁKU (SLOGAN) - Zafixováno přesně pod okna na fasádu -->
-            <div class="absolute top-[28%] md:top-[28%] lg:top-[28%] left-0 w-full z-10 flex flex-col items-center px-4 text-center pointer-events-none transform -translate-y-1/2">
-                <!-- ARCHITEKTONICKÝ NÁPIS NA ZDI - Výraznější a 3D -->
-                <div class="architectural-sign flex flex-col items-center gap-2 md:gap-4 w-full">
-                    <span class="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.4s">
-                        Klidný přístav v srdci Žatce.
-                    </span>
-                    <span class="text-[0.7rem] sm:text-sm md:text-lg lg:text-xl font-semibold max-w-3xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.5s">
-                        Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
-                    </span>
-                </div>
-            </div>
             
             <!-- SPODNÍ OVLÁDACÍ PRVKY TLAČÍTEK A HLAVNÍ NADPIS -->
             <div class="relative z-20 w-full max-w-6xl mx-auto px-6 text-center animate-fade-in flex flex-col items-center mt-auto pb-4">
@@ -563,7 +531,7 @@
                 <span class="text-brand-caramel uppercase tracking-[0.5em] font-bold text-[0.7rem] mb-6 block">Corporate & B2B</span>
                 <h2 class="font-serif text-5xl md:text-7xl mb-8 leading-tight text-white drop-shadow-lg font-semibold">Hladká spolupráce.<br><span class="italic font-light text-brand-caramel">Spokojený tým.</span></h2>
                 <p class="text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-16">
-                    Poskytujeme více než jen postel. Nabízíme stabilní a plně vybavené zázemí pro Vaše zaměstnance na cestách. Díky strategické poloze blízko <strong>průmyslové zóny Triangle</strong> jsme ideálním výchozím bodem. Od první poptávky až po odjezd se postaráme o to, aby vše běželo hladce.
+                    Poskytujeme více než jen postel. Nabízíme stabilní a plně vybavené zázemí pro Vaše zaměstnance na cestách. Díky strategické poloze blízko <strong>průmyslové zóny Triangle</strong> jsme ideálním výchozim bodem. Od první poptávky až po odjezd se postaráme o to, aby vše běželo hladce.
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 text-left">
@@ -691,6 +659,7 @@
                          </div>
                      </article>
                      
+                     <!-- ZDE JE UPRAVENÝ TEXT RECENZE (odstraněn chytrý check-in) -->
                      <article class="bg-white p-8 rounded-3xl shadow-premium border border-[#e5e0d8] flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
                          <div>
                              <div class="flex text-brand-caramel mb-5">
@@ -755,6 +724,8 @@
                 </div>
                 
                 <div class="space-y-6">
+                    
+                    <!-- ZDE JE UPRAVENÝ TEXT FAQ PRO RECEPCI -->
                     <article class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-[#e5e0d8] hover:border-brand-caramel/30 transition-colors">
                         <h4 class="font-serif text-lg text-brand-dark mb-3 flex items-center gap-3 font-semibold"><i data-lucide="clock" class="w-6 h-6 text-brand-caramel"></i> Kdy probíhá Check-in a Check-out?</h4>
                         <p class="text-brand-text font-light text-sm md:text-base leading-relaxed pl-9">Standardní čas příjezdu <strong>(Check-in) je od 15:00</strong>. Pokoj prosíme uvolnit <strong>(Check-out) do 10:00</strong>. Při příjezdu Vás rádi osobně přivítáme a předáme Vám klíče na naší recepci.</p>
@@ -957,7 +928,7 @@
             { id: 8306, capacity: 3, price: 1750, bedrooms: 1, name: "Apartmán se společenskou místností", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
             { id: 8307, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
             { id: 8308, capacity: 6, price: 3600, bedrooms: 2, name: "Velkorysý Mezonet GRAND s terasou", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
-            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
+            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80" },
             { id: 8310, capacity: 6, price: 3450, bedrooms: 2, name: "Prostorný Mezonet GRAND", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
             { id: 8311, capacity: 2, price: 1700, bedrooms: 1, name: "Mezonetové Studio s posezením", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
             { id: 8312, capacity: 3, price: 2100, bedrooms: 1, name: "Mezonet COMFORT s terasou", photo: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=400&q=80" },
