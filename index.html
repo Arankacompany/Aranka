@@ -95,7 +95,7 @@
         }
         .animate-zoom { animation: ken-burns 30s alternate infinite ease-in-out; transform-origin: center center; }
 
-        /* OPRAVENÝ EFEKT 3D NÁPISU NA FASÁDĚ - KOVOVÁ EXTRUZE */
+        /* EFEKT 3D NÁPISU NA FASÁDĚ - KOVOVÁ EXTRUZE PRO ZATÍMNÍ ŘEŠENÍ */
         .architectural-sign {
             color: #fffaf0;
             text-shadow:
@@ -173,7 +173,7 @@
     <!-- VIP HESLO -->
     <div id="password-protection" class="fixed inset-0 z-[100000] flex flex-col items-center justify-center" aria-hidden="false">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-15"></div>
-        <div class="relative z-10 w-full max-w-md px-8 text-center reveal active">
+        <div class="relative z-10 w-full max-md px-8 text-center reveal active">
             <span class="font-serif text-5xl md:text-6xl text-brand-caramel mb-6 block tracking-[0.25em] font-semibold">ARANKA</span>
             <p class="text-white/60 text-xs tracking-[0.3em] uppercase mb-16 font-light">Diskrétní zóna</p>
             
@@ -233,7 +233,7 @@
     <div id="lightboxOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Prohlížeč obrázků">
         <button onclick="closeAllOverlays()" class="absolute top-6 right-6 text-white/50 hover:text-white z-[6000] p-2" aria-label="Zavřít galerii"><i data-lucide="x" class="w-10 h-10"></i></button>
         <div class="w-full max-w-7xl flex items-center justify-between relative text-white">
-            <button prevImage()" class="p-4 bg-black/40 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-sm transform hover:scale-110" aria-label="Předchozí obrázek"><i data-lucide="chevron-left" class="w-8 h-8"></i></button>
+            <button onclick="prevImage()" class="p-4 bg-black/40 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-sm transform hover:scale-110" aria-label="Předchozí obrázek"><i data-lucide="chevron-left" class="w-8 h-8"></i></button>
             <div class="flex-1 flex flex-col items-center justify-center px-4">
                 <img id="lightboxImg" src="" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl transition-opacity duration-300" alt="Detailní fotografie" loading="lazy">
                 <div class="mt-6 text-center">
@@ -957,7 +957,7 @@
             { id: 8306, capacity: 3, price: 1750, bedrooms: 1, name: "Apartmán se společenskou místností", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
             { id: 8307, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
             { id: 8308, capacity: 6, price: 3600, bedrooms: 2, name: "Velkorysý Mezonet GRAND s terasou", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
-            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80" },
+            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
             { id: 8310, capacity: 6, price: 3450, bedrooms: 2, name: "Prostorný Mezonet GRAND", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
             { id: 8311, capacity: 2, price: 1700, bedrooms: 1, name: "Mezonetové Studio s posezením", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
             { id: 8312, capacity: 3, price: 2100, bedrooms: 1, name: "Mezonet COMFORT s terasou", photo: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=400&q=80" },
