@@ -36,10 +36,10 @@
     }
     </script>
 
-    <!-- Fonty: Nahrazeno fontem Source Sans 3 (nejlepší bezplatná alternativa k Myriad Pro) -->
+    <!-- Fonty: Nahrazeno fontem Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -60,9 +60,9 @@
                         }
                     },
                     fontFamily: {
-                        // Obojí nastaveno na Source Sans 3, aby celý web plynule přešel na tento "Myriad" styl
-                        sans: ['"Source Sans 3"', 'sans-serif'],
-                        serif: ['"Source Sans 3"', 'sans-serif'],
+                        // Obojí nastaveno na Inter
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Inter"', 'sans-serif'],
                     },
                     boxShadow: {
                         'premium': '0 25px 50px -12px rgba(44, 36, 27, 0.15)',
@@ -323,11 +323,13 @@
             
             <div class="relative z-10 w-full max-w-6xl mx-auto px-6 text-center pb-12 pt-24 flex flex-col items-center animate-fade-in">
                 <span class="text-brand-caramel uppercase tracking-[0.4em] font-bold text-[0.65rem] mb-6 block animate-slide-up" style="animation-delay: 0.2s">Prémiové apartmány v Žatci</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-[7.5rem] mb-6 tracking-[0.05em] text-white drop-shadow-2xl leading-tight animate-slide-up font-semibold" style="animation-delay: 0.4s">Ubytování<br><span class="text-brand-caramel italic font-light">Aranka</span></h1>
+                
+                <!-- ZDE JE UPRAVENÝ NADPIS -->
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[7.5rem] mb-6 tracking-[0.05em] text-brand-caramel drop-shadow-2xl leading-tight animate-slide-up font-semibold" style="animation-delay: 0.4s">Ubytování<br><span class="italic font-light">Aranka</span></h1>
                 
                 <!-- ZDE JE UPRAVENÝ TEXT -->
                 <p class="text-white/80 text-lg md:text-2xl font-light max-w-2xl mx-auto drop-shadow-md leading-relaxed mb-16 animate-slide-up" style="animation-delay: 0.6s">
-                    Spojení naprostého soukromí, čistoty a rodinné pohostinnosti.
+                    Klidný přístav v srdci Žatce. Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
                 </p>
                 
                 <nav aria-label="Rychlá navigace" class="flex flex-nowrap overflow-x-auto justify-start lg:justify-center items-center gap-3 w-full no-scrollbar snap-x px-2 pb-6 animate-slide-up" style="animation-delay: 0.8s">
