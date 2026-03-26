@@ -91,20 +91,27 @@
         /* Ken Burns Cinematic Zoom Effect */
         @keyframes ken-burns {
             0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
+            100% { transform: scale(1.1); }
         }
         .animate-zoom { animation: ken-burns 30s alternate infinite ease-in-out; transform-origin: center center; }
 
-        /* OPRAVENÝ EFEKT 3D NÁPISU NA FASÁDĚ - FYZICKÁ EXTRUZE */
+        /* OPRAVENÝ EFEKT 3D NÁPISU NA FASÁDĚ - KOVOVÁ EXTRUZE */
         .architectural-sign {
-            color: #fdfbf9;
+            color: #fffaf0;
             text-shadow:
-                1px 1px 0px #a39171,
-                2px 2px 0px #857354,
-                3px 3px 0px #574831,
-                4px 4px 8px rgba(0, 0, 0, 0.8),
-                0 15px 30px rgba(0, 0, 0, 0.5);
-            letter-spacing: 0.25em;
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            letter-spacing: 0.2em;
         }
 
         #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(44, 36, 27, 0.98); backdrop-filter: blur(20px); }
@@ -226,7 +233,7 @@
     <div id="lightboxOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Prohlížeč obrázků">
         <button onclick="closeAllOverlays()" class="absolute top-6 right-6 text-white/50 hover:text-white z-[6000] p-2" aria-label="Zavřít galerii"><i data-lucide="x" class="w-10 h-10"></i></button>
         <div class="w-full max-w-7xl flex items-center justify-between relative text-white">
-            <button onclick="prevImage()" class="p-4 bg-black/40 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-sm transform hover:scale-110" aria-label="Předchozí obrázek"><i data-lucide="chevron-left" class="w-8 h-8"></i></button>
+            <button prevImage()" class="p-4 bg-black/40 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-sm transform hover:scale-110" aria-label="Předchozí obrázek"><i data-lucide="chevron-left" class="w-8 h-8"></i></button>
             <div class="flex-1 flex flex-col items-center justify-center px-4">
                 <img id="lightboxImg" src="" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl transition-opacity duration-300" alt="Detailní fotografie" loading="lazy">
                 <div class="mt-6 text-center">
@@ -343,14 +350,14 @@
             <!-- Jemný gradient v dolní části, aby byly vidět tlačítka menu -->
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-dark/90 to-transparent z-0 pointer-events-none"></div>
             
-            <!-- NÁPIS NA BARÁKU (SLOGAN) - Zafixováno přesně na střed volné zdi -->
-            <div class="absolute top-[32%] md:top-[33%] lg:top-[34%] left-0 w-full z-10 flex flex-col items-center px-4 text-center pointer-events-none transform -translate-y-1/2">
-                <!-- ARCHITEKTONICKÝ NÁPIS NA ZDI - Velký a 3D -->
+            <!-- NÁPIS NA BARÁKU (SLOGAN) - Zafixováno přesně pod okna na fasádu -->
+            <div class="absolute top-[28%] md:top-[28%] lg:top-[28%] left-0 w-full z-10 flex flex-col items-center px-4 text-center pointer-events-none transform -translate-y-1/2">
+                <!-- ARCHITEKTONICKÝ NÁPIS NA ZDI - Výraznější a 3D -->
                 <div class="architectural-sign flex flex-col items-center gap-2 md:gap-4 w-full">
-                    <span class="text-sm sm:text-base md:text-xl lg:text-2xl font-bold max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.4s">
+                    <span class="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.4s">
                         Klidný přístav v srdci Žatce.
                     </span>
-                    <span class="text-[0.65rem] sm:text-xs md:text-sm lg:text-base font-semibold max-w-3xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.5s">
+                    <span class="text-[0.7rem] sm:text-sm md:text-lg lg:text-xl font-semibold max-w-3xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.5s">
                         Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
                     </span>
                 </div>
@@ -359,9 +366,9 @@
             <!-- SPODNÍ OVLÁDACÍ PRVKY TLAČÍTEK A HLAVNÍ NADPIS -->
             <div class="relative z-20 w-full max-w-6xl mx-auto px-6 text-center animate-fade-in flex flex-col items-center mt-auto pb-4">
                 
-                <!-- MINIMALISTICKÝ, SERIÓZNÍ NADPIS V CINZELU - VRÁCENÝ DOLŮ -->
-                <h1 class="mb-6 drop-shadow-2xl flex flex-col items-center animate-slide-up" style="animation-delay: 0.6s">
-                    <span class="text-white font-cinzel font-medium uppercase tracking-[0.4em] md:tracking-[0.8em] text-3xl md:text-4xl lg:text-5xl mb-1 pl-[0.4em] md:pl-[0.8em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">UBYTOVÁNÍ</span>
+                <!-- MINIMALISTICKÝ, SERIÓZNÍ NADPIS V CINZELU - VRÁCENÝ DOLŮ (přesně podle obr. 1) -->
+                <h1 class="mb-10 drop-shadow-2xl flex flex-col items-center animate-slide-up" style="animation-delay: 0.6s">
+                    <span class="text-white font-cinzel font-medium uppercase tracking-[0.4em] md:tracking-[0.8em] text-3xl md:text-4xl lg:text-5xl mb-2 pl-[0.4em] md:pl-[0.8em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">UBYTOVÁNÍ</span>
                     <span class="font-cinzel text-brand-caramel font-bold text-5xl md:text-7xl lg:text-[7.5rem] tracking-[0.1em] drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)] uppercase pl-[0.1em]">ARANKA</span>
                 </h1>
 
@@ -466,7 +473,7 @@
             </div>
         </section>
 
-        <!-- SLUŽBY V KOSTCE (S ÚPRAVOU IKONY PRO RECEPCI) -->
+        <!-- SLUŽBY V KOSTCE -->
         <section class="py-16 bg-white border-b border-[#e5e0d8] relative z-20">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
@@ -485,7 +492,6 @@
                         <h4 class="font-serif text-base text-brand-dark mb-1 font-bold">Vlastní kuchyňka</h4>
                         <p class="text-xs text-brand-muted font-light">Plně vybavená pro Vás</p>
                     </div>
-                    <!-- ZDE JE UPRAVENÝ TEXT A IKONA PRO RECEPCI -->
                     <div class="flex flex-col items-center">
                         <div class="w-16 h-16 rounded-full bg-brand-sand flex items-center justify-center mb-4 text-brand-caramel"><i data-lucide="user-check" class="w-7 h-7"></i></div>
                         <h4 class="font-serif text-base text-brand-dark mb-1 font-bold">Osobní recepce</h4>
@@ -685,7 +691,6 @@
                          </div>
                      </article>
                      
-                     <!-- ZDE JE UPRAVENÝ TEXT RECENZE (odstraněn chytrý check-in) -->
                      <article class="bg-white p-8 rounded-3xl shadow-premium border border-[#e5e0d8] flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
                          <div>
                              <div class="flex text-brand-caramel mb-5">
@@ -750,8 +755,6 @@
                 </div>
                 
                 <div class="space-y-6">
-                    
-                    <!-- ZDE JE UPRAVENÝ TEXT FAQ PRO RECEPCI -->
                     <article class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-[#e5e0d8] hover:border-brand-caramel/30 transition-colors">
                         <h4 class="font-serif text-lg text-brand-dark mb-3 flex items-center gap-3 font-semibold"><i data-lucide="clock" class="w-6 h-6 text-brand-caramel"></i> Kdy probíhá Check-in a Check-out?</h4>
                         <p class="text-brand-text font-light text-sm md:text-base leading-relaxed pl-9">Standardní čas příjezdu <strong>(Check-in) je od 15:00</strong>. Pokoj prosíme uvolnit <strong>(Check-out) do 10:00</strong>. Při příjezdu Vás rádi osobně přivítáme a předáme Vám klíče na naší recepci.</p>
