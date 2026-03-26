@@ -95,14 +95,16 @@
         }
         .animate-zoom { animation: ken-burns 30s alternate infinite ease-in-out; transform-origin: center center; }
 
-        /* EFEKT 3D NÁPISU NA FASÁDĚ */
+        /* OPRAVENÝ EFEKT 3D NÁPISU NA FASÁDĚ - FYZICKÁ EXTRUZE */
         .architectural-sign {
             color: #fdfbf9;
             text-shadow:
-                -1px -1px 0 rgba(255, 255, 255, 0.3),
-                1px 1px 1px rgba(0, 0, 0, 0.6),
-                3px 5px 10px rgba(0, 0, 0, 0.5),
-                0 15px 25px rgba(0, 0, 0, 0.3);
+                1px 1px 0px #a39171,
+                2px 2px 0px #857354,
+                3px 3px 0px #574831,
+                4px 4px 8px rgba(0, 0, 0, 0.8),
+                0 15px 30px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.25em;
         }
 
         #password-protection { transition: opacity 0.8s ease, visibility 0.8s ease; background: rgba(44, 36, 27, 0.98); backdrop-filter: blur(20px); }
@@ -341,12 +343,17 @@
             <!-- Jemný gradient v dolní části, aby byly vidět tlačítka menu -->
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-brand-dark/90 to-transparent z-0 pointer-events-none"></div>
             
-            <!-- NÁPIS NA BARÁKU (SLOGAN) - Umístěn v horní třetině zdi - mezi okny a terasou -->
-            <div class="absolute top-[24%] md:top-[25%] left-0 w-full z-10 flex flex-col items-center px-6 text-center pointer-events-none">
-                <!-- ARCHITEKTONICKÝ NÁPIS NA ZDI -->
-                <p class="architectural-sign text-[0.55rem] sm:text-xs md:text-sm lg:text-[0.9rem] font-cinzel font-semibold max-w-3xl mx-auto leading-relaxed animate-slide-up uppercase tracking-[0.2em] md:tracking-[0.25em]" style="animation-delay: 0.4s">
-                    Klidný přístav v srdci Žatce.<br class="hidden md:block"> Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
-                </p>
+            <!-- NÁPIS NA BARÁKU (SLOGAN) - Zafixováno přesně na střed volné zdi -->
+            <div class="absolute top-[32%] md:top-[33%] lg:top-[34%] left-0 w-full z-10 flex flex-col items-center px-4 text-center pointer-events-none transform -translate-y-1/2">
+                <!-- ARCHITEKTONICKÝ NÁPIS NA ZDI - Velký a 3D -->
+                <div class="architectural-sign flex flex-col items-center gap-2 md:gap-4 w-full">
+                    <span class="text-sm sm:text-base md:text-xl lg:text-2xl font-bold max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.4s">
+                        Klidný přístav v srdci Žatce.
+                    </span>
+                    <span class="text-[0.65rem] sm:text-xs md:text-sm lg:text-base font-semibold max-w-3xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.5s">
+                        Místo definované naprostým soukromím, dokonalou čistotou a rodinným přístupem.
+                    </span>
+                </div>
             </div>
             
             <!-- SPODNÍ OVLÁDACÍ PRVKY TLAČÍTEK A HLAVNÍ NADPIS -->
