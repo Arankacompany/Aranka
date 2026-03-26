@@ -36,10 +36,10 @@
     }
     </script>
 
-    <!-- Fonty: Nahrazeno fontem Inter -->
+    <!-- Fonty: Kombinace Inter (čistý text) a Playfair Display (luxusní nadpisy) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -60,9 +60,8 @@
                         }
                     },
                     fontFamily: {
-                        // Obojí nastaveno na Inter
                         sans: ['"Inter"', 'sans-serif'],
-                        serif: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     },
                     boxShadow: {
                         'premium': '0 25px 50px -12px rgba(44, 36, 27, 0.15)',
@@ -324,10 +323,10 @@
             <div class="relative z-10 w-full max-w-6xl mx-auto px-6 text-center pb-12 pt-24 flex flex-col items-center animate-fade-in">
                 <span class="text-brand-caramel uppercase tracking-[0.4em] font-bold text-[0.65rem] mb-6 block animate-slide-up" style="animation-delay: 0.2s">Prémiové apartmány v Žatci</span>
                 
-                <!-- ZDE JE UPRAVENÝ NADPIS -->
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-[7.5rem] mb-6 tracking-[0.05em] drop-shadow-2xl leading-tight animate-slide-up" style="animation-delay: 0.4s">
-                    <span class="text-white font-light uppercase">UBYTOVÁNÍ</span><br>
-                    <span class="text-brand-caramel italic font-semibold">Aranka</span>
+                <!-- ZDE JE UPRAVENÝ NADPIS (Kombinace Inter a Playfair Display) -->
+                <h1 class="mb-6 drop-shadow-2xl leading-none flex flex-col items-center animate-slide-up" style="animation-delay: 0.4s">
+                    <span class="text-white font-sans font-light uppercase tracking-[0.3em] md:tracking-[0.5em] text-3xl md:text-5xl lg:text-6xl mb-2">UBYTOVÁNÍ</span>
+                    <span class="font-serif text-brand-caramel italic font-semibold text-6xl md:text-8xl lg:text-[8.5rem] tracking-normal drop-shadow-lg">Aranka</span>
                 </h1>
                 
                 <!-- ZDE JE UPRAVENÝ TEXT -->
@@ -364,17 +363,17 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 items-end text-left mb-10 bg-white/5 p-6 rounded-2xl border border-white/10 max-w-4xl mx-auto">
                             <div class="border-b border-white/20 pb-2 relative">
                                 <label for="filter-checkin" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Příjezd</label>
-                                <input type="date" id="filter-checkin" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer bg-transparent font-medium">
+                                <input type="date" id="filter-checkin" class="filter-input w-full font-sans text-lg appearance-none cursor-pointer bg-transparent font-medium">
                             </div>
                             <div class="border-b border-white/20 pb-2 relative">
                                 <label for="filter-checkout" class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Odjezd</label>
-                                <input type="date" id="filter-checkout" class="filter-input w-full font-serif text-lg appearance-none cursor-pointer bg-transparent font-medium">
+                                <input type="date" id="filter-checkout" class="filter-input w-full font-sans text-lg appearance-none cursor-pointer bg-transparent font-medium">
                             </div>
                             <div class="border-b border-white/20 pb-2">
                                 <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Hosté</label>
                                 <div class="flex items-center justify-between pb-1">
                                     <button onclick="updatePeople(-1)" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Odebrat osobu"><i data-lucide="minus" class="w-5 h-5"></i></button>
-                                    <span id="people-val" class="font-serif text-xl font-semibold" aria-live="polite">2</span>
+                                    <span id="people-val" class="font-sans text-xl font-semibold" aria-live="polite">2</span>
                                     <button onclick="updatePeople(1)" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Přidat osobu"><i data-lucide="plus" class="w-5 h-5"></i></button>
                                 </div>
                             </div>
@@ -382,7 +381,7 @@
                                 <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-2">Pokoje</label>
                                 <div class="flex items-center justify-between pb-1">
                                     <button onclick="updateRooms(-1)" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Odebrat pokoj"><i data-lucide="minus" class="w-5 h-5"></i></button>
-                                    <span id="rooms-val" class="font-serif text-xl font-semibold" aria-live="polite">1</span>
+                                    <span id="rooms-val" class="font-sans text-xl font-semibold" aria-live="polite">1</span>
                                     <button onclick="updateRooms(1)" class="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all" aria-label="Přidat pokoj"><i data-lucide="plus" class="w-5 h-5"></i></button>
                                 </div>
                             </div>
@@ -421,7 +420,7 @@
                     </span>
                     <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight text-brand-dark tracking-tight font-semibold">Více než ubytování.<br>Pocit, že jste opravdu vítáni.</h2>
                     <div class="space-y-6 text-brand-text text-base font-light leading-relaxed mb-10 text-justify">
-                        <p><strong>Aranka je rodinný projekt, který staví na osobním přístupu.</strong> Už od roku 2007 budujeme v podhradí královského města Žatce místo, kde se snoubí moderní design s domáckou atmosférou. Každý pokoj prošel našima rukama a nese v vzobě kus naší vášně pro detail.</p>
+                        <p><strong>Aranka je rodinný projekt, který staví na osobním přístupu.</strong> Už od roku 2007 budujeme v podhradí královského města Žatce místo, kde se snoubí moderní design s domáckou atmosférou. Každý pokoj prošel našima rukama a nese v sobě kus naší vášně pro detail.</p>
                         <p>Naším cílem nikdy nebylo vybudovat obří hotel. Chtěli jsme vytvořit klidné útočiště – oázu s privátní zahradou, kam se hosté budou rádi a s důvěrou vracet. Ať už přijíždíte za romantikou, rodinným výletem, nebo pracovně, Aranka je připravena poskytnout Vám dokonalé zázemí.</p>
                     </div>
                     
