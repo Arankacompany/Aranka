@@ -36,10 +36,10 @@
     }
     </script>
 
-    <!-- Fonty: Inter (text), Playfair Display (podnadpisy) a Cinzel (hlavní nápisy) -->
+    <!-- Fonty: Montserrat (čistý text), Playfair Display (podnadpisy) a Cinzel (hlavní nápisy) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -52,7 +52,7 @@
                     colors: {
                         brand: {
                             caramel: '#c28e62', 
-                            dark: '#1a1510', /* Ztmaveno pro luxusnější kontrast */
+                            dark: '#1a1510', 
                             light: '#fdfbf9',
                             sand: '#f5f2eb', 
                             text: '#4A423C', 
@@ -60,7 +60,7 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
                         cinzel: ['"Cinzel"', 'serif'],
                     },
@@ -152,7 +152,7 @@
         .filter-input::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.7); cursor: pointer; transition: opacity 0.3s; }
         .filter-input::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 
-        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 24px; padding: 30px 0; scroll-behavior: smooth; }
+        .slider-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 24px; padding: 10px 0; scroll-behavior: smooth; }
         .slider-container::-webkit-scrollbar { display: none; }
         .slider-item { flex: 0 0 clamp(280px, 30vw, 450px); scroll-snap-align: center; aspect-ratio: 4/3; cursor: zoom-in; position: relative; border-radius: 20px; overflow: hidden; background-color: #e5e0d8; box-shadow: 0 15px 35px rgba(26, 21, 16, 0.1); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease; }
         .slider-item:hover { transform: scale(1.03); box-shadow: 0 25px 50px rgba(26, 21, 16, 0.2); z-index: 10; }
@@ -341,7 +341,7 @@
         <section class="relative w-full min-h-screen flex flex-col justify-end overflow-hidden pb-12 pt-32">
             <!-- ZÁŘIVÁ FOTOGRAFIE S KEN BURNS EFEKTEM A POJISTKOU -->
             <div class="absolute inset-0 z-0 bg-brand-dark overflow-hidden">
-                <img src="hlavní-foto.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1920&q=80';" alt="Aranka Žatec ubytování" class="w-full h-full object-cover animate-zoom opacity-[0.97]">
+                <img src="hlavni-foto.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1920&q=80';" alt="Aranka Žatec ubytování" class="w-full h-full object-cover animate-zoom opacity-[0.97]">
             </div>
             
             <!-- EXTRÉMNĚ JEMNÝ GRADIENT: Tmavý dole pro kontrast zlatého textu a skleněných tlačítek -->
@@ -357,14 +357,14 @@
                     <span class="font-cinzel text-gold-gradient font-bold text-6xl md:text-8xl lg:text-[9rem] tracking-[0.15em] uppercase pl-[0.15em]">ARANKA</span>
                 </h1>
 
-                <!-- PRÉMIOVÁ SKLENĚNÁ NAVIGACE (GLASSMORPHISM) -->
-                <nav aria-label="Rychlá navigace" class="flex flex-nowrap overflow-x-auto justify-start lg:justify-center items-center gap-3 w-full no-scrollbar snap-x px-2 pb-6 animate-slide-up" style="animation-delay: 0.6s">
-                    <a href="#o-nas" class="snap-center shrink-0 px-8 py-3.5 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-[0.65rem] font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Příběh</a>
-                    <a href="#ubytovani" class="snap-center shrink-0 px-8 py-3.5 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-[0.65rem] font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Pokoje</a>
-                    <a href="#pro-firmy" class="snap-center shrink-0 px-8 py-3.5 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-[0.65rem] font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Pro firmy</a>
+                <!-- PRÉMIOVÁ SKLENĚNÁ NAVIGACE (GLASSMORPHISM) - ZVĚTŠENÁ TLAČÍTKA A ROZESTUPY -->
+                <nav aria-label="Rychlá navigace" class="flex flex-nowrap overflow-x-auto justify-start lg:justify-center items-center gap-4 md:gap-6 w-full no-scrollbar snap-x px-4 pb-8 animate-slide-up" style="animation-delay: 0.6s">
+                    <a href="#o-nas" class="snap-center shrink-0 px-10 py-4 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-xs font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Příběh</a>
+                    <a href="#ubytovani" class="snap-center shrink-0 px-10 py-4 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-xs font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Pokoje</a>
+                    <a href="#pro-firmy" class="snap-center shrink-0 px-10 py-4 rounded-full border border-white/20 bg-black/30 backdrop-blur-lg text-xs font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-brand-dark transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">Pro firmy</a>
                     <!-- Hlavní rezervační CTA -->
-                    <button onclick="openBooking('all')" class="snap-center shrink-0 px-10 py-4 rounded-full border border-brand-caramel bg-brand-caramel text-white text-[0.65rem] font-bold uppercase tracking-[0.25em] hover:bg-white hover:border-white hover:text-brand-dark transition-all duration-500 shadow-glow ml-0 lg:ml-4 flex items-center gap-2 pointer-events-auto hover:-translate-y-1">
-                        Zjistit dostupnost <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    <button onclick="openBooking('all')" class="snap-center shrink-0 px-12 py-5 rounded-full border border-brand-caramel bg-brand-caramel text-white text-xs font-bold uppercase tracking-[0.25em] hover:bg-white hover:border-white hover:text-brand-dark transition-all duration-500 shadow-glow ml-0 lg:ml-6 flex items-center gap-3 pointer-events-auto hover:-translate-y-1">
+                        Zjistit dostupnost <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </nav>
             </div>
@@ -379,8 +379,8 @@
                     
                     <div class="relative z-10">
                         <div class="text-center mb-10">
-                            <h3 class="font-serif text-2xl md:text-3xl text-white mb-2 font-semibold">Najděte svůj ideální prostor</h3>
-                            <p class="text-white/60 font-light text-sm max-w-xl mx-auto">Vyberte pouze termín, počet osob a pokojů. O zbytek se postaráme.</p>
+                            <h3 class="font-serif text-2xl md:text-4xl text-white mb-3 font-semibold">Najděte svůj ideální prostor</h3>
+                            <p class="text-white/60 font-light text-sm md:text-base max-w-xl mx-auto">Vyberte pouze termín, počet osob a pokojů. O zbytek se postaráme.</p>
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 items-end text-left mb-10 bg-white/5 p-8 rounded-3xl border border-white/10 max-w-5xl mx-auto backdrop-blur-sm">
@@ -412,7 +412,7 @@
                         
                         <div class="text-center">
                             <button onclick="runSmartFilter()" class="bg-brand-caramel text-white hover:bg-white hover:text-brand-dark px-14 py-4.5 text-[0.75rem] font-bold uppercase tracking-[0.25em] rounded-full shadow-glow transition-all duration-300 w-full sm:w-auto transform hover:-translate-y-1 flex items-center justify-center mx-auto gap-3">
-                                <i data-lucide="search" class="w-4 h-4"></i> Najít ubytování
+                                <i data-lucide="search" class="w-5 h-5"></i> Najít ubytování
                             </button>
                         </div>
 
@@ -429,10 +429,10 @@
             
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div class="relative reveal">
-                    <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-premium relative bg-brand-dark">
+                    <div class="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-premium relative bg-brand-dark">
                         <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" alt="Detail interiéru prémiového apartmánu Aranka" loading="lazy">
                     </div>
-                    <div class="absolute -bottom-8 -right-8 bg-brand-caramel text-white p-8 shadow-xl rounded-3xl text-center hidden md:block transform hover:-translate-y-2 transition-transform duration-500">
+                    <div class="absolute -bottom-8 -right-8 bg-brand-caramel text-white p-10 shadow-xl rounded-3xl text-center hidden md:block transform hover:-translate-y-2 transition-transform duration-500">
                         <span class="font-serif text-5xl font-bold block mb-2">2007</span>
                         <span class="text-[0.65rem] uppercase tracking-widest font-bold">Založení tradice</span>
                     </div>
@@ -441,7 +441,7 @@
                     <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-4 block flex items-center gap-3">
                         <div class="w-8 h-px bg-brand-caramel"></div> Náš příběh
                     </span>
-                    <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight text-brand-dark tracking-tight font-semibold">Více než ubytování.<br>Pocit, že jste opravdu vítáni.</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight text-brand-dark tracking-tight font-semibold">Více než ubytování.<br>Pocit, že jste opravdu vítáni.</h2>
                     <div class="space-y-6 text-brand-text text-base font-light leading-relaxed mb-10 text-justify">
                         <p><strong>Aranka je rodinný projekt, který staví na osobním přístupu.</strong> Už od roku 2007 budujeme v podhradí královského města Žatce místo, kde se snoubí moderní design s domáckou atmosférou. Každý pokoj prošel našima rukama a nese v sobě kus naší vášně pro detail.</p>
                         <p>Naším cílem nikdy nebylo vybudovat obří hotel. Chtěli jsme vytvořit klidné útočiště – oázu s privátní zahradou, kam se hosté budou rádi a s důvěrou vracet. Ať už přijíždíte za romantikou, rodinným výletem, nebo pracovně, Aranka je připravena poskytnout Vám dokonalé zázemí.</p>
@@ -534,7 +534,7 @@
                     <img src="https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&w=1600&q=80" alt="Pohodlný detail ložnice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" loading="lazy">
                     <div class="absolute inset-0 bg-brand-dark/40 transition-colors duration-500 group-hover:bg-brand-dark/50"></div>
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                        <span class="font-serif text-3xl md:text-5xl text-white drop-shadow-lg tracking-wide mb-3 font-semibold">Váš druhý domov</span>
+                        <span class="font-serif text-3xl md:text-5xl lg:text-6xl text-white drop-shadow-lg tracking-wide mb-3 font-semibold">Váš druhý domov</span>
                         <span class="text-brand-caramel italic text-lg md:text-2xl font-light drop-shadow-md">Klid a péče, kterou si zasloužíte</span>
                     </div>
                 </div>
@@ -598,21 +598,16 @@
             </div>
         </section>
 
-        <!-- GALERIE -->
+        <!-- GALERIE - ZCELA ZAROVNÁNO NA STŘED -->
         <section id="galerie" class="py-24 bg-white border-t border-[#e5e0d8] overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-end reveal">
-                <div>
-                    <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-3 block">Prohlídka areálu</span>
-                    <h3 class="font-serif text-4xl text-brand-dark tracking-tight font-semibold">Galerie Fotografií</h3>
-                </div>
-                <div class="flex gap-4 mt-6 md:mt-0">
-                    <button onclick="scrollSlider(-400)" class="p-4 bg-white border border-[#e5e0d8] rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all shadow-md hover:shadow-lg" aria-label="Posunout galerii vlevo"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
-                    <button onclick="scrollSlider(400)" class="p-4 bg-white border border-[#e5e0d8] rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all shadow-md hover:shadow-lg" aria-label="Posunout galerii vpravo"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>
-                </div>
+            
+            <div class="max-w-3xl mx-auto px-6 mb-12 text-center reveal">
+                <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-xs mb-4 block">Prohlídka areálu</span>
+                <h3 class="font-serif text-4xl md:text-5xl text-brand-dark tracking-tight font-semibold">Galerie Fotografií</h3>
             </div>
             
             <div class="w-full reveal">
-                <div id="garden-slider" class="slider-container px-6 xl:px-[calc((100vw-1280px)/2+24px)] pb-12 pt-4">
+                <div id="garden-slider" class="slider-container px-6 xl:px-[calc((100vw-1280px)/2+24px)] pb-10 pt-4">
                     <div class="slider-item group" onclick="openLightbox(0)">
                         <img src="https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=800&q=80" alt="Zahrada s udržovanou zelení" loading="lazy">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"><i data-lucide="maximize-2" class="w-8 h-8 text-white"></i></div>
@@ -639,6 +634,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Tlačítka šipek zarovnaná symetricky pod galerií -->
+            <div class="flex justify-center gap-6 mt-8 reveal">
+                <button onclick="scrollSlider(-400)" class="p-5 bg-white border border-[#e5e0d8] rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all shadow-md hover:shadow-xl transform hover:-translate-y-1" aria-label="Posunout galerii vlevo"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
+                <button onclick="scrollSlider(400)" class="p-5 bg-white border border-[#e5e0d8] rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all shadow-md hover:shadow-xl transform hover:-translate-y-1" aria-label="Posunout galerii vpravo"><i data-lucide="arrow-right" class="w-6 h-6"></i></button>
+            </div>
+            
         </section>
 
         <!-- HODNOCENÍ HOSTŮ -->
