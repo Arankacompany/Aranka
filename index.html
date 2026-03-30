@@ -6,7 +6,7 @@
     <!-- SEO OPTIMALIZACE -->
     <title>Ubytování Aranka Žatec | Prémiové apartmány s privátní zahradou</title>
     <meta name="description" content="Hledáte klid a soukromí? Ubytování Aranka nabízí prémiové apartmány s privátní zahradou kousek od centra Žatce. Rezervujte online od 550 Kč/noc.">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#211D1A">
     <link rel="canonical" href="https://arankacompany.eu/">
     
     <script type="application/ld+json">
@@ -29,7 +29,7 @@
     }
     </script>
 
-    <!-- Prémiové Fonty -->
+    <!-- Prémiové Fonty: Kombinace čistého Montserrat, klasického Playfair a Cinzel pro logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -44,14 +44,14 @@
                 extend: {
                     colors: {
                         brand: {
-                            gold: '#D4AF37',
-                            goldLight: '#F3E5AB',
-                            caramel: '#c28e62', 
-                            dark: '#0f0c09', 
-                            light: '#FAF8F5',
-                            sand: '#f0ece1', 
-                            text: '#2C2A28', 
-                            muted: '#8A847C'
+                            gold: '#D4B895', /* Jemnější Champagne Gold */
+                            goldDark: '#B89C7A',
+                            caramel: '#c28e62',
+                            dark: '#211D1A', /* Hluboké espresso místo tvrdé černé */
+                            light: '#FAF8F5', /* Perlově krémová */
+                            sand: '#F2EDE4', 
+                            text: '#3A3531', 
+                            muted: '#8C857D'
                         }
                     },
                     fontFamily: {
@@ -60,17 +60,17 @@
                         cinzel: ['"Cinzel"', 'serif'],
                     },
                     boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
-                        'premium': '0 25px 50px -12px rgba(15, 12, 9, 0.15)',
-                        'glow': '0 0 40px -10px rgba(212, 175, 55, 0.4)',
+                        'glass': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
+                        'premium': '0 20px 50px -10px rgba(33, 29, 26, 0.08)',
+                        'glow': '0 0 30px -5px rgba(212, 184, 149, 0.3)',
                     },
                     animation: {
-                        'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'fade-in': 'fadeIn 1.5s ease-out forwards',
                     },
                     keyframes: {
-                        slideUp: { '0%': { opacity: '0', transform: 'translateY(40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }
                     }
                 }
             }
@@ -78,82 +78,126 @@
     </script>
 
     <style>
-        body { -webkit-font-smoothing: antialiased; background-color: #FAF8F5; color: #2C2A28; overflow-x: hidden; }
+        body { -webkit-font-smoothing: antialiased; background-color: #FAF8F5; color: #3A3531; overflow-x: hidden; }
         
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #D4AF37, #F3E5AB); z-index: 99999; transition: width 0.1s ease-out; }
+        #scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: #D4B895; z-index: 99999; transition: width 0.1s ease-out; }
 
-        /* Liquid Gold Text Effect */
-        .text-liquid-gold {
-            background: linear-gradient(to right, #b8860b 20%, #ffd700 40%, #fdf5e6 50%, #ffd700 60%, #b8860b 80%);
-            background-size: 200% auto;
-            color: #D4AF37;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 6s linear infinite;
+        /* YouTube Background se zjemněným gradientem */
+        .video-container { position: absolute; inset: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; background: #211D1A; }
+        .video-container iframe { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%) scale(1.2); pointer-events: none; opacity: 0.55; }
+        .video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(33,29,26,0.2) 0%, rgba(33,29,26,0.6) 80%, #FAF8F5 100%); z-index: 1; }
+
+        /* Jemná skleněná navigace */
+        .glass-nav { background: rgba(250, 248, 245, 0.02); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.5s ease; }
+        .glass-nav.scrolled { background: rgba(250, 248, 245, 0.98); border-bottom: 1px solid rgba(212, 184, 149, 0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+        
+        .nav-link { color: rgba(255,255,255,0.85); transition: color 0.3s ease; }
+        .glass-nav.scrolled .nav-link { color: #3A3531; }
+        .glass-nav.scrolled .nav-link:hover { color: #D4B895; }
+        
+        .logo-text { color: #ffffff; transition: color 0.5s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .glass-nav.scrolled .logo-text { color: #211D1A; text-shadow: none; }
+
+        /* Tlačítka - Tenké, elegantní linie */
+        .btn-outline-glass { 
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.3); color: white; 
+            font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; 
+            padding: 1rem 3.5rem; border-radius: 999px; transition: all 0.5s ease; backdrop-filter: blur(5px);
         }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        /* YouTube Background Fix */
-        .video-container { position: absolute; inset: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; background: #0f0c09; }
-        .video-container iframe { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; transform: translate(-50%, -50%) scale(1.3); pointer-events: none; opacity: 0.65; }
-        .video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,12,9,0.4) 0%, rgba(15,12,9,0.8) 70%, #0f0c09 100%); z-index: 1; }
-
-        /* Floating Nav */
-        .glass-nav { background: rgba(15, 12, 9, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-outline-glass:hover { background: rgba(255,255,255,1); color: #211D1A; transform: translateY(-2px); }
         
-        .btn-luxury { background: #D4AF37; color: #0f0c09; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px; transition: all 0.4s ease; border: 1px solid #D4AF37; }
-        .btn-luxury:hover { background: transparent; color: #D4AF37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
-        
-        .btn-glass { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 999px; transition: all 0.4s ease; }
-        .btn-glass:hover { background: rgba(255,255,255,0.15); border-color: #D4AF37; color: #D4AF37; transform: translateY(-2px); }
+        .btn-solid-gold { 
+            background: #D4B895; border: 1px solid #D4B895; color: #211D1A; 
+            font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; 
+            padding: 1rem 3.5rem; border-radius: 999px; transition: all 0.5s ease; 
+        }
+        .btn-solid-gold:hover { background: transparent; color: #D4B895; box-shadow: 0 0 25px rgba(212, 184, 149, 0.3); transform: translateY(-2px); }
 
-        .overlay { visibility: hidden; opacity: 0; transition: all 0.4s ease; position: fixed; inset: 0; z-index: 9000; background: rgba(15, 12, 9, 0.95); backdrop-filter: blur(15px); display: flex; align-items: center; justify-content: center; }
+        /* Skleněný rezervační filtr - Pilulka */
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .overlay { visibility: hidden; opacity: 0; transition: all 0.4s ease; position: fixed; inset: 0; z-index: 9000; background: rgba(33, 29, 26, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; }
         .overlay.active { visibility: visible; opacity: 1; }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Jemný input v pilulce */
+        .elegant-input { background: transparent; border: none; color: white; outline: none; cursor: pointer; font-family: 'Playfair Display', serif; font-size: 1.25rem; padding: 0; width: 100%; }
+        .elegant-input::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.6); cursor: pointer; transition: opacity 0.3s; }
+        .elegant-input::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+        
+        /* Galerie Grid */
+        .gallery-image-wrapper { overflow: hidden; border-radius: 12px; position: relative; cursor: zoom-in; }
+        .gallery-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gallery-image-wrapper:hover img { transform: scale(1.05); }
+        .gallery-image-overlay { position: absolute; inset: 0; background: rgba(33,29,26,0.15); opacity: 0; transition: opacity 0.5s ease; display: flex; align-items: center; justify-content: center; }
+        .gallery-image-wrapper:hover .gallery-image-overlay { opacity: 1; }
+
+        /* AI Input */
+        .ai-input::placeholder { color: rgba(140, 133, 125, 0.5); font-style: italic; font-weight: 300; }
     </style>
 </head>
 <body class="font-sans">
 
     <div id="scroll-progress"></div>
 
-    <!-- Plovoucí prémiová navigace -->
-    <header class="fixed top-6 left-0 right-0 z-50 px-4 md:px-8 flex justify-center pointer-events-none">
-        <div class="glass-nav rounded-full px-6 py-3 flex items-center justify-between w-full max-w-6xl pointer-events-auto shadow-glass transition-all duration-500" id="main-header">
-            <a href="#" class="font-cinzel text-xl md:text-2xl text-white font-bold tracking-[0.25em] hover:text-brand-gold transition-colors">ARANKA</a>
+    <!-- Cookie Banner -->
+    <aside id="cookie-banner" class="bg-brand-dark text-white p-6 md:p-8 shadow-premium border-t border-brand-gold/20" aria-label="Upozornění na soubory cookies">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-sm font-light leading-relaxed max-w-3xl">
+                <p class="mb-2"><strong class="font-serif text-brand-gold tracking-widest text-base">Vážíme si vašeho soukromí</strong></p>
+                K poskytování těch nejlepších služeb používáme my a naši partneři technologie, jako jsou soubory cookies. Vaše volba nám umožní vylepšovat náš web a nabídnout vám služby šité na míru.
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
+                <button onclick="acceptCookies('all')" class="bg-brand-gold text-brand-dark hover:bg-white px-8 py-3.5 text-[0.65rem] font-bold uppercase tracking-widest rounded-full transition-colors shadow-glow whitespace-nowrap">Přijmout vše</button>
+                <button onclick="acceptCookies('necessary')" class="bg-transparent border border-white/30 text-white hover:bg-white/10 px-8 py-3.5 text-[0.65rem] font-bold uppercase tracking-widest rounded-full transition-colors whitespace-nowrap">Pouze nezbytné</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Plovoucí prémiová navigace (Lineární, tenká) -->
+    <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="#" class="font-cinzel text-xl md:text-2xl logo-text font-semibold tracking-[0.25em] hover:opacity-70 transition-opacity">ARANKA</a>
             
-            <nav class="hidden lg:flex items-center gap-8">
-                <a href="#o-nas" class="text-[0.65rem] font-bold text-white/80 uppercase tracking-widest hover:text-brand-gold transition-colors">Příběh</a>
-                <a href="#ubytovani" class="text-[0.65rem] font-bold text-white/80 uppercase tracking-widest hover:text-brand-gold transition-colors">Apartmány</a>
-                <a href="#galerie" class="text-[0.65rem] font-bold text-white/80 uppercase tracking-widest hover:text-brand-gold transition-colors">Galerie</a>
-                <a href="#pro-firmy" class="text-[0.65rem] font-bold text-brand-gold uppercase tracking-widest hover:text-white transition-colors">B2B</a>
+            <nav class="hidden lg:flex items-center gap-12">
+                <a href="#o-nas" class="text-[0.65rem] font-medium nav-link uppercase tracking-[0.2em]">Příběh</a>
+                <a href="#ubytovani" class="text-[0.65rem] font-medium nav-link uppercase tracking-[0.2em]">Apartmány</a>
+                <a href="#galerie" class="text-[0.65rem] font-medium nav-link uppercase tracking-[0.2em]">Galerie</a>
+                <a href="#pro-firmy" class="text-[0.65rem] font-medium nav-link uppercase tracking-[0.2em]">B2B Pobyty</a>
             </nav>
             
-            <div class="flex items-center gap-4">
-                <button onclick="openBooking('all')" class="bg-brand-gold text-brand-dark px-6 py-2.5 rounded-full text-[0.65rem] font-bold uppercase tracking-widest hover:bg-white transition-colors shadow-glow hidden md:block">Rezervovat</button>
-                <button onclick="document.getElementById('mobile-menu').classList.add('active')" class="lg:hidden text-white hover:text-brand-gold p-2"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            <div class="flex items-center gap-6">
+                <button onclick="openBooking('all')" class="text-[0.65rem] font-medium text-brand-gold uppercase tracking-[0.2em] border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors hidden md:block">Rezervovat</button>
+                <button onclick="document.getElementById('mobile-menu').classList.add('active')" class="lg:hidden nav-link p-1"><i data-lucide="menu" class="w-6 h-6"></i></button>
             </div>
         </div>
     </header>
 
     <!-- Mobilní menu overlay -->
-    <div id="mobile-menu" class="overlay flex-col space-y-8 text-center text-white">
-        <button onclick="this.parentElement.classList.remove('active')" class="absolute top-8 right-8 text-white/50 hover:text-brand-gold"><i data-lucide="x" class="w-10 h-10"></i></button>
-        <span class="font-cinzel text-4xl text-brand-gold mb-4 tracking-widest font-bold">ARANKA</span>
-        <div class="w-10 h-px bg-brand-gold/30 mx-auto mb-4"></div>
-        <a href="#o-nas" onclick="this.parentElement.classList.remove('active')" class="text-sm uppercase tracking-widest hover:text-brand-gold font-medium">Náš Příběh</a>
-        <a href="#ubytovani" onclick="this.parentElement.classList.remove('active')" class="text-sm uppercase tracking-widest hover:text-brand-gold font-medium">Apartmány</a>
-        <a href="#galerie" onclick="this.parentElement.classList.remove('active')" class="text-sm uppercase tracking-widest hover:text-brand-gold font-medium">Galerie</a>
-        <a href="#pro-firmy" onclick="this.parentElement.classList.remove('active')" class="text-sm uppercase tracking-widest text-brand-gold font-medium">Pro firmy</a>
-        <button onclick="openBooking('all'); this.parentElement.classList.remove('active')" class="btn-luxury text-xs mt-8">Rezervovat online</button>
+    <div id="mobile-menu" class="overlay flex-col space-y-10 text-center text-white">
+        <button onclick="this.parentElement.classList.remove('active')" class="absolute top-8 right-8 text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <span class="font-cinzel text-3xl text-brand-gold mb-2 tracking-[0.3em] font-light">ARANKA</span>
+        <div class="w-8 h-px bg-brand-gold/30 mx-auto mb-4"></div>
+        <a href="#o-nas" onclick="this.parentElement.classList.remove('active')" class="text-xs uppercase tracking-[0.2em] hover:text-brand-gold font-light transition-colors">Příběh</a>
+        <a href="#ubytovani" onclick="this.parentElement.classList.remove('active')" class="text-xs uppercase tracking-[0.2em] hover:text-brand-gold font-light transition-colors">Apartmány</a>
+        <a href="#galerie" onclick="this.parentElement.classList.remove('active')" class="text-xs uppercase tracking-[0.2em] hover:text-brand-gold font-light transition-colors">Galerie</a>
+        <a href="#pro-firmy" onclick="this.parentElement.classList.remove('active')" class="text-xs uppercase tracking-[0.2em] text-brand-gold font-light transition-colors">Pro firmy</a>
+        <button onclick="openBooking('all'); this.parentElement.classList.remove('active')" class="btn-solid-gold text-[0.65rem] mt-8 py-4 px-10">Rezervovat online</button>
     </div>
 
     <main>
-        <!-- 1. HERO SEKCE (Kino zážitek) -->
+        <!-- 1. HERO SEKCE (Čistota a elegance) -->
         <section class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
             <div class="video-container">
                 <div id="youtube-player"></div>
@@ -161,295 +205,322 @@
             <div class="video-overlay"></div>
             
             <div class="relative z-10 w-full px-6 text-center flex flex-col items-center animate-slide-up" style="animation-delay: 0.2s">
-                <span class="text-brand-gold uppercase tracking-[0.5em] md:tracking-[0.8em] font-medium text-[0.6rem] md:text-xs mb-6 pl-[0.5em] border-b border-brand-gold/30 pb-2">Prémiová rezidence Žatec</span>
+                <span class="text-brand-gold uppercase tracking-[0.8em] font-light text-[0.65rem] mb-10 pl-[0.8em]">Královské město Žatec</span>
                 
-                <h1 class="flex flex-col items-center">
-                    <span class="text-white/90 font-cinzel font-light uppercase tracking-[1em] text-2xl md:text-4xl lg:text-5xl mb-2 pl-[1em]">Ubytování</span>
-                    <span class="font-cinzel text-liquid-gold font-bold text-7xl md:text-[9rem] lg:text-[11rem] tracking-widest leading-none drop-shadow-2xl">ARANKA</span>
+                <h1 class="flex flex-col items-center mb-12">
+                    <span class="text-white/90 font-sans font-light uppercase tracking-[1.2em] text-sm md:text-lg mb-6 pl-[1.2em] drop-shadow-md">Ubytování</span>
+                    <span class="font-cinzel text-white font-semibold text-6xl md:text-[8rem] lg:text-[10rem] tracking-[0.1em] leading-none drop-shadow-2xl pl-[0.1em]">ARANKA</span>
                 </h1>
                 
-                <p class="text-white/70 text-sm md:text-lg font-light max-w-2xl mx-auto mt-8 mb-12 leading-relaxed">
-                    Místo definované naprostým soukromím, dokonalou čistotou a luxusním zázemím s privátní zahradou.
-                </p>
-
-                <div class="flex flex-wrap justify-center gap-4 w-full px-4">
-                    <a href="#o-nas" class="btn-glass text-[0.65rem] md:text-xs">Objevit příběh</a>
-                    <button onclick="openBooking('all')" class="btn-luxury text-[0.65rem] md:text-xs flex items-center gap-2">Zkontrolovat dostupnost <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-10 w-full mt-8">
+                    <button onclick="openBooking('all')" class="btn-solid-gold text-[0.65rem] md:text-xs shadow-glow">Zkontrolovat dostupnost</button>
+                    <a href="#o-nas" class="btn-outline-glass text-[0.65rem] md:text-xs">Objevit náš příběh</a>
                 </div>
             </div>
-
-            <!-- Scroll indicator -->
-            <a href="#rezervace" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/30 hover:text-brand-gold transition-colors animate-float flex flex-col items-center gap-2">
-                <span class="text-[0.5rem] uppercase tracking-[0.3em] font-bold">Scrollovat</span>
-                <div class="w-px h-12 bg-gradient-to-b from-brand-gold to-transparent"></div>
-            </a>
         </section>
 
-        <!-- 2. LEVITUJÍCÍ REZERVAČNÍ FILTR (Překrývá Hero a další sekci) -->
-        <section id="rezervace" class="relative z-30 -mt-24 px-4 w-full max-w-6xl mx-auto mb-20">
-            <div class="bg-[#15110d] rounded-[2rem] shadow-premium p-8 md:p-10 border border-white/10 relative overflow-hidden backdrop-blur-xl">
-                <!-- Glowing orb effect -->
-                <div class="absolute top-[-50%] left-[-10%] w-[400px] h-[400px] bg-brand-gold/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <!-- 2. LEVITUJÍCÍ REZERVAČNÍ FILTR (Skleněná pilulka s vlasovými čarami) -->
+        <section id="rezervace" class="relative z-30 -mt-16 px-4 w-full max-w-5xl mx-auto mb-24 md:mb-32">
+            <div class="glass-pill rounded-[2rem] md:rounded-full px-8 py-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative overflow-visible">
                 
-                <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
-                    <div class="border-b border-white/20 pb-2 hover:border-brand-gold transition-colors">
-                        <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-gold mb-2">Příjezd</label>
-                        <input type="date" id="filter-checkin" class="w-full bg-transparent border-none p-0 text-white font-sans focus:ring-0 focus:outline-none">
-                    </div>
-                    <div class="border-b border-white/20 pb-2 hover:border-brand-gold transition-colors">
-                        <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-gold mb-2">Odjezd</label>
-                        <input type="date" id="filter-checkout" class="w-full bg-transparent border-none p-0 text-white font-sans focus:ring-0 focus:outline-none">
-                    </div>
-                    <div class="border-b border-white/20 pb-2 hover:border-brand-gold transition-colors">
-                        <label class="block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-gold mb-2">Hosté & Pokoje</label>
-                        <div class="flex items-center gap-4 text-white pb-1">
-                            <span class="font-serif text-xl"><span id="people-val">2</span> <i data-lucide="users" class="inline w-4 h-4 text-brand-muted"></i></span>
-                            <span class="text-white/20">|</span>
-                            <span class="font-serif text-xl"><span id="rooms-val">1</span> <i data-lucide="door-closed" class="inline w-4 h-4 text-brand-muted"></i></span>
-                            <button onclick="document.getElementById('guest-selector').classList.toggle('hidden')" class="ml-auto text-brand-gold"><i data-lucide="settings-2" class="w-4 h-4"></i></button>
-                        </div>
-                    </div>
-                    <div>
-                        <button onclick="runSmartFilter()" class="w-full bg-brand-gold text-brand-dark font-bold uppercase tracking-widest text-[0.7rem] py-4 rounded-xl hover:bg-white transition-colors shadow-glow flex justify-center items-center gap-2">
-                            Hledat <i data-lucide="search" class="w-4 h-4"></i>
-                        </button>
-                    </div>
+                <div class="flex-1 w-full flex flex-col md:border-r border-white/20 md:pr-6 hover:opacity-80 transition-opacity">
+                    <label class="text-[0.55rem] font-bold uppercase tracking-[0.25em] text-brand-gold mb-1">Příjezd</label>
+                    <input type="date" id="filter-checkin" class="elegant-input text-lg">
                 </div>
-
-                <!-- Hidden Selector -->
-                <div id="guest-selector" class="hidden mt-6 pt-6 border-t border-white/10 grid grid-cols-2 gap-8">
-                    <div class="flex items-center justify-between">
-                        <span class="text-white text-sm font-medium">Počet hostů</span>
-                        <div class="flex items-center gap-4 bg-white/5 rounded-full p-1">
-                            <button onclick="updateVal('people',-1)" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-black flex items-center justify-center transition-colors"><i data-lucide="minus" class="w-4 h-4"></i></button>
-                            <span class="text-white font-serif w-4 text-center">2</span>
-                            <button onclick="updateVal('people',1)" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-black flex items-center justify-center transition-colors"><i data-lucide="plus" class="w-4 h-4"></i></button>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-white text-sm font-medium">Počet pokojů</span>
-                        <div class="flex items-center gap-4 bg-white/5 rounded-full p-1">
-                            <button onclick="updateVal('rooms',-1)" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-black flex items-center justify-center transition-colors"><i data-lucide="minus" class="w-4 h-4"></i></button>
-                            <span class="text-white font-serif w-4 text-center">1</span>
-                            <button onclick="updateVal('rooms',1)" class="w-8 h-8 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-black flex items-center justify-center transition-colors"><i data-lucide="plus" class="w-4 h-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="filter-results" class="hidden mt-8 pt-8 border-t border-white/10"></div>
-            </div>
-        </section>
-
-        <!-- 3. BENTO GALERIE 2026 -->
-        <section id="galerie" class="py-24 overflow-hidden relative">
-            <div class="max-w-7xl mx-auto px-6 mb-16 text-center reveal">
-                <span class="text-brand-caramel uppercase tracking-[0.4em] font-bold text-xs mb-4 block">Architektura & Design</span>
-                <h2 class="font-serif text-4xl md:text-6xl text-brand-dark mb-4">Vizuální zážitek</h2>
-                <div class="w-12 h-1 bg-brand-caramel mx-auto"></div>
-            </div>
-
-            <!-- Moderní asymetrický grid -->
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] md:auto-rows-[300px] gap-3 md:gap-5 reveal">
                 
-                <!-- Obrázek 1 (Velký) -->
-                <div class="col-span-2 row-span-2 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(0)">
-                    <img src="https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Zahrada">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="flex-1 w-full flex flex-col md:border-r border-white/20 md:px-6 hover:opacity-80 transition-opacity">
+                    <label class="text-[0.55rem] font-bold uppercase tracking-[0.25em] text-brand-gold mb-1">Odjezd</label>
+                    <input type="date" id="filter-checkout" class="elegant-input text-lg">
+                </div>
+                
+                <div class="flex-1 w-full flex flex-col md:px-6 hover:opacity-80 transition-opacity">
+                    <label class="text-[0.55rem] font-bold uppercase tracking-[0.25em] text-brand-gold mb-1">Hosté a pokoje</label>
+                    <div class="flex items-center gap-6 text-white pt-1">
+                        <div class="flex items-center gap-3">
+                            <span id="people-val" class="font-serif text-2xl">2</span> 
+                            <div class="flex flex-col gap-0.5">
+                                <button onclick="updateVal('people',1)" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="chevron-up" class="w-3 h-3"></i></button>
+                                <button onclick="updateVal('people',-1)" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="chevron-down" class="w-3 h-3"></i></button>
+                            </div>
+                        </div>
+                        <span class="text-white/20 font-light text-2xl">/</span>
+                        <div class="flex items-center gap-3">
+                            <span id="rooms-val" class="font-serif text-2xl">1</span>
+                            <div class="flex flex-col gap-0.5">
+                                <button onclick="updateVal('rooms',1)" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="chevron-up" class="w-3 h-3"></i></button>
+                                <button onclick="updateVal('rooms',-1)" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="chevron-down" class="w-3 h-3"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-auto md:pl-4">
+                    <button onclick="runSmartFilter()" class="w-full md:w-16 h-14 md:h-16 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-glow" aria-label="Hledat">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
                 </div>
 
-                <!-- Obrázek 2 -->
-                <div class="col-span-1 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(1)">
-                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Interiér">
-                </div>
-
-                <!-- Obrázek 3 -->
-                <div class="col-span-1 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(2)">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Ložnice">
-                </div>
-
-                <!-- Obrázek 4 (Široký) -->
-                <div class="col-span-2 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(3)">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Kuchyně">
-                </div>
-
-                <!-- Obrázek 5 -->
-                <div class="col-span-1 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(4)">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Večerní zahrada">
-                </div>
-
-                <!-- Obrázek 6 -->
-                <div class="col-span-1 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(5)">
-                    <img src="https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Pergola">
-                </div>
-
-                <!-- Obrázek 7 (Široký) -->
-                <div class="col-span-2 row-span-1 relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-xl" onclick="openLightbox(6)">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Kancelář">
-                </div>
-
+                <!-- Modál s výsledky hledání -->
+                <div id="filter-results" class="hidden absolute top-[110%] left-0 w-full bg-white rounded-3xl shadow-premium p-8 md:p-10 border border-brand-sand z-40"></div>
             </div>
         </section>
 
-        <!-- 4. KARTY POKOJŮ (Luxury Dark Mode) -->
-        <section id="ubytovani" class="py-24 bg-[#0f0c09] text-white overflow-hidden relative border-t border-white/5">
-            <div class="absolute top-0 left-[10%] w-[500px] h-[500px] bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
-            
-            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
-                <div class="mb-20 flex flex-col md:flex-row justify-between items-end reveal">
-                    <div>
-                        <span class="text-brand-gold uppercase tracking-[0.4em] font-bold text-[0.65rem] mb-4 block">Rezidence na míru</span>
-                        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-white font-medium">Výběr apartmánů</h2>
+        <!-- 3. O NÁS / PŘÍBĚH (Velkorysý prostor a elegance) -->
+        <section id="o-nas" class="py-20 md:py-32 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal lg:pr-16">
+                    <span class="text-brand-caramel uppercase tracking-[0.3em] font-medium text-[0.65rem] mb-6 block flex items-center gap-4">
+                        <span class="w-12 h-px bg-brand-caramel"></span> Útočiště v Žatci
+                    </span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-dark mb-10 leading-tight">Rodinná péče s puncem luxusu.</h2>
+                    <div class="space-y-6 text-brand-text text-base font-light leading-relaxed mb-12">
+                        <p>Aranka je projekt, který od roku 2007 staví na nekompromisním osobním přístupu. Vytvořili jsme prostředí, kde se snoubí špičkový design s domáckým teplem a kde na Vás dýchne klid od první minuty.</p>
+                        <p>Nejsme obří neosobní hotel. Nabízíme privátní oázu s pečlivě udržovanou zahradou. Zónu absolutního klidu, do které se naši hosté s důvěrou vrací.</p>
                     </div>
-                    <div class="mt-6 md:mt-0">
-                        <button onclick="openBooking('all')" class="btn-luxury text-[0.65rem] px-8 py-3">Ukázat všechny</button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Karta 1 -->
-                    <article class="bg-[#15110d] rounded-[2rem] p-4 border border-white/10 group hover:-translate-y-2 transition-transform duration-500 reveal cursor-pointer" onclick="openBooking('8308,8310,8312')">
-                        <div class="relative h-64 rounded-[1.5rem] overflow-hidden mb-6">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Mezonet">
-                            <div class="absolute top-4 left-4 bg-brand-gold text-black text-[0.55rem] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Až 6 osob</div>
+                    <div class="flex gap-12">
+                        <div class="flex flex-col gap-2">
+                            <span class="font-serif text-4xl text-brand-caramel italic">15+</span>
+                            <span class="text-[0.6rem] uppercase tracking-[0.2em] font-bold text-brand-muted">Let tradice</span>
                         </div>
-                        <div class="px-4 pb-4">
-                            <h3 class="font-serif text-2xl text-brand-gold mb-2">Nadstandardní Mezonety</h3>
-                            <p class="text-white/60 font-light text-sm mb-6 leading-relaxed">Velkorysý dvoupatrový prostor, plně vybavená kuchyně, soukromá terasa a absolutní diskrétnost pro náročné klienty.</p>
-                            <div class="flex items-center text-white/40 text-xs gap-4 font-medium uppercase tracking-widest">
-                                <span><i data-lucide="maximize" class="w-3 h-3 inline mb-0.5 mr-1"></i> 85 m²</span>
-                                <span><i data-lucide="bath" class="w-3 h-3 inline mb-0.5 mr-1"></i> Vana</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Karta 2 -->
-                    <article class="bg-[#15110d] rounded-[2rem] p-4 border border-white/10 group hover:-translate-y-2 transition-transform duration-500 reveal delay-100 cursor-pointer" onclick="openBooking('8301,8302,8307')">
-                        <div class="relative h-64 rounded-[1.5rem] overflow-hidden mb-6">
-                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Studio">
-                            <div class="absolute top-4 left-4 bg-brand-gold text-black text-[0.55rem] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Až 4 osoby</div>
-                        </div>
-                        <div class="px-4 pb-4">
-                            <h3 class="font-serif text-2xl text-brand-gold mb-2">Vybavená Studia</h3>
-                            <p class="text-white/60 font-light text-sm mb-6 leading-relaxed">Moderní a prosvětlený interiér s kuchyňským koutem, navržený pro maximální komfort párů či menších rodin.</p>
-                            <div class="flex items-center text-white/40 text-xs gap-4 font-medium uppercase tracking-widest">
-                                <span><i data-lucide="maximize" class="w-3 h-3 inline mb-0.5 mr-1"></i> 45 m²</span>
-                                <span><i data-lucide="coffee" class="w-3 h-3 inline mb-0.5 mr-1"></i> Kuchyňka</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Karta 3 -->
-                    <article class="bg-[#15110d] rounded-[2rem] p-4 border border-white/10 group hover:-translate-y-2 transition-transform duration-500 reveal delay-200 cursor-pointer" onclick="openBooking('8300,8304,8305')">
-                        <div class="relative h-64 rounded-[1.5rem] overflow-hidden mb-6">
-                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Pokoj">
-                            <div class="absolute top-4 left-4 bg-brand-gold text-black text-[0.55rem] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Až 2 osoby</div>
-                        </div>
-                        <div class="px-4 pb-4">
-                            <h3 class="font-serif text-2xl text-brand-gold mb-2">Praktické Pokoje</h3>
-                            <p class="text-white/60 font-light text-sm mb-6 leading-relaxed">Útulná a chytře řešená varianta pro jednotlivce nebo páry na cestách, s prémiovou postelí a vlastní koupelnou.</p>
-                            <div class="flex items-center text-white/40 text-xs gap-4 font-medium uppercase tracking-widest">
-                                <span><i data-lucide="maximize" class="w-3 h-3 inline mb-0.5 mr-1"></i> 20 m²</span>
-                                <span><i data-lucide="tv" class="w-3 h-3 inline mb-0.5 mr-1"></i> Smart TV</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. O NÁS / PŘÍBĚH -->
-        <section id="o-nas" class="py-24 bg-white border-b border-[#e5e0d8]">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal lg:pr-12">
-                    <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6 leading-tight">Rodinná péče<br>s puncem luxusu.</h2>
-                    <div class="w-12 h-1 bg-brand-caramel mb-8"></div>
-                    <p class="text-brand-text leading-relaxed font-light mb-6 text-lg">
-                        Aranka je rodinný projekt, který staví na nekompromisním osobním přístupu. Od roku 2007 pro Vás v královském městě Žatci tvoříme prostředí, kde se snoubí špičkový design s domáckým teplem.
-                    </p>
-                    <p class="text-brand-muted font-light mb-10 leading-relaxed">
-                        Naším cílem nebylo postavit obří neosobní hotel. Vytvořili jsme privátní oázu s pečlivě udržovanou zahradou. Zónu absolutního klidu, do které se naši hosté s důvěrou vrací. Ať už jedete za odpočinkem, nebo řešíte byznys, u nás máte své útočiště jisté.
-                    </p>
-                    <div class="flex gap-6">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-brand-sand flex justify-center items-center"><i data-lucide="leaf" class="w-4 h-4 text-brand-caramel"></i></div>
-                            <span class="text-xs font-bold uppercase tracking-widest text-brand-dark">Privátní<br>zahrada</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-brand-sand flex justify-center items-center"><i data-lucide="shield-check" class="w-4 h-4 text-brand-caramel"></i></div>
-                            <span class="text-xs font-bold uppercase tracking-widest text-brand-dark">100%<br>Diskrétnost</span>
+                        <div class="w-px h-16 bg-brand-sand"></div>
+                        <div class="flex flex-col gap-2">
+                            <span class="font-serif text-4xl text-brand-caramel italic">100%</span>
+                            <span class="text-[0.6rem] uppercase tracking-[0.2em] font-bold text-brand-muted">Diskrétnost</span>
                         </div>
                     </div>
                 </div>
                 <div class="relative reveal">
-                    <!-- Hlavní fotka O nás -Fallback na hlavni-foto.jpg, kdyby nešlo Youtube -->
-                    <img src="hlavni-foto.jpg" onerror="this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=800&q=80'" class="w-full rounded-[2rem] shadow-premium" alt="Ubytování Aranka">
-                    <div class="absolute -bottom-8 -left-8 bg-brand-dark text-brand-gold p-8 rounded-[2rem] shadow-2xl border border-white/10 hidden md:block">
-                        <div class="font-serif text-6xl mb-1">2007</div>
-                        <div class="text-[0.55rem] uppercase tracking-[0.3em] font-bold text-white">Rok založení</div>
+                    <div class="aspect-[3/4] rounded-t-full rounded-b-full overflow-hidden shadow-premium p-4 bg-white border border-brand-sand">
+                        <img src="hlavni-foto.jpg" onerror="this.src='https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover rounded-t-[500px] rounded-b-[500px]" alt="Ubytování Aranka">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. FOOTER 2026 -->
-        <footer class="bg-[#0a0a0a] pt-24 pb-12 text-white/60 relative overflow-hidden border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-                    <div class="md:col-span-5">
-                        <span class="font-cinzel text-3xl text-brand-gold block mb-6 tracking-widest font-bold">ARANKA</span>
-                        <p class="text-sm font-light leading-relaxed max-w-sm mb-8">Vaše prémiové zázemí v tiché čtvrti královského města Žatce. Elegance, soukromí a profesionální servis.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.facebook.com/aranka.cz/" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-                            <a href="mailto:rezervace@arankacompany.eu" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
-                        </div>
-                    </div>
-                    <div class="md:col-span-3">
-                        <h4 class="text-white font-serif text-lg mb-6">Kontakt</h4>
-                        <ul class="space-y-4 text-sm font-light">
-                            <li class="flex items-center gap-3 hover:text-brand-gold transition-colors"><i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i> Francouzská 1398, Žatec</li>
-                            <li class="flex items-center gap-3 hover:text-brand-gold transition-colors"><i data-lucide="phone" class="w-4 h-4 text-brand-gold"></i> +420 776 604 006</li>
-                            <li><br>Aranka company s.r.o.<br>IČO: 22366695</li>
-                        </ul>
-                    </div>
-                    <div class="md:col-span-4">
-                        <h4 class="text-white font-serif text-lg mb-6">Důležité odkazy</h4>
-                        <ul class="space-y-3 text-sm font-light flex flex-col">
-                            <a href="#pro-firmy" class="hover:text-brand-gold transition-colors inline-block w-max">Firemní klientela (B2B)</a>
-                            <a href="podminky.html" class="hover:text-brand-gold transition-colors inline-block w-max">Obchodní podmínky</a>
-                            <a href="gdpr.html" class="hover:text-brand-gold transition-colors inline-block w-max">Zpracování osobních údajů</a>
-                        </ul>
-                    </div>
+        <!-- 4. POKOJE (Temně elegantní) -->
+        <section id="ubytovani" class="py-32 bg-brand-dark text-white overflow-hidden relative border-t border-brand-dark">
+            <div class="absolute top-0 left-[10%] w-[600px] h-[600px] bg-brand-gold/5 blur-[150px] rounded-full pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+                <div class="mb-24 text-center reveal">
+                    <span class="text-brand-gold uppercase tracking-[0.4em] font-medium text-[0.65rem] mb-6 block">Rezidence na míru</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white">Výběr apartmánů</h2>
                 </div>
-                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.6rem] uppercase tracking-widest">
-                    <span>&copy; <span id="current-year"></span> Aranka company s.r.o. Všechna práva vyhrazena.</span>
-                    <span class="text-brand-gold/50">Designed with passion 2026</span>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Karta 1 -->
+                    <article class="group cursor-pointer reveal" onclick="openBooking('8308,8310,8312')">
+                        <div class="aspect-[4/5] overflow-hidden mb-8 relative rounded-2xl shadow-premium">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Mezonet">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        </div>
+                        <div class="text-center px-4">
+                            <span class="text-brand-gold text-[0.6rem] font-bold uppercase tracking-[0.2em] border border-brand-gold/30 px-4 py-1.5 rounded-full mb-5 inline-block">Až 6 osob</span>
+                            <h3 class="font-serif text-3xl text-white mb-3">Mezonety Grand</h3>
+                            <p class="text-white/60 font-light text-sm leading-relaxed">Velkorysý prostor se soukromou terasou a prémiovým vybavením.</p>
+                        </div>
+                    </article>
+
+                    <!-- Karta 2 -->
+                    <article class="group cursor-pointer reveal delay-100" onclick="openBooking('8301,8302,8307')">
+                        <div class="aspect-[4/5] overflow-hidden mb-8 relative rounded-2xl shadow-premium">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Studio">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        </div>
+                        <div class="text-center px-4">
+                            <span class="text-brand-gold text-[0.6rem] font-bold uppercase tracking-[0.2em] border border-brand-gold/30 px-4 py-1.5 rounded-full mb-5 inline-block">Až 4 osoby</span>
+                            <h3 class="font-serif text-3xl text-white mb-3">Vybavená Studia</h3>
+                            <p class="text-white/60 font-light text-sm leading-relaxed">Prosvětlený apartmán s kompletní kuchyňkou pro naprostou nezávislost.</p>
+                        </div>
+                    </article>
+
+                    <!-- Karta 3 -->
+                    <article class="group cursor-pointer reveal delay-200" onclick="openBooking('8300,8304,8305')">
+                        <div class="aspect-[4/5] overflow-hidden mb-8 relative rounded-2xl shadow-premium">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Pokoj">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        </div>
+                        <div class="text-center px-4">
+                            <span class="text-brand-gold text-[0.6rem] font-bold uppercase tracking-[0.2em] border border-brand-gold/30 px-4 py-1.5 rounded-full mb-5 inline-block">Až 2 osoby</span>
+                            <h3 class="font-serif text-3xl text-white mb-3">Praktické Pokoje</h3>
+                            <p class="text-white/60 font-light text-sm leading-relaxed">Útulná butiková varianta s vlastní koupelnou pro páry či business klientelu.</p>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="text-center mt-20 reveal">
+                    <button onclick="openBooking('all')" class="btn-outline-glass border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark text-[0.65rem] px-10 py-4">Prohlédnout všechny</button>
                 </div>
             </div>
-        </footer>
+        </section>
+
+        <!-- 5. SYMETRICKÁ GALERIE (Uhlazená) -->
+        <section id="galerie" class="py-32 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Středový nadpis -->
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-caramel uppercase tracking-[0.4em] font-medium text-[0.65rem] mb-6 block">Vizuální zážitek</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6">Architektura & Design</h2>
+                    <div class="w-16 h-px bg-brand-caramel mx-auto"></div>
+                </div>
+
+                <!-- Dokonale symetrický Grid 3x2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal">
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(0)">
+                        <img src="https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=800&q=80" alt="Zahrada" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(1)">
+                        <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" alt="Interiér" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(2)">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=800&q=80" alt="Ložnice" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Kuchyně" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(4)">
+                        <img src="https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=800&q=80" alt="Pergola" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                    <div class="gallery-image-wrapper shadow-sm" onclick="openLightbox(5)">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Koupelna" loading="lazy" class="aspect-[4/3]">
+                        <div class="gallery-image-overlay"><i data-lucide="maximize-2" class="w-6 h-6 text-white"></i></div>
+                    </div>
+                </div>
+
+                <!-- Symetrické navigační šipky dole uprostřed -->
+                <div class="flex justify-center items-center gap-8 mt-16 reveal">
+                    <button onclick="prevImage()" class="w-14 h-14 rounded-full border border-brand-caramel/30 flex items-center justify-center text-brand-caramel hover:bg-brand-caramel hover:text-white transition-all shadow-sm hover:shadow-md" aria-label="Předchozí fotka"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
+                    <span class="text-[0.65rem] text-brand-muted uppercase tracking-[0.2em] font-bold">Prohlížet</span>
+                    <button onclick="nextImage()" class="w-14 h-14 rounded-full border border-brand-caramel/30 flex items-center justify-center text-brand-caramel hover:bg-brand-caramel hover:text-white transition-all shadow-sm hover:shadow-md" aria-label="Další fotka"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. AI PLANNER S GEMINI API -->
+        <section id="ai-planner" class="py-32 bg-white text-center border-t border-[#e5e0d8]">
+            <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
+                <div class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-10 shadow-sm border border-brand-sand"><i data-lucide="sparkles" class="w-8 h-8 text-brand-caramel"></i></div>
+                <h2 class="font-serif text-4xl md:text-5xl mb-6 text-brand-dark tracking-tight">Váš osobní AI Concierge</h2>
+                <p class="text-brand-muted mb-16 text-base font-light max-w-2xl mx-auto leading-relaxed">Napište naší umělé inteligenci, jaký druh pobytu plánujete. Obratem Vám na míru doporučí, co v Žatci a okolí nesmíte minout.</p>
+                
+                <div class="bg-brand-light p-8 md:p-14 rounded-[2rem] shadow-premium border border-brand-sand text-left max-w-3xl mx-auto relative overflow-hidden">
+                    
+                    <div class="relative z-10">
+                        <label class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-6">Jaká je Vaše představa o pobytu?</label>
+                        
+                        <div class="flex flex-col gap-6 mb-8">
+                            <input type="text" id="ai-query" placeholder="Např. Romantický víkend pro dva plný dobrého jídla..." class="w-full bg-transparent border-b border-brand-caramel/30 pb-4 text-brand-dark placeholder-brand-muted/40 focus:outline-none focus:border-brand-caramel transition-colors font-serif italic text-xl md:text-2xl" onkeypress="if(event.key === 'Enter') generateRealItinerary()">
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <button onclick="setAiQuery('Hledáme klid a romantiku pro dva')" class="text-[0.6rem] uppercase tracking-widest font-bold border border-brand-caramel/30 rounded-full px-5 py-2 text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-colors">Romantika</button>
+                                <button onclick="setAiQuery('Aktivní rodinný výlet s malými dětmi')" class="text-[0.6rem] uppercase tracking-widest font-bold border border-brand-caramel/30 rounded-full px-5 py-2 text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-colors">Rodina s dětmi</button>
+                                <button onclick="setAiQuery('Sportovní víkend na kolech po okolí')" class="text-[0.6rem] uppercase tracking-widest font-bold border border-brand-caramel/30 rounded-full px-5 py-2 text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-colors">Cyklo výlet</button>
+                            </div>
+                        </div>
+
+                        <button onclick="generateRealItinerary()" id="ai-btn" class="btn-solid-gold w-full sm:w-auto px-12 py-4 text-[0.65rem] flex items-center justify-center gap-3">
+                            <span>Inspirujte mě</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+
+                        <div id="ai-result-container" class="hidden mt-12 pt-10 border-t border-brand-sand relative z-10">
+                            <div id="ai-loading" class="hidden flex-col items-center justify-center py-10">
+                                <i data-lucide="loader-2" class="w-10 h-10 text-brand-caramel animate-spin mb-5"></i>
+                                <span class="text-[0.65rem] text-brand-muted uppercase tracking-[0.3em] font-bold">Concierge připravuje tipy...</span>
+                            </div>
+                            <div id="ai-result" class="prose prose-brand text-brand-dark text-lg md:text-xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FIREMNÍ POBYTY B2B -->
+        <section id="pro-firmy" class="py-24 md:py-32 bg-brand-sand overflow-hidden border-t border-[#e5e0d8]">
+            <div class="max-w-4xl mx-auto px-6 text-center reveal">
+                <span class="text-brand-caramel uppercase tracking-[0.4em] font-medium text-[0.65rem] mb-6 block">Corporate</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark leading-tight mb-8">Firemní zázemí v Žatci</h2>
+                <p class="text-brand-text font-light text-lg leading-relaxed mb-16">
+                    Dlouhodobé ubytování s fakturací na firmu a parkováním pro dodávky. Ideální základna pro projekty v zóně Triangle.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 border-t border-[#e5e0d8] pt-16 mb-16">
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="receipt" class="w-8 h-8 text-brand-caramel mb-6"></i>
+                        <span class="text-[0.65rem] font-bold text-brand-dark uppercase tracking-widest mb-3">Fakturace</span>
+                        <span class="text-sm text-brand-muted font-light leading-relaxed">Spolehlivé doklady pro účtárnu bez starostí.</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="truck" class="w-8 h-8 text-brand-caramel mb-6"></i>
+                        <span class="text-[0.65rem] font-bold text-brand-dark uppercase tracking-widest mb-3">Parkování</span>
+                        <span class="text-sm text-brand-muted font-light leading-relaxed">Bezpečné místo i pro nadrozměrné vozy.</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i data-lucide="key" class="w-8 h-8 text-brand-caramel mb-6"></i>
+                        <span class="text-[0.65rem] font-bold text-brand-dark uppercase tracking-widest mb-3">Check-in</span>
+                        <span class="text-sm text-brand-muted font-light leading-relaxed">Flexibilní příjezd nezávisle na čase.</span>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('b2b-contact').scrollIntoView()" class="btn-solid-gold text-[0.65rem] px-12 py-4">Poptat kapacity</button>
+            </div>
+        </section>
+
     </main>
+
+    <!-- 8. ELEGANTNÍ FOOTER -->
+    <footer id="kontakt" class="bg-brand-dark pt-32 pb-12 text-white/60 relative overflow-hidden border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+                <div class="md:col-span-5">
+                    <span class="font-cinzel text-3xl text-brand-gold block mb-8 tracking-[0.3em] font-medium">ARANKA</span>
+                    <p class="text-sm font-light leading-relaxed max-w-sm mb-10">Elegance, soukromí a profesionální servis. Vaše prémiové útočiště v podhradí královského města.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="text-white text-[0.65rem] font-bold uppercase tracking-[0.25em] mb-8">Kontakt</h4>
+                    <ul class="space-y-5 text-sm font-light">
+                        <li class="flex items-center gap-4 hover:text-brand-gold transition-colors"><i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i> Francouzská 1398, Žatec</li>
+                        <li class="flex items-center gap-4 hover:text-brand-gold transition-colors"><i data-lucide="phone" class="w-4 h-4 text-brand-gold"></i> +420 776 604 006</li>
+                        <li class="pt-4"><span class="block text-xs text-white/40 mb-1">Fakturační údaje:</span>Aranka company s.r.o.<br>IČO: 22366695</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4" id="b2b-contact">
+                    <h4 class="text-white text-[0.65rem] font-bold uppercase tracking-[0.25em] mb-8">Napište nám</h4>
+                    <a href="mailto:rezervace@arankacompany.eu" class="text-xl md:text-2xl font-serif text-brand-gold italic hover:text-white transition-colors border-b border-brand-gold/30 pb-3 block w-fit">rezervace@arankacompany.eu</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.6rem] uppercase tracking-widest font-bold text-white/30">
+                <span>&copy; <span id="current-year"></span> Aranka company s.r.o.</span>
+                <span class="text-brand-gold/50">Všechna práva vyhrazena.</span>
+            </div>
+        </div>
+    </footer>
 
     <!-- LIGHTBOX OVERLAY -->
     <div id="lightboxOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Prohlížeč obrázků">
-        <button onclick="closeAllOverlays()" class="absolute top-6 right-6 text-white/50 hover:text-brand-gold z-[6000] p-2"><i data-lucide="x" class="w-10 h-10"></i></button>
-        <div class="w-full max-w-7xl flex items-center justify-between relative text-white px-4">
-            <button onclick="prevImage()" class="w-14 h-14 bg-white/10 hover:bg-brand-gold backdrop-blur-md rounded-full flex items-center justify-center transition-colors"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
-            <div class="flex-1 flex flex-col items-center justify-center px-4">
-                <img id="lightboxImg" src="" class="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl transition-all duration-300" alt="Detail" loading="lazy">
-                <div class="mt-6 text-center">
-                    <p id="lightboxCaption" class="font-serif text-xl mb-1 text-brand-gold"></p>
-                    <p id="lightboxCounter" class="text-white/40 text-xs tracking-widest font-bold uppercase"></p>
-                </div>
+        <button onclick="closeAllOverlays()" class="absolute top-8 right-8 text-white/50 hover:text-brand-gold z-[6000] p-2 transition-colors"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <div class="w-full max-w-7xl flex flex-col items-center justify-center relative text-white px-4 h-full">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[70vh] object-contain rounded-sm shadow-2xl transition-opacity duration-300 mb-10" alt="Detail">
+            <div class="text-center mb-10">
+                <p id="lightboxCaption" class="font-serif text-3xl mb-3 text-brand-gold italic"></p>
+                <p id="lightboxCounter" class="text-white/40 text-[0.65rem] tracking-widest font-bold uppercase"></p>
             </div>
-            <button onclick="nextImage()" class="w-14 h-14 bg-white/10 hover:bg-brand-gold backdrop-blur-md rounded-full flex items-center justify-center transition-colors"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+            <!-- Šipky dole -->
+            <div class="flex items-center gap-12">
+                <button onclick="prevImage()" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="arrow-left" class="w-8 h-8"></i></button>
+                <button onclick="nextImage()" class="text-white/50 hover:text-brand-gold transition-colors"><i data-lucide="arrow-right" class="w-8 h-8"></i></button>
+            </div>
         </div>
     </div>
 
     <!-- REZERVAČNÍ IFRAME -->
     <div id="bookingOverlay" class="overlay" role="dialog" aria-modal="true">
         <div class="modal-content max-w-6xl bg-brand-light shadow-2xl rounded-2xl overflow-hidden flex flex-col h-[90vh]">
-            <div class="p-5 flex justify-between items-center border-b border-[#e5e0d8] bg-white shrink-0 shadow-sm z-10">
-                <span class="font-cinzel text-2xl font-bold tracking-widest text-brand-dark">ARANKA</span>
-                <button onclick="closeAllOverlays()" class="text-brand-dark hover:text-brand-caramel p-2"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="p-6 flex justify-between items-center border-b border-[#e5e0d8] bg-white shrink-0 shadow-sm z-10">
+                <span class="font-cinzel text-xl font-medium tracking-[0.2em] text-brand-dark">ARANKA</span>
+                <button onclick="closeAllOverlays()" class="text-brand-dark hover:text-brand-caramel p-2 transition-colors"><i data-lucide="x" class="w-6 h-6"></i></button>
             </div>
             <div class="flex-1 relative bg-white">
                 <iframe id="trevlixIframe" src="" loading="lazy" class="w-full h-full border-none" title="Rezervace"></iframe>
@@ -463,20 +534,18 @@
             lucide.createIcons();
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Plynulý scroll progress
+            // Plynulý scroll progress a navigace
             window.addEventListener('scroll', () => {
-                const header = document.getElementById('main-header');
-                if (window.scrollY > 50) {
-                    header.classList.replace('bg-black/40', 'bg-[#0f0c09]/95');
-                } else {
-                    header.classList.replace('bg-[#0f0c09]/95', 'bg-black/40');
-                }
+                const header = document.getElementById('site-nav');
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+                
                 const winScroll = document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 document.getElementById('scroll-progress').style.width = (winScroll / height * 100) + "%";
             });
 
-            // Intersection Observer pro fade-in animace
+            // Intersection Observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                     if(e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); }
@@ -499,14 +568,13 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-player', {
                 videoId: 'uYlLUo81wQc',
-                playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel': 0, 'loop': 1, 'mute': 1, 'start': 9, 'end': 115, 'playsinline': 1, 'playlist': 'uYlLUo81wQc', 'modestbranding': 1 },
+                playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel': 0, 'loop': 1, 'mute': 1, 'start': 9, 'end': 115, 'playsinline': 1, 'playlist': 'uYlLUo81wQc' },
                 events: {
                     'onReady': (e) => e.target.playVideo(),
                     'onStateChange': (e) => { if (e.data === YT.PlayerState.ENDED) { player.seekTo(9); player.playVideo(); } }
                 }
             });
         }
-        // Záložní smyčka
         setInterval(() => { if (player && player.getCurrentTime && player.getCurrentTime() >= 115) player.seekTo(9); }, 1000);
 
         // Modály
@@ -532,32 +600,30 @@
             
             const results = document.getElementById('filter-results');
             results.classList.remove('hidden');
-            results.innerHTML = '<div class="text-center py-8"><i data-lucide="loader-2" class="w-8 h-8 animate-spin text-brand-gold mx-auto"></i></div>';
+            results.innerHTML = '<div class="text-center py-10"><i data-lucide="loader-2" class="w-10 h-10 animate-spin text-brand-gold mx-auto"></i></div>';
             lucide.createIcons();
 
             setTimeout(() => {
                 results.innerHTML = `
-                    <div class="bg-white/5 border border-brand-gold/30 rounded-2xl p-6 text-center">
-                        <h4 class="font-serif text-brand-gold text-xl mb-2">Vaše apartmány jsou připraveny</h4>
-                        <p class="text-white/60 text-sm mb-6">Máme volné kapacity pro ${numPeople} osob ve ${numRooms} pokojích.</p>
-                        <button onclick="openBooking('all')" class="btn-luxury text-[0.65rem] px-8 py-3">Zobrazit aktuální ceny a rezervovat</button>
+                    <div class="text-center animate-fade-in py-4">
+                        <h4 class="font-serif text-brand-dark text-3xl mb-4 italic">Dostupné apartmány nalezeny</h4>
+                        <p class="text-brand-muted text-sm mb-8 font-light">Pro ${numPeople} osob ve ${numRooms} pokojích pro Vás máme ideální místo.</p>
+                        <button onclick="openBooking('all')" class="btn-solid-gold text-[0.65rem] px-10 py-4">Přejít k rezervaci</button>
                     </div>`;
             }, 800);
         }
 
-        // Galerie (Lightbox)
+        // Galerie Lightbox
         let currentImgIndex = 0;
         const galleryImages = [
             { src: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=1600&q=80", title: "Privátní Zahrada" },
             { src: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=80", title: "Interiér Apartmánu" },
-            { src: "https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=1600&q=80", title: "Ložnice" },
-            { src: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80", title: "Plně Vybavená Kuchyně" },
-            { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80", title: "Večerní Atmosféra" },
-            { src: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1600&q=80", title: "Pergola pro Hosty" },
-            { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80", title: "Pracovní Zázemí" }
+            { src: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=1600&q=80", title: "Detail Terasy" },
+            { src: "https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=1600&q=80", title: "Ložnice Mezonetu" },
+            { src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80", title: "Prostorný Obývací Pokoj" },
+            { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80", title: "Pracovní Koutek" }
         ];
 
-        function openLightbox(i) { currentImgIndex = i; updateLightbox(); openOverlay('lightboxOverlay'); }
         function updateLightbox() {
             const img = document.getElementById('lightboxImg');
             img.style.opacity = '0';
@@ -568,9 +634,62 @@
                 img.style.opacity = '1';
             }, 150);
         }
+        function openLightbox(i) { currentImgIndex = i; updateLightbox(); openOverlay('lightboxOverlay'); }
         function nextImage() { currentImgIndex = (currentImgIndex + 1) % galleryImages.length; updateLightbox(); }
         function prevImage() { currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length; updateLightbox(); }
+
+        // AI Concierge s opravdovým API Gemini
+        function setAiQuery(text) {
+            document.getElementById('ai-query').value = text;
+        }
+
+        async function generateRealItinerary() {
+            const queryInput = document.getElementById('ai-query').value.trim() || 'Pohodový víkend pro dva';
+            const container = document.getElementById('ai-result-container');
+            const resultArea = document.getElementById('ai-result');
+            const loader = document.getElementById('ai-loading');
+            const btn = document.getElementById('ai-btn');
+            
+            container.classList.remove('hidden');
+            resultArea.innerHTML = '';
+            loader.classList.remove('hidden');
+            loader.classList.add('flex');
+            btn.classList.add('opacity-50', 'pointer-events-none');
+            
+            // API Klíč od uživatele pro tipy na výlety
+            const apiKey = 'AIzaSyASG7GgTFKBKAlPMTgwqNM2uVJ7dTsUZho';
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            
+            const promptText = `Jsi exkluzivní virtuální concierge prémiového ubytování Aranka v Žatci. Host zadal tento požadavek na pobyt: "${queryInput}". Napiš mu 1 krátký, velmi elegantní a inspirativní odstavec (max 4 věty) s osobním doporučením, co podniknout v Žatci a okolí (památky, káva, příroda). Tón musí být luxusní, zdvořilý a vítající. Nepoužívej odrážky, jen plynulý text. Odpovídej česky.`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptText }] }]
+                    })
+                });
+                
+                const data = await response.json();
+                loader.classList.add('hidden');
+                loader.classList.remove('flex');
+                btn.classList.remove('opacity-50', 'pointer-events-none');
+                
+                if(data.candidates && data.candidates[0].content.parts[0].text) {
+                    const text = data.candidates[0].content.parts[0].text;
+                    resultArea.innerHTML = `<p class="italic text-brand-dark leading-relaxed font-serif text-2xl px-6 border-l-4 border-brand-gold">„${text}“</p>`;
+                } else {
+                    resultArea.innerHTML = `<p class="italic text-brand-dark leading-relaxed font-serif text-2xl">„Omlouváme se, naše recepce je právě zaneprázdněna. Zkuste to prosím za okamžik.“</p>`;
+                }
+            } catch (error) {
+                console.error(error);
+                loader.classList.add('hidden');
+                loader.classList.remove('flex');
+                btn.classList.remove('opacity-50', 'pointer-events-none');
+                resultArea.innerHTML = `<p class="italic text-brand-dark leading-relaxed font-serif text-2xl px-6 border-l-4 border-brand-gold">„Připravili jsme pro Vás ideální zázemí k relaxaci. Rádi Vám poradíme osobně ihned po Vašem příjezdu.“</p>`;
+            }
+        }
     </script>
-    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
