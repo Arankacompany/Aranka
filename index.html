@@ -143,12 +143,12 @@
             top: 50%;
             left: 50%;
             width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio for width */
+            height: 56.25vw;
             min-height: 100vh;
-            min-width: 177.77vh; /* 16:9 aspect ratio for height */
+            min-width: 177.77vh;
             transform: translate(-50%, -50%);
-            pointer-events: none; /* Prevents clicking on the video */
-            opacity: 0.8; /* Zvýšená průhlednost pro jasnější video na pozadí */
+            pointer-events: none;
+            opacity: 0.8;
             border: none;
         }
     </style>
@@ -217,37 +217,34 @@
         <button onclick="openBooking('all'); toggleMobileMenu()" class="mt-12 bg-brand-caramel px-12 py-5 font-bold uppercase tracking-[0.2em] text-[0.75rem] rounded-full hover:bg-brand-offwhite hover:text-brand-dark transition-all shadow-glow">Rezervovat online</button>
     </nav>
 
-    <!-- Lightbox Overlay (UPRAVENO: Šipky přes obrázek) -->
+    <!-- Lightbox Overlay -->
     <div id="lightboxOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Prohlížeč obrázků">
         <button onclick="closeAllOverlays()" class="absolute top-6 right-6 text-white/50 hover:text-white z-[6000] p-2" aria-label="Zavřít galerii"><i data-lucide="x" class="w-10 h-10"></i></button>
         
-        <div class="flex flex-col items-center justify-center w-full h-full relative px-4">
+        <!-- Pevně pozicovaná šipka vlevo -->
+        <button onclick="prevImage()" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-[6000] text-white" aria-label="Předchozí obrázek">
+            <i data-lucide="chevron-left" class="w-6 h-6 md:w-8 md:h-8"></i>
+        </button>
+
+        <div class="flex flex-col items-center justify-center w-full h-full px-16 md:px-24">
             
-            <!-- Relativní kontejner sdružující obrázek a šipky -->
-            <div class="relative group flex items-center justify-center max-w-[95vw] max-h-[75vh]">
-                
-                <!-- Šipka doleva (absolutní k obrázku) -->
-                <button onclick="prevImage()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-20 text-white opacity-100 md:opacity-0 group-hover:opacity-100" aria-label="Předchozí obrázek">
-                    <i data-lucide="chevron-left" class="w-6 h-6 md:w-8 md:h-8"></i>
-                </button>
-
-                <!-- Vlastní obrázek -->
-                <img id="lightboxImg" src="" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-premium-dark transition-all duration-500" alt="Detailní fotografie">
-
-                <!-- Šipka doprava (absolutní k obrázku) -->
-                <button onclick="nextImage()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-20 text-white opacity-100 md:opacity-0 group-hover:opacity-100" aria-label="Další obrázek">
-                    <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
-                </button>
-                
+            <div class="relative flex items-center justify-center min-h-[250px] min-w-[250px]">
+                <!-- Přidán onerror fallback: pokud obrázek neexistuje, zobrazí se hláška a lightbox nespadne -->
+                <img id="lightboxImg" src="" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%232a2218\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'16\' fill=\'%238c7e71\' text-anchor=\'middle\'>Obrázek nelze načíst</text></svg>';" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-premium-dark transition-all duration-500" alt="Detailní fotografie">
             </div>
 
-            <!-- Popisek obrázku (pod obrázkem) -->
-            <div class="mt-6 md:mt-8 text-center bg-brand-dark/50 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 z-10 shrink-0">
+            <!-- Popisek obrázku -->
+            <div class="mt-6 md:mt-8 text-center bg-brand-dark/80 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 z-10 shrink-0">
                 <p id="lightboxCaption" class="font-serif tracking-[0.2em] text-base md:text-lg mb-1 text-brand-caramel"></p>
                 <p id="lightboxCounter" class="text-white/40 text-[0.65rem] tracking-widest font-bold uppercase"></p>
             </div>
             
         </div>
+
+        <!-- Pevně pozicovaná šipka vpravo -->
+        <button onclick="nextImage()" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-[6000] text-white" aria-label="Další obrázek">
+            <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
+        </button>
     </div>
 
     <!-- Pergola Overlay -->
@@ -753,31 +750,52 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (KOMPLETNĚ PŘESTAVĚNO) -->
     <footer class="bg-brand-dark pt-32 pb-12 text-brand-offwhite/60 relative overflow-hidden">
         <div class="absolute top-[-50%] left-[-10%] w-[800px] h-[800px] bg-brand-caramel/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 border-b border-white/10 pb-20 mb-10 text-center md:text-left">
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-white/10 pb-16 mb-8 text-center md:text-left">
+                
+                <!-- Sloupec 1: Logo a základní info -->
+                <div class="lg:col-span-2">
                     <span class="font-serif text-4xl text-brand-caramel block mb-6 tracking-widest">ARANKA</span>
-                    <p class="text-base font-light leading-relaxed">Vaše luxusní zázemí v tiché čtvrti královského města Žatce.</p>
+                    <p class="text-base font-light leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">Vaše luxusní zázemí v tiché čtvrti královského města Žatce.</p>
+                    <div class="flex items-center justify-center md:justify-start gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all text-white" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all text-white" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    </div>
                 </div>
-                <div class="text-base font-light leading-relaxed flex flex-col items-center md:items-start">
-                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Adresa & Kontakt</h4>
-                    <p class="flex items-center gap-3 mb-3"><i data-lucide="map-pin" class="w-5 h-5 text-brand-caramel"></i> Francouzská 1398, 438 01 Žatec</p>
-                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-brand-caramel"></i> +420 776 604 006</p>
+
+                <!-- Sloupec 2: Kontakt -->
+                <div class="text-sm font-light leading-relaxed flex flex-col items-center md:items-start">
+                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Kontakt</h4>
+                    <p class="flex items-center gap-3 mb-3 hover:text-brand-caramel transition-colors"><i data-lucide="map-pin" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="https://maps.google.com/?q=Francouzská+1398,+Žatec" target="_blank">Francouzská 1398, 438 01 Žatec</a></p>
+                    <p class="flex items-center gap-3 mb-3 hover:text-brand-caramel transition-colors"><i data-lucide="phone" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="tel:+420776604006">+420 776 604 006</a></p>
+                    <p class="flex items-center gap-3 hover:text-brand-caramel transition-colors"><i data-lucide="mail" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="mailto:info@arankacompany.eu">[Doplnit e-mail]</a></p>
                 </div>
+
+                <!-- Sloupec 3: Firemní údaje -->
                 <div class="text-sm flex flex-col items-center md:items-start font-light leading-relaxed">
                     <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Firemní údaje</h4>
-                    <p>Aranka company s.r.o.<br>IČO: 22366695</p>
+                    <p class="mb-1"><strong>Aranka company s.r.o.</strong></p>
+                    <p class="mb-1">IČO: 22366695</p>
+                    <p class="mb-1">DIČ: [Doplnit DIČ]</p>
+                    <p class="mb-3 text-xs text-white/40 leading-normal mt-2">[Doplnit spisovou značku, např. Společnost je zapsaná u Krajského soudu v Ústí nad Labem...]</p>
                 </div>
-                <div class="flex flex-col items-center md:items-start">
-                    <button onclick="openBooking('all')" class="bg-brand-caramel/10 border border-brand-caramel/30 text-brand-caramel hover:bg-brand-caramel hover:text-brand-dark transition-all duration-300 px-8 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[0.65rem] flex items-center gap-2">
-                        Rezervovat pobyt <i data-lucide="arrow-right" class="w-3 h-3"></i>
+
+                <!-- Sloupec 4: Odkazy a rezervace -->
+                <div class="text-sm flex flex-col items-center md:items-start font-light leading-relaxed">
+                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Užitečné odkazy</h4>
+                    <a href="#" class="mb-3 hover:text-brand-caramel transition-colors">Obchodní podmínky (VOP)</a>
+                    <a href="#" class="mb-3 hover:text-brand-caramel transition-colors">Ochrana osobních údajů (GDPR)</a>
+                    <a href="#" class="mb-8 hover:text-brand-caramel transition-colors">Zásady cookies</a>
+                    <button onclick="openBooking('all')" class="bg-brand-caramel text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-dark transition-all duration-300 px-6 py-3 rounded-full font-bold uppercase tracking-[0.2em] text-[0.65rem] flex items-center gap-2 shadow-glow w-full justify-center md:w-auto">
+                        Rezervovat pobyt
                     </button>
                 </div>
+
             </div>
-            <div class="text-[0.65rem] uppercase tracking-[0.2em] font-bold text-white/30 text-center">
+            <div class="text-[0.65rem] uppercase tracking-[0.2em] font-bold text-white/30 text-center flex flex-col md:flex-row items-center justify-between gap-4">
                 <p>© <span id="current-year"></span> Aranka Company s.r.o. Všechna práva vyhrazena.</p>
             </div>
         </div>
