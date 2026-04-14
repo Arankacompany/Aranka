@@ -765,6 +765,219 @@
         </div>
     </footer>
 
+    <!-- JavaScript Integrations and Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            if (!localStorage.getItem('cookies_accepted')) {
+                setTimeout(() => { document.getElementById('cookie-banner').style.transform = 'translateY(0)'; }, 1500);
+            }
+
+            const checkinInput = document.getElementById('filter-checkin');
+            const checkoutInput = document.getElementById('filter-checkout');
+            if(checkinInput && checkoutInput) {
+                const today = new Date();
+                const checkoutDate = new Date();
+                checkoutDate.setDate(today.getDate() + 2);
+                checkinInput.value = today.toISOString().split('T')[0];
+                checkoutInput.value = checkoutDate.toISOString().split('T')[0];
+            }
+
+            const stickyNav = document.getElementById('site-nav');
+            const scrollProgress = document.getElementById('scroll-progress');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) stickyNav.classList.add('nav-visible', 'nav-scrolled');
+                else stickyNav.classList.remove('nav-visible', 'nav-scrolled');
+                
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                scrollProgress.style.width = (winScroll / height * 100) + "%";
+            });
+            window.dispatchEvent(new Event('scroll'));
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            document.addEventListener('keydown', (e) => {
+                if(!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+                if(e.key === 'Escape') closeAllOverlays();
+                if(e.key === 'ArrowRight') nextImage();
+                if(e.key === 'ArrowLeft') prevImage();
+            });
+        });
+
+        function acceptCookies(type) {
+            localStorage.setItem('cookies_accepted', type);
+            document.getElementById('cookie-banner').style.transform = 'translateY(100%)';
+        }
+
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        
+        function openOverlay(id) { 
+            closeAllOverlays();
+            document.getElementById(id).classList.add('active'); 
+            document.body.style.overflow='hidden'; 
+        }
+        
+        function closeAllOverlays() { 
+            document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active')); 
+            document.body.style.overflow='auto'; 
+        }
+
+        function submitB2BForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin mx-auto"></i> Odesílám...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            lucide.createIcons();
+
+            setTimeout(() => {
+                btn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5"></i> Úspěšně odesláno!';
+                btn.classList.remove('bg-[#2a2218]', 'border-[#2a2218]');
+                btn.classList.add('bg-green-700', 'border-green-700', 'text-white');
+                lucide.createIcons();
+                setTimeout(() => {
+                    closeAllOverlays();
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.classList.remove('bg-green-700', 'border-green-700', 'opacity-80', 'cursor-not-allowed');
+                        btn.classList.add('bg-[#2a2218]', 'border-[#2a2218]');
+                        e.target.reset();
+                    }, 500);
+                }, 2000);
+            }, 1500);
+        }
+
+        let peopleCount = 2;
+        
+        function updatePeople(c) { 
+            peopleCount = Math.max(1, Math.min(20, peopleCount + c)); 
+            document.getElementById('people-val').innerText = peopleCount; 
+        }
+
+        /* * FINÁLNÍ LOGIKA PROPOJENÍ S TREVLIXEM (DEEP LINKING) 
+        * Data skrytých ID přesně kopírují administraci IT oddělení
+        */
+        const hidden_1398 = '8308-8309-8310-8311-8312-8313-8314-8315-8316-8317-8318';
+        const hidden_865 = '8300-8301-8302-8303-8304-8305-8307-8306-8314-8315-8316-8317-8318';
+        const hidden_podmesti = '8300-8301-8302-8303-8304-8305-8306-8307-8308-8309-8310-8311-8312-8313';
+
+        // Otevření iframe po kliku na specifickou kartu s ubytováním (posílá se jen parametr pro skrytí ostatních)
+        function openBookingCategory(hideIds) {
+            let url = `https://book.trevlix.com/book/app/?cid=3998666&theme_color=hex&hex=C5A267`;
+            if (hideIds !== '') {
+                url += `&hide_room_types=${hideIds}`;
+            }
+            document.getElementById('trevlixIframe').src = url;
+            openOverlay('bookingOverlay');
+        }
+
+        // Otevření iframe po vyplnění filtru na hlavní straně (posílají se data a případná lokalita)
+        function runRealFilter() {
+            const results = document.getElementById('filter-results');
+            results.classList.remove('hidden');
+            
+            const checkin = document.getElementById('filter-checkin').value;
+            const checkout = document.getElementById('filter-checkout').value;
+            const adults = peopleCount;
+            const location = document.getElementById('filter-location').value;
+
+            // Identifikace správného stringu ID, která chceme Trevlixu skrýt
+            let hideIds = '';
+            if (location === '1398') hideIds = hidden_1398;
+            else if (location === '865') hideIds = hidden_865;
+            else if (location === 'podmesti') hideIds = hidden_podmesti;
+
+            setTimeout(() => {
+                results.classList.add('hidden');
+                
+                // Přímý link do Trevlixu s našimi barvami a hodnotami
+                let url = `https://book.trevlix.com/book/app/?cid=3998666&from=${checkin}&to=${checkout}&adults=${adults}&theme_color=hex&hex=C5A267`;
+                if (hideIds !== '') {
+                    url += `&hide_room_types=${hideIds}`;
+                }
+                
+                document.getElementById('trevlixIframe').src = url;
+                openOverlay('bookingOverlay');
+            }, 800);
+        }
+
+        // Galerie funkce
+        function scrollSlider(px) { 
+            const slider = document.getElementById('garden-slider'); 
+            const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+            if (px > 0 && slider.scrollLeft >= maxScrollLeft - 10) slider.scrollTo({ left: 0, behavior: 'smooth' }); 
+            else if (px < 0 && slider.scrollLeft <= 10) slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' }); 
+            else slider.scrollBy({ left: px, behavior: 'smooth' }); 
+        }
+
+        let currentImgIndex = 0;
+        const galleryImagesData = [
+            { src: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=1600&q=80", title: "Zahrada - Váš prostor pro klid" },
+            { src: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=80", title: "Zákoutí stvořené pro ranní kávu" },
+            { src: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=1600&q=80", title: "Sluncem zalitá privátní terasa" },
+            { src: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1600&q=80", title: "Prosklená pergola s výhledem" },
+            { src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80", title: "Obývací prostor v apartmánu" },
+            { src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80", title: "Komfortní ložnice" }
+        ];
+
+        function openLightbox(i) { 
+            currentImgIndex = i; 
+            updateLightbox(); 
+            openOverlay('lightboxOverlay');
+        }
+        function updateLightbox() { 
+            const img = document.getElementById('lightboxImg'); 
+            const caption = document.getElementById('lightboxCaption');
+            img.style.opacity='0.1'; 
+            img.style.transform='scale(0.95)';
+            setTimeout(()=>{ 
+                img.src = galleryImagesData[currentImgIndex].src; 
+                caption.innerText = galleryImagesData[currentImgIndex].title;
+                document.getElementById('lightboxCounter').innerText = `${currentImgIndex+1} / ${galleryImagesData.length}`; 
+                img.style.opacity='1'; 
+                img.style.transform='scale(1.15)'; // 15% animované zvětšení
+            }, 300); 
+        }
+        function nextImage() { currentImgIndex = (currentImgIndex + 1) % galleryImagesData.length; updateLightbox(); }
+        function prevImage() { currentImgIndex = (currentImgIndex - 1 + galleryImagesData.length) % galleryImagesData.length; updateLightbox(); }
+
+        async function generateItinerary() {
+            const container = document.getElementById('ai-result-container');
+            const resultArea = document.getElementById('ai-result');
+            const loader = document.getElementById('ai-loading');
+            const mood = document.getElementById('ai-who-footer').value;
+            
+            container.classList.remove('hidden'); 
+            resultArea.innerHTML = ''; 
+            loader.classList.remove('hidden'); 
+            loader.classList.add('flex');
+            
+            setTimeout(() => {
+                loader.classList.add('hidden'); loader.classList.remove('flex');
+                let aiText = "";
+                switch(mood) {
+                    case "pár": aiText = "Zpomalte a užijte si jeden druhého. Začněte den výběrovou kávou na náměstí. Pokračujte ruku v ruce křivolakými uličkami, vystoupejte na Chmelový maják. Večer doporučujeme zarezervovat stůl U Orloje a noc zakončit se sklenkou vína u krbu v naší zahradě."; break;
+                    case "rodina": aiText = "Žatec baví i nejmenší! Vaše první kroky by měly směřovat do Chrámu chmele a piva s 3D výtahem. Odpoledne doporučujeme nenáročnou procházku k řece Ohři a večer se těšíme, až u nás na zahradě strávíte klidný čas."; break;
+                    case "cyklista": aiText = "Ideální výchozí bod. Napojte se na novou cyklostezku podél řeky Ohře až k Nechranické přehradě. Vaše kola u nás bezpečně uschováme a věříme, že po takovém výkonu si vychutnáte správně načepovanou Žateckou sedmičku!"; break;
+                    case "pracovník": aiText = "Chápeme, že potřebujete efektivitu. Čeká na Vás rychlý check-in a stabilní Wi-Fi. Pro utřídění myšlenek po práci doporučujeme posedět v naší prosklené pergole, kde Vás nebude vůbec nic rušit."; break;
+                }
+                resultArea.innerHTML = `<p>"${aiText}"</p>`;
+            }, 1200);
+        }
+    </script>
+    
     <!-- Integrace Tawk.to Chatu -->
     <script type="text/javascript">
     // Ošetření pro náhledové prostředí (Canvas): Tawk.to blokuje WebSocket v iframech. 
