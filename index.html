@@ -338,9 +338,9 @@
                                 <label for="filter-location" class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Lokalita / Styl</label>
                                 <select id="filter-location" class="w-full bg-transparent border-none text-brand-offwhite text-lg font-serif outline-none focus:ring-0 cursor-pointer appearance-none p-0 pb-1">
                                     <option value="all" class="bg-brand-dark">Všechny lokality</option>
-                                    <option value="1398" class="bg-brand-dark">Hlavní rezidence (Fr. 1398)</option>
-                                    <option value="865" class="bg-brand-dark">Designové mezonety (Fr. 865)</option>
-                                    <option value="podmesti" class="bg-brand-dark">Byty Podměstí (Pro firmy)</option>
+                                    <option value="1398" class="bg-brand-dark">Apartmány a studia</option>
+                                    <option value="865" class="bg-brand-dark">Stylové mezonety</option>
+                                    <option value="podmesti" class="bg-brand-dark">Pro firmy a týmy</option>
                                 </select>
                                 <i data-lucide="chevron-down" class="absolute right-0 bottom-4 w-5 h-5 text-brand-caramel pointer-events-none"></i>
                             </div>
@@ -612,14 +612,14 @@
             </div>
         </section>
 
-        <!-- Nová sekce Hodnocení (podle vizuálního návrhu) -->
+        <!-- Upravená sekce Hodnocení (Slider) -->
         <section id="hodnoceni" class="py-32 bg-brand-light text-center border-b border-brand-sand relative overflow-hidden">
-             <div class="max-w-6xl mx-auto px-6 reveal relative z-10">
+             <div class="max-w-[90rem] mx-auto reveal relative z-10">
                  <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-4 block">Zkušenosti hostů</span>
                  <h2 class="font-serif text-5xl md:text-6xl tracking-wide text-brand-dark mb-10">Co o nás říkají</h2>
                  
                  <!-- Integrační štítky (Firmy.cz) -->
-                 <div class="flex flex-wrap justify-center items-center gap-6 mb-20">
+                 <div class="flex flex-wrap justify-center items-center gap-6 mb-20 px-6">
                      <!-- Firmy.cz Odznak -->
                      <a href="https://www.firmy.cz/detail/13761314-ubytovani-aranka-zatec.html" target="_blank" rel="noopener noreferrer" title="Náš profil na Firmy.cz" class="group flex items-center gap-4 bg-white py-3 px-6 rounded-full shadow-sm border border-brand-sand hover:shadow-md hover:border-brand-caramel/50 transition-all duration-300 transform hover:-translate-y-1">
                          <div class="bg-[#cc0000] text-white font-bold text-xl px-3 py-1.5 rounded-xl group-hover:scale-105 transition-transform duration-300">4.5</div>
@@ -630,63 +630,65 @@
                      </a>
                  </div>
                  
-                 <!-- Layout samotných recenzí -->
-                 <div class="relative w-full">
-                     <!-- Šipka doleva (pro budoucí slider efekt, nyní dekorativní) -->
-                     <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-12 w-12 h-12 bg-white rounded-full shadow-sm border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                 <!-- Posuvný Slider pro recenze -->
+                 <div class="relative w-full max-w-6xl mx-auto group">
+                     <!-- Šipka doleva -->
+                     <button onclick="scrollReviews(-400)" class="absolute left-0 lg:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex opacity-100 md:opacity-0 md:group-hover:opacity-100"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
 
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-5xl mx-auto px-4 lg:px-0">
+                     <!-- Kontejner slideru -->
+                     <div id="reviews-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 lg:gap-8 text-left px-6 lg:px-8 pb-12 pt-4 no-scrollbar scroll-smooth">
+                         
                          <!-- Recenze 1 -->
-                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
+                         <div class="flex-none w-[85vw] sm:w-[400px] snap-center bg-white p-10 lg:p-12 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
                              <div>
                                  <div class="flex text-brand-caramel mb-6">
                                      <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                  </div>
                                  <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Nejlepší ubytování v Žatci, jaké jsem zažil. Pokoje čisté a posezení u krbu nemá absolutně chybu.“</p>
                              </div>
-                             <div class="pt-6 border-t border-brand-sand/50">
+                             <div class="pt-6 border-t border-brand-sand/50 mt-auto">
                                  <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Petr M.</strong>
                                  <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Služební cesta</span>
                              </div>
                          </div>
                          
                          <!-- Recenze 2 -->
-                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
+                         <div class="flex-none w-[85vw] sm:w-[400px] snap-center bg-white p-10 lg:p-12 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
                              <div>
                                  <div class="flex text-brand-caramel mb-6">
                                      <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                  </div>
                                  <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Mezonet byl dechberoucí. Ticho, soukromí a nádherná zahrada hned u dveří. Určitě se vrátíme.“</p>
                              </div>
-                             <div class="pt-6 border-t border-brand-sand/50">
+                             <div class="pt-6 border-t border-brand-sand/50 mt-auto">
                                  <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Jana K.</strong>
                                  <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Rodinný pobyt</span>
                              </div>
                          </div>
                          
                          <!-- Recenze 3 -->
-                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
+                         <div class="flex-none w-[85vw] sm:w-[400px] snap-center bg-white p-10 lg:p-12 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
                              <div>
                                  <div class="flex text-brand-caramel mb-6">
                                      <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                  </div>
                                  <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Zde můžete doplnit třetí text vaší skvělé recenze. Ideální pro zmínění dlouhodobějšího firemního ubytování.“</p>
                              </div>
-                             <div class="pt-6 border-t border-brand-sand/50">
+                             <div class="pt-6 border-t border-brand-sand/50 mt-auto">
                                  <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Jméno hosta 3</strong>
                                  <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Typ pobytu</span>
                              </div>
                          </div>
                          
                          <!-- Recenze 4 -->
-                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
+                         <div class="flex-none w-[85vw] sm:w-[400px] snap-center bg-white p-10 lg:p-12 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
                              <div>
                                  <div class="flex text-brand-caramel mb-6">
                                      <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                  </div>
                                  <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Zde vložte čtvrtou recenzi od vašich spokojených zákazníků z Bookingu nebo přímo ze vzkazů v pokojích.“</p>
                              </div>
-                             <div class="pt-6 border-t border-brand-sand/50">
+                             <div class="pt-6 border-t border-brand-sand/50 mt-auto">
                                  <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Jméno hosta 4</strong>
                                  <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Typ pobytu</span>
                              </div>
@@ -694,7 +696,7 @@
                      </div>
 
                      <!-- Šipka doprava -->
-                     <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-12 w-12 h-12 bg-white rounded-full shadow-sm border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                     <button onclick="scrollReviews(400)" class="absolute right-0 lg:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-md border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex opacity-100 md:opacity-0 md:group-hover:opacity-100"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
                  </div>
              </div>
         </section>
@@ -949,9 +951,18 @@
             }, 800);
         }
 
-        // Galerie funkce
+        // Slider funkce pro galerii
         function scrollSlider(px) { 
             const slider = document.getElementById('garden-slider'); 
+            const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+            if (px > 0 && slider.scrollLeft >= maxScrollLeft - 10) slider.scrollTo({ left: 0, behavior: 'smooth' }); 
+            else if (px < 0 && slider.scrollLeft <= 10) slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' }); 
+            else slider.scrollBy({ left: px, behavior: 'smooth' }); 
+        }
+
+        // Slider funkce pro recenze
+        function scrollReviews(px) { 
+            const slider = document.getElementById('reviews-slider'); 
             const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
             if (px > 0 && slider.scrollLeft >= maxScrollLeft - 10) slider.scrollTo({ left: 0, behavior: 'smooth' }); 
             else if (px < 0 && slider.scrollLeft <= 10) slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' }); 
