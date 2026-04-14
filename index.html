@@ -138,23 +138,6 @@
     <!-- Scroll Progress Indicator -->
     <div id="scroll-progress"></div>
 
-    <!-- Password Protection Overlay -->
-    <div id="password-protection" class="fixed inset-0 z-[100000] flex flex-col items-center justify-center bg-brand-dark/95 backdrop-blur-2xl transition-all duration-1000">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
-        <div class="relative z-10 w-full max-w-md px-8 text-center reveal active">
-            <span class="font-serif text-5xl md:text-6xl text-brand-caramel mb-6 block tracking-[0.25em]">ARANKA</span>
-            <p class="text-brand-offwhite/50 text-[0.65rem] tracking-[0.3em] uppercase mb-16 font-bold">Diskrétní zóna</p>
-            
-            <div class="w-full flex items-center mb-10 border-b border-white/20 pb-4 transition-colors duration-500 focus-within:border-brand-caramel">
-                <i data-lucide="lock" class="w-5 h-5 text-brand-caramel shrink-0"></i>
-                <input type="password" id="site-password" class="w-full bg-transparent border-none text-brand-offwhite text-center text-lg tracking-[0.3em] focus:ring-0 placeholder-white/20 outline-none" placeholder="HESLO" onkeypress="if(event.key === 'Enter') checkPassword()">
-            </div>
-            
-            <button onclick="checkPassword()" class="w-full bg-brand-caramel text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-dark px-8 py-5 font-bold uppercase tracking-[0.2em] text-[0.7rem] rounded-full transition-all duration-500 shadow-glow hover:-translate-y-1">Vstoupit do rezidence</button>
-            <p id="password-error" class="text-red-400 text-xs mt-6 opacity-0 transition-opacity font-medium tracking-widest uppercase">Neplatné heslo.</p>
-        </div>
-    </div>
-
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full transition-transform duration-700 cubic-bezier(0.16, 1, 0.3, 1) bg-brand-dark/95 backdrop-blur-xl text-brand-offwhite p-6 md:p-8 border-t border-brand-caramel/20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
