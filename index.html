@@ -13,26 +13,6 @@
     <meta property="og:description" content="Designové apartmány s klidem a stylem v srdci Žatce. Rezervujte svůj pobyt online.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Hotel",
-      "name": "Ubytování Aranka Žatec",
-      "description": "Prémiové ubytování a apartmány v Žatci s privátní zahradou a pergolou.",
-      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Francouzská 1398",
-        "addressLocality": "Žatec",
-        "postalCode": "438 01",
-        "addressCountry": "CZ"
-      },
-      "telephone": "+420776604006",
-      "url": "https://arankacompany.eu/",
-      "priceRange": "$$"
-    }
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,7 +26,7 @@
                 extend: {
                     colors: {
                         brand: {
-                            caramel: '#c28e62', 
+                            caramel: '#C5A267', /* Upraveno přesně podle Trevlix iframu */
                             dark: '#2a2218', 
                             light: '#fdfbf9',
                             sand: '#f4f0ea', 
@@ -64,7 +44,7 @@
                         'premium-hover': '0 40px 80px -20px rgba(42, 34, 24, 0.15)',
                         'premium-dark': '0 30px 60px -15px rgba(0, 0, 0, 0.4)',
                         'premium-dark-hover': '0 40px 80px -20px rgba(0, 0, 0, 0.6)',
-                        'glow': '0 0 30px -10px rgba(194, 142, 98, 0.5)',
+                        'glow': '0 0 30px -10px rgba(197, 162, 103, 0.5)',
                     },
                     animation: {
                         'fade-in': 'fadeIn 1.2s ease-out forwards',
@@ -93,7 +73,7 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         
         /* Scroll Progress */
-        #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #c28e62; z-index: 99999; transition: width 0.1s ease-out; }
+        #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: #C5A267; z-index: 99999; transition: width 0.1s ease-out; }
 
         /* Overlays & Modals */
         .overlay { visibility: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: fixed; inset: 0; z-index: 9000; background: rgba(42, 34, 24, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
@@ -105,24 +85,24 @@
         /* Navigation */
         #site-nav { transform: translateY(-100%); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); background: transparent; border-bottom: 1px solid transparent; }
         #site-nav.nav-visible { transform: translateY(0); }
-        #site-nav.nav-scrolled { background: rgba(253, 251, 249, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(194, 142, 98, 0.1); box-shadow: 0 10px 40px -10px rgba(42, 34, 24, 0.05); padding-top: 1rem !important; padding-bottom: 1rem !important; }
+        #site-nav.nav-scrolled { background: rgba(253, 251, 249, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(197, 162, 103, 0.1); box-shadow: 0 10px 40px -10px rgba(42, 34, 24, 0.05); padding-top: 1rem !important; padding-bottom: 1rem !important; }
 
         /* Custom inputs & Forms */
         .b2b-field { border-bottom: 1px solid rgba(140, 126, 113, 0.3); padding: 16px 0; background: transparent; outline: none; transition: border-color 0.4s; font-size: 1rem; color: #2a2218; width: 100%; border-top: none; border-left: none; border-right: none; }
-        .b2b-field:focus { border-color: #c28e62; box-shadow: none; }
+        .b2b-field:focus { border-color: #C5A267; box-shadow: none; }
         .b2b-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #8c7e71; display: block; margin-bottom: 4px; }
         
         .filter-input { background: transparent; border: none; border-bottom: 1px solid rgba(250, 248, 245, 0.2); border-radius: 0; color: #faf8f5; padding: 0.75rem 0; transition: border-color 0.4s ease; }
-        .filter-input:focus { border-color: #c28e62; box-shadow: none; outline: none; }
+        .filter-input:focus { border-color: #C5A267; box-shadow: none; outline: none; }
         .filter-input option { background: #2a2218; color: #faf8f5; }
         .filter-input::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.6); cursor: pointer; transition: opacity 0.3s; }
         .filter-input::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 
         /* Buttons */
         .btn-premium { background-color: #2a2218; color: #faf8f5; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #2a2218; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .btn-premium:hover { background-color: #c28e62; border-color: #c28e62; transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(194, 142, 98, 0.4); }
-        .btn-outline { border: 1px solid #c28e62; color: #c28e62; background: transparent; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .btn-outline:hover { background-color: #c28e62; color: #faf8f5; transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(194, 142, 98, 0.4); }
+        .btn-premium:hover { background-color: #C5A267; border-color: #C5A267; transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(197, 162, 103, 0.4); }
+        .btn-outline { border: 1px solid #C5A267; color: #C5A267; background: transparent; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .btn-outline:hover { background-color: #C5A267; color: #faf8f5; transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(197, 162, 103, 0.4); }
 
         /* Utilities */
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -148,7 +128,7 @@
             min-width: 177.77vh;
             transform: translate(-50%, -50%);
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.6; /* Vyladěná průhlednost, aby vynikl text i video */
             border: none;
         }
     </style>
@@ -199,7 +179,7 @@
                 <a href="#pro-firmy" class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-caramel transition-colors">Pro firmy</a>
                 <a href="#zahrada" class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-dark hover:text-brand-caramel transition-colors">Zahrada</a>
             </nav>
-            <button onclick="openBooking('all')" class="hidden lg:flex bg-brand-caramel text-brand-offwhite px-8 py-4 rounded-full text-[0.65rem] font-bold uppercase tracking-[0.2em] hover:bg-brand-offwhite hover:text-brand-dark transition-all shadow-md hover:shadow-glow transform hover:-translate-y-1">Rezervovat</button>
+            <button onclick="openBookingCategory('')" class="hidden lg:flex bg-brand-caramel text-brand-offwhite px-8 py-4 rounded-full text-[0.65rem] font-bold uppercase tracking-[0.2em] hover:bg-brand-offwhite hover:text-brand-dark transition-all shadow-md hover:shadow-glow transform hover:-translate-y-1">Rezervovat</button>
             
             <button class="lg:hidden text-white mix-blend-difference hover:text-brand-caramel transition-colors p-2" onclick="toggleMobileMenu()" aria-label="Otevřít menu"><i data-lucide="menu" class="w-8 h-8"></i></button>
         </div>
@@ -214,37 +194,24 @@
         <a href="#ubytovani-karty" onclick="toggleMobileMenu()" class="text-xl font-serif tracking-[0.2em] hover:text-brand-caramel transition-colors">Apartmány</a>
         <a href="#pro-firmy" onclick="toggleMobileMenu()" class="text-xl font-serif tracking-[0.2em] hover:text-brand-caramel transition-colors">Pro firmy</a>
         <a href="#zahrada" onclick="toggleMobileMenu()" class="text-xl font-serif tracking-[0.2em] hover:text-brand-caramel transition-colors">Zahrada</a>
-        <button onclick="openBooking('all'); toggleMobileMenu()" class="mt-12 bg-brand-caramel px-12 py-5 font-bold uppercase tracking-[0.2em] text-[0.75rem] rounded-full hover:bg-brand-offwhite hover:text-brand-dark transition-all shadow-glow">Rezervovat online</button>
+        <button onclick="openBookingCategory(''); toggleMobileMenu()" class="mt-12 bg-brand-caramel px-12 py-5 font-bold uppercase tracking-[0.2em] text-[0.75rem] rounded-full hover:bg-brand-offwhite hover:text-brand-dark transition-all shadow-glow">Rezervovat online</button>
     </nav>
 
     <!-- Lightbox Overlay -->
     <div id="lightboxOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Prohlížeč obrázků">
         <button onclick="closeAllOverlays()" class="absolute top-6 right-6 text-white/50 hover:text-white z-[6000] p-2" aria-label="Zavřít galerii"><i data-lucide="x" class="w-10 h-10"></i></button>
-        
-        <!-- Pevně pozicovaná šipka vlevo -->
-        <button onclick="prevImage()" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-[6000] text-white" aria-label="Předchozí obrázek">
-            <i data-lucide="chevron-left" class="w-6 h-6 md:w-8 md:h-8"></i>
-        </button>
-
-        <div class="flex flex-col items-center justify-center w-full h-full px-16 md:px-24">
-            
-            <div class="relative flex items-center justify-center min-h-[250px] min-w-[250px]">
-                <!-- Přidán onerror fallback: pokud obrázek neexistuje, zobrazí se hláška a lightbox nespadne -->
-                <img id="lightboxImg" src="" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%232a2218\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'16\' fill=\'%238c7e71\' text-anchor=\'middle\'>Obrázek nelze načíst</text></svg>';" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-premium-dark transition-all duration-500" alt="Detailní fotografie">
+        <div class="w-full max-w-7xl flex items-center justify-between relative text-brand-offwhite">
+            <button onclick="prevImage()" class="p-4 bg-black/20 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/10 z-10" aria-label="Předchozí obrázek"><i data-lucide="chevron-left" class="w-8 h-8"></i></button>
+            <div class="flex-1 flex flex-col items-center justify-center px-4 relative z-0">
+                <!-- Obrázek se zvětšením o 15% (viz JavaScript) -->
+                <img id="lightboxImg" src="" class="max-w-[85vw] max-h-[75vh] object-contain rounded-2xl shadow-premium-dark transition-all duration-500 origin-center" alt="Detailní fotografie">
+                <div class="mt-12 text-center bg-brand-dark/50 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 z-10">
+                    <p id="lightboxCaption" class="font-serif tracking-[0.2em] text-lg mb-1 text-brand-caramel"></p>
+                    <p id="lightboxCounter" class="text-white/40 text-[0.65rem] tracking-widest font-bold uppercase"></p>
+                </div>
             </div>
-
-            <!-- Popisek obrázku -->
-            <div class="mt-6 md:mt-8 text-center bg-brand-dark/80 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 z-10 shrink-0">
-                <p id="lightboxCaption" class="font-serif tracking-[0.2em] text-base md:text-lg mb-1 text-brand-caramel"></p>
-                <p id="lightboxCounter" class="text-white/40 text-[0.65rem] tracking-widest font-bold uppercase"></p>
-            </div>
-            
+            <button onclick="nextImage()" class="p-4 bg-black/20 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/10 z-10" aria-label="Další obrázek"><i data-lucide="chevron-right" class="w-8 h-8"></i></button>
         </div>
-
-        <!-- Pevně pozicovaná šipka vpravo -->
-        <button onclick="nextImage()" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-black/50 hover:bg-brand-caramel rounded-full transition-all backdrop-blur-md transform hover:scale-110 border border-white/20 z-[6000] text-white" aria-label="Další obrázek">
-            <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
-        </button>
     </div>
 
     <!-- Pergola Overlay -->
@@ -325,7 +292,7 @@
         </div>
     </div>
 
-    <!-- Booking Overlay (Trevlix) -->
+    <!-- Booking Overlay (Trevlix Iframe Modal) -->
     <div id="bookingOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Rezervační systém">
         <div class="modal-content max-w-6xl bg-brand-light rounded-[2rem] overflow-hidden flex flex-col h-[90vh]">
             <div class="p-5 md:p-6 flex justify-between items-center border-b border-brand-sand bg-white shrink-0 z-10">
@@ -362,59 +329,127 @@
                     <a href="#ubytovani-karty" class="px-8 py-4 rounded-full border border-white/20 bg-brand-dark/40 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-offwhite hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-500">Apartmány</a>
                     <a href="#pro-firmy" class="px-8 py-4 rounded-full border border-white/20 bg-brand-dark/40 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-offwhite hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-500">Pro firmy</a>
                     <a href="#zahrada" class="px-8 py-4 rounded-full border border-white/20 bg-brand-dark/40 backdrop-blur-md text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-offwhite hover:bg-brand-caramel hover:border-brand-caramel hover:shadow-glow transition-all duration-500">Zahrada</a>
-                    <button onclick="openBooking('all')" class="px-10 py-4 rounded-full border border-brand-caramel bg-brand-caramel text-brand-offwhite text-[0.7rem] font-bold uppercase tracking-[0.2em] hover:bg-brand-offwhite hover:text-brand-dark hover:border-brand-offwhite transition-all duration-500 shadow-glow ml-0 sm:ml-2 flex items-center gap-3 mt-2 sm:mt-0">Rezervovat <i data-lucide="calendar" class="w-4 h-4"></i></button>
+                    <button onclick="openBookingCategory('')" class="px-10 py-4 rounded-full border border-brand-caramel bg-brand-caramel text-brand-offwhite text-[0.7rem] font-bold uppercase tracking-[0.2em] hover:bg-brand-offwhite hover:text-brand-dark hover:border-brand-offwhite transition-all duration-500 shadow-glow ml-0 sm:ml-2 flex items-center gap-3 mt-2 sm:mt-0">Rezervovat <i data-lucide="calendar" class="w-4 h-4"></i></button>
                 </nav>
             </div>
         </section>
 
-        <!-- Smart Filter Section -->
+        <!-- Smart Filter Section - MAXIMÁLNÍ LOGIKA (Deep linking) -->
         <section id="rezervace" class="pt-32 pb-40 bg-brand-sand text-brand-dark border-b border-brand-caramel/10 relative z-10">
             <div class="max-w-7xl mx-auto px-6 w-full">
-                
                 <div class="bg-brand-dark rounded-[2.5rem] shadow-premium-dark p-10 md:p-16 reveal relative overflow-hidden text-brand-offwhite border border-[#3a3024]">
                     <div class="absolute top-[-40%] right-[-20%] w-[800px] h-[800px] bg-brand-caramel/10 blur-[150px] rounded-full pointer-events-none"></div>
                     
                     <div class="relative z-10">
                         <div class="text-center mb-16">
-                            <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-4 block">Chytrý kalendář</span>
-                            <h3 class="font-serif text-3xl md:text-5xl text-brand-offwhite mb-4">Najděte svůj ideální prostor</h3>
-                            <p class="text-brand-offwhite/60 font-light text-base max-w-xl mx-auto">Vyberte pouze termín, počet osob a pokojů. O zbytek se postaráme.</p>
+                            <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-4 block">Chytrý filtr</span>
+                            <h3 class="font-serif text-3xl md:text-5xl text-brand-offwhite mb-4">Najděte volný termín</h3>
+                            <p class="text-brand-offwhite/60 font-light text-base max-w-xl mx-auto">Vyberte lokalitu, termín a počet osob. Ihned zjistíte reálnou dostupnost a ceny.</p>
                         </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10 items-end text-left mb-16 bg-white/5 backdrop-blur-sm p-8 rounded-[2rem] border border-white/10 max-w-5xl mx-auto">
+                        <!-- Upravený Grid: Lokalita, Check-in, Check-out, Hosté -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10 items-end text-left mb-16 bg-white/5 backdrop-blur-sm p-8 rounded-[2rem] border border-white/10 max-w-6xl mx-auto">
+                            
+                            <!-- 1. Lokalita -->
+                            <div class="border-b border-white/20 pb-3 relative lg:col-span-1 md:col-span-2">
+                                <label for="filter-location" class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Lokalita / Styl</label>
+                                <select id="filter-location" class="w-full bg-transparent border-none text-brand-offwhite text-lg font-serif outline-none focus:ring-0 cursor-pointer appearance-none p-0 pb-1">
+                                    <option value="all" class="bg-brand-dark">Všechny lokality</option>
+                                    <option value="1398" class="bg-brand-dark">Hlavní rezidence (Fr. 1398)</option>
+                                    <option value="865" class="bg-brand-dark">Designové mezonety (Fr. 865)</option>
+                                    <option value="podmesti" class="bg-brand-dark">Byty Podměstí (Pro firmy)</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="absolute right-0 bottom-4 w-5 h-5 text-brand-caramel pointer-events-none"></i>
+                            </div>
+
+                            <!-- 2. Příjezd -->
                             <div class="border-b border-white/20 pb-3 relative">
                                 <label for="filter-checkin" class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Příjezd</label>
                                 <input type="date" id="filter-checkin" class="filter-input w-full font-serif text-xl appearance-none cursor-pointer bg-transparent">
                             </div>
+
+                            <!-- 3. Odjezd -->
                             <div class="border-b border-white/20 pb-3 relative">
                                 <label for="filter-checkout" class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Odjezd</label>
                                 <input type="date" id="filter-checkout" class="filter-input w-full font-serif text-xl appearance-none cursor-pointer bg-transparent">
                             </div>
+
+                            <!-- 4. Hosté -->
                             <div class="border-b border-white/20 pb-3">
-                                <label class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Hosté</label>
+                                <label class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Hosté celkem</label>
                                 <div class="flex items-center justify-between pb-1">
-                                    <button onclick="updatePeople(-1)" class="w-12 h-12 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Odebrat osobu"><i data-lucide="minus" class="w-5 h-5"></i></button>
+                                    <button onclick="updatePeople(-1)" class="w-10 h-10 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Odebrat osobu"><i data-lucide="minus" class="w-4 h-4"></i></button>
                                     <span id="people-val" class="font-serif text-2xl font-medium" aria-live="polite">2</span>
-                                    <button onclick="updatePeople(1)" class="w-12 h-12 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Přidat osobu"><i data-lucide="plus" class="w-5 h-5"></i></button>
-                                </div>
-                            </div>
-                            <div class="border-b border-white/20 pb-3">
-                                <label class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-caramel mb-3">Pokoje</label>
-                                <div class="flex items-center justify-between pb-1">
-                                    <button onclick="updateRooms(-1)" class="w-12 h-12 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Odebrat pokoj"><i data-lucide="minus" class="w-5 h-5"></i></button>
-                                    <span id="rooms-val" class="font-serif text-2xl font-medium" aria-live="polite">1</span>
-                                    <button onclick="updateRooms(1)" class="w-12 h-12 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Přidat pokoj"><i data-lucide="plus" class="w-5 h-5"></i></button>
+                                    <button onclick="updatePeople(1)" class="w-10 h-10 rounded-full border border-white/20 text-brand-offwhite flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all duration-300" aria-label="Přidat osobu"><i data-lucide="plus" class="w-4 h-4"></i></button>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="text-center">
-                            <button onclick="runSmartFilter()" class="bg-brand-caramel text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-dark px-14 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] rounded-full shadow-glow transition-all duration-500 w-full sm:w-auto transform hover:-translate-y-1 flex items-center justify-center mx-auto gap-3">
-                                <i data-lucide="search" class="w-5 h-5"></i> Najít ubytování
+                            <button onclick="runRealFilter()" class="bg-brand-caramel text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-dark px-14 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] rounded-full shadow-glow transition-all duration-500 w-full sm:w-auto transform hover:-translate-y-1 flex items-center justify-center mx-auto gap-3">
+                                <i data-lucide="search" class="w-5 h-5"></i> Zobrazit dostupnost a ceny
                             </button>
                         </div>
+                        
+                        <!-- Loader (ukáže se jen na moment před otevřením iframe) -->
+                        <div id="filter-results" class="hidden mt-12 text-center" aria-live="polite">
+                            <div class="flex flex-col items-center justify-center py-6">
+                                <i data-lucide="loader-2" class="w-10 h-10 animate-spin text-brand-caramel mb-4"></i>
+                                <span class="text-xs text-brand-offwhite/70 uppercase tracking-[0.3em] font-bold">Načítám rezervační systém...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div id="filter-results" class="hidden mt-16 pt-16 border-t border-white/10" aria-live="polite"></div>
+        <!-- Accommodation Cards -->
+        <section id="ubytovani-karty" class="pt-24 pb-40 bg-brand-light text-brand-dark border-b border-brand-sand relative z-10">
+            <div class="max-w-7xl mx-auto px-6 w-full">
+                <div class="mb-20 text-center reveal">
+                    <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-6 block">Kolekce ubytování</span>
+                    <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl tracking-wide text-brand-dark mb-6">Naše apartmány & studia</h2>
+                    <p class="text-brand-muted text-lg font-light max-w-2xl mx-auto leading-relaxed">U nás si nevybíráte jen postel na přespání. Hledáte místo, kde vám bude po celou dobu pobytu prostě dobře.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                    
+                    <!-- Karta 1: Apartmány a Studia (Francouzská 1398) -->
+                    <div onclick="openBookingCategory('8308-8309-8310-8311-8312-8313-8314-8315-8316-8317-8318')" class="group relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-brand-dark cursor-pointer reveal transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit Apartmány a studia">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Apartmány a studia interiér" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <div class="absolute bottom-0 left-0 p-8 md:p-10 w-full z-10 text-center text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                            <h3 class="font-serif text-2xl lg:text-3xl mb-4 uppercase tracking-wider text-brand-offwhite drop-shadow-md">Apartmány a studia</h3>
+                            <p class="text-sm text-brand-offwhite/80 font-light mb-8 leading-relaxed max-w-xs mx-auto drop-shadow-sm">Vytvořili jsme pro vás zázemí, kde vám bude dobře – ať už se u nás zdržíte jen na víkend, nebo plánujete delší pobyt.</p>
+                            <span class="inline-flex items-center gap-2 bg-brand-caramel/90 backdrop-blur-sm text-brand-offwhite text-[0.65rem] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full group-hover:bg-brand-caramel transition-colors shadow-lg hover:shadow-glow">Ověřit dostupnost <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Karta 2: Stylové Mezonety (Francouzská 865) -->
+                    <div onclick="openBookingCategory('8300-8301-8302-8303-8304-8305-8307-8306-8314-8315-8316-8317-8318')" class="group relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-brand-dark cursor-pointer reveal delay-100 transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit Stylové mezonety">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Stylové mezonety terasa" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <div class="absolute top-8 left-1/2 -translate-x-1/2 bg-brand-dark/80 backdrop-blur-md text-brand-offwhite text-[0.6rem] uppercase tracking-[0.2em] px-5 py-2 rounded-full border border-white/20 z-20 font-bold shadow-lg whitespace-nowrap">Větší prostor</div>
+                        
+                        <div class="absolute bottom-0 left-0 p-8 md:p-10 w-full z-10 text-center text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                            <h3 class="font-serif text-2xl lg:text-3xl mb-4 uppercase tracking-wider text-brand-offwhite drop-shadow-md">Stylové mezonety</h3>
+                            <p class="text-sm text-brand-offwhite/80 font-light mb-8 leading-relaxed max-w-xs mx-auto drop-shadow-sm">Dvoupatrové apartmány s terasou, ze které stačí sejít pár kroků do naší zelené oázy.</p>
+                            <span class="inline-flex items-center gap-2 bg-brand-caramel/90 backdrop-blur-sm text-brand-offwhite text-[0.65rem] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full group-hover:bg-brand-caramel transition-colors shadow-lg hover:shadow-glow">Ověřit dostupnost <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Karta 3: Pro Firmy a Týmy (Byty Podměstí) -->
+                    <div onclick="openBookingCategory('8300-8301-8302-8303-8304-8305-8306-8307-8308-8309-8310-8311-8312-8313')" class="group relative aspect-[3/4] md:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-brand-dark cursor-pointer reveal delay-200 transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit Pro firmy a týmy">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Pro firmy a týmy pokoje" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <div class="absolute bottom-0 left-0 p-8 md:p-10 w-full z-10 text-center text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                            <h3 class="font-serif text-2xl lg:text-3xl mb-4 uppercase tracking-wider text-brand-offwhite drop-shadow-md">Pro firmy a týmy</h3>
+                            <p class="text-sm text-brand-offwhite/80 font-light mb-8 leading-relaxed max-w-xs mx-auto drop-shadow-sm">Ideální zázemí pro vaše firemní výjezdy, teambuildingy nebo B2B poptávky.</p>
+                            <span class="inline-flex items-center gap-2 bg-brand-caramel/90 backdrop-blur-sm text-brand-offwhite text-[0.65rem] font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full group-hover:bg-brand-caramel transition-colors shadow-lg hover:shadow-glow">Ověřit dostupnost <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                        </div>
                     </div>
                 </div>
 
@@ -487,50 +522,6 @@
             </div>
         </section>
 
-        <!-- Accommodation Cards -->
-        <section id="ubytovani-karty" class="pt-32 pb-40 bg-brand-sand text-brand-dark border-b border-brand-sand relative z-10">
-            <div class="max-w-7xl mx-auto px-6 w-full">
-                <div class="mb-20 text-center reveal">
-                    <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-6 block">Ubytování na míru</span>
-                    <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl tracking-wide text-brand-dark">Naše apartmány</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-                    <div onclick="openBooking('8308,8310,8311,8312,8313,8314,8315,8316,8317,8318')" class="group relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-brand-dark cursor-pointer reveal transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit nadstandardní mezonety">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Luxusní interiér prémiového mezonetu" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                        <div class="absolute top-8 left-8 bg-brand-dark/80 backdrop-blur-md text-brand-caramel text-[0.6rem] uppercase tracking-[0.2em] px-5 py-2.5 rounded-full border border-brand-caramel/30 z-20 font-bold shadow-lg">Větší prostor</div>
-                        <div class="absolute bottom-0 left-0 p-10 w-full z-10 text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                            <h3 class="font-serif text-3xl mb-3">Nadstandardní mezonety</h3>
-                            <p class="text-base text-brand-offwhite/70 font-light mb-8">Velkorysý prostor a maximální pohodlí s vlastní terasou.</p>
-                            <span class="inline-flex items-center gap-3 text-brand-caramel text-[0.7rem] font-bold uppercase tracking-[0.2em] group-hover:text-brand-offwhite transition-colors">Prozkoumat <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </div>
-                    
-                    <div onclick="openBooking('8301,8302,8303,8306,8307,8309')" class="group relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-brand-dark cursor-pointer reveal delay-100 transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit vybavená studia">
-                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Světlý pokoj s kuchyňkou" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                        <div class="absolute bottom-0 left-0 p-10 w-full z-10 text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                            <h3 class="font-serif text-3xl mb-3">Vybavená studia</h3>
-                            <p class="text-base text-brand-offwhite/70 font-light mb-8">Naprosté soukromí a pohodlí s plnohodnotnou kuchyňkou.</p>
-                            <span class="inline-flex items-center gap-3 text-brand-caramel text-[0.7rem] font-bold uppercase tracking-[0.2em] group-hover:text-brand-offwhite transition-colors">Prozkoumat <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </div>
-                    
-                    <div onclick="openBooking('8300,8304,8305')" class="group relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-brand-dark cursor-pointer reveal delay-200 transform transition-all duration-500 hover:-translate-y-3 hover:shadow-premium-hover" role="button" tabindex="0" aria-label="Zobrazit praktické pokoje">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Útulný praktický pokoj" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                        <div class="absolute bottom-0 left-0 p-10 w-full z-10 text-brand-offwhite transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                            <h3 class="font-serif text-3xl mb-3">Praktické pokoje</h3>
-                            <p class="text-base text-brand-offwhite/70 font-light mb-8 italic">Chytrá a útulná volba pro nenáročné cestovatele.</p>
-                            <span class="inline-flex items-center gap-3 text-brand-caramel text-[0.7rem] font-bold uppercase tracking-[0.2em] group-hover:text-brand-offwhite transition-colors">Prozkoumat <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <!-- B2B Section -->
         <section id="pro-firmy" class="w-full min-h-screen flex flex-col justify-center bg-brand-dark text-brand-offwhite relative py-32 lg:py-40 overflow-hidden">
             <div class="absolute inset-0 z-0 opacity-10 mix-blend-luminosity bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2560&q=80');"></div>
@@ -594,7 +585,11 @@
                 <h3 class="font-serif text-5xl text-brand-dark">Galerie Fotografií</h3>
             </div>
             
-            <div class="w-full reveal">
+            <div class="w-full reveal relative group">
+                <button onclick="scrollSlider(-400)" class="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 p-4 md:p-5 bg-white/90 backdrop-blur-sm border border-brand-sand rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all duration-300 shadow-xl z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100" aria-label="Posunout galerii vlevo"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
+                
+                <button onclick="scrollSlider(400)" class="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 p-4 md:p-5 bg-white/90 backdrop-blur-sm border border-brand-sand rounded-full text-brand-dark hover:bg-brand-caramel hover:text-white hover:border-brand-caramel transition-all duration-300 shadow-xl z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100" aria-label="Posunout galerii vpravo"><i data-lucide="arrow-right" class="w-6 h-6"></i></button>
+
                 <div id="garden-slider" class="slider-container px-6 xl:px-[calc((100vw-1280px)/2+24px)] pb-12 pt-4">
                     <div class="slider-item group" onclick="openLightbox(0)">
                         <img src="https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=800&q=80" alt="Prostorná zahrada ubytování" loading="lazy">
@@ -622,65 +617,72 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="max-w-7xl mx-auto px-6 mt-4 flex justify-center gap-6 reveal">
-                <button onclick="scrollSlider(-400)" class="p-5 border border-brand-sand rounded-full text-brand-dark hover:bg-brand-caramel hover:text-brand-offwhite hover:border-brand-caramel transition-all duration-300 shadow-sm" aria-label="Posunout galerii vlevo"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
-                <button onclick="scrollSlider(400)" class="p-5 border border-brand-sand rounded-full text-brand-dark hover:bg-brand-caramel hover:text-brand-offwhite hover:border-brand-caramel transition-all duration-300 shadow-sm" aria-label="Posunout galerii vpravo"><i data-lucide="arrow-right" class="w-6 h-6"></i></button>
-            </div>
         </section>
 
-        <!-- Testimonials -->
-        <section id="hodnoceni" class="py-32 bg-brand-light text-center border-b border-brand-sand">
-             <div class="max-w-7xl mx-auto px-6 reveal">
-                 <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-6 block">Co o nás říkají klienti</span>
-                 <h2 class="font-serif text-5xl md:text-6xl tracking-wide text-brand-dark mb-20">Hodnocení hostů</h2>
+        <!-- Nová sekce Hodnocení (podle vizuálního návrhu) -->
+        <section id="hodnoceni" class="py-32 bg-brand-light text-center border-b border-brand-sand relative overflow-hidden">
+             <div class="max-w-6xl mx-auto px-6 reveal relative z-10">
+                 <span class="text-brand-caramel uppercase tracking-[0.3em] font-bold text-[0.65rem] mb-4 block">Zkušenosti hostů</span>
+                 <h2 class="font-serif text-5xl md:text-6xl tracking-wide text-brand-dark mb-10">Co o nás říkají</h2>
                  
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
-                     <div class="bg-white p-10 rounded-[2rem] shadow-premium border border-brand-sand flex flex-col justify-between hover:-translate-y-3 transition-transform duration-500">
-                         <div>
-                             <div class="flex text-brand-caramel mb-6">
-                                 <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                             </div>
-                             <p class="text-brand-text font-light italic mb-8 leading-loose text-lg">„Naprosto kouzelné místo! Čistota na jedničku, krásně vybavená kuchyňka a ten klid v zahradě... Určitě se s rodinou brzy vrátíme.“</p>
+                 <!-- Integrační štítky (Booking a Firmy.cz) -->
+                 <div class="flex flex-wrap justify-center items-center gap-6 mb-20">
+                     <!-- Booking.com Odznak -->
+                     <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer" title="Naše hodnocení na Booking.com" class="group flex items-center gap-4 bg-white py-3 px-6 rounded-full shadow-sm border border-brand-sand hover:shadow-md hover:border-brand-caramel/50 transition-all duration-300 transform hover:-translate-y-1">
+                         <div class="bg-[#003580] text-white font-bold text-xl px-3 py-1.5 rounded-xl group-hover:scale-105 transition-transform duration-300">9.2</div>
+                         <div class="text-left">
+                             <span class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-dark">Excelentní</span>
+                             <span class="block text-[0.65rem] text-brand-muted font-medium mt-0.5">Booking.com</span>
                          </div>
-                         <div class="flex items-center gap-5 border-t border-brand-sand pt-6">
-                             <div class="w-12 h-12 rounded-full bg-brand-sand flex items-center justify-center text-brand-caramel font-serif font-bold text-xl">M</div>
+                     </a>
+
+                     <!-- Firmy.cz Odznak -->
+                     <a href="https://www.firmy.cz/detail/13761314-ubytovani-aranka-zatec.html" target="_blank" rel="noopener noreferrer" title="Náš profil na Firmy.cz" class="group flex items-center gap-4 bg-white py-3 px-6 rounded-full shadow-sm border border-brand-sand hover:shadow-md hover:border-brand-caramel/50 transition-all duration-300 transform hover:-translate-y-1">
+                         <div class="bg-[#cc0000] text-white font-bold text-xl px-3 py-1.5 rounded-xl group-hover:scale-105 transition-transform duration-300">4.5</div>
+                         <div class="text-left">
+                             <span class="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-dark">Top Firma</span>
+                             <span class="block text-[0.65rem] text-brand-muted font-medium mt-0.5">Firmy.cz (13. místo)</span>
+                         </div>
+                     </a>
+                 </div>
+                 
+                 <!-- Layout samotných recenzí -->
+                 <div class="relative w-full">
+                     <!-- Šipka doleva (pro budoucí slider efekt, nyní dekorativní) -->
+                     <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-12 w-12 h-12 bg-white rounded-full shadow-sm border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-5xl mx-auto px-4 lg:px-0">
+                         <!-- Recenze 1 -->
+                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
                              <div>
-                                 <strong class="block text-brand-dark text-base">Martina N.</strong>
-                                 <span class="text-xs text-brand-muted uppercase tracking-widest font-bold">Ověřený host</span>
+                                 <div class="flex text-brand-caramel mb-6">
+                                     <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                 </div>
+                                 <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Nejlepší ubytování v Žatci, jaké jsem zažil. Pokoje čisté a posezení u krbu nemá absolutně chybu.“</p>
+                             </div>
+                             <div class="pt-6 border-t border-brand-sand/50">
+                                 <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Petr M.</strong>
+                                 <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Služební cesta</span>
+                             </div>
+                         </div>
+                         
+                         <!-- Recenze 2 -->
+                         <div class="bg-white p-10 lg:p-14 rounded-[2.5rem] shadow-sm border border-brand-sand flex flex-col justify-between hover:shadow-premium transition-all duration-500">
+                             <div>
+                                 <div class="flex text-brand-caramel mb-6">
+                                     <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                 </div>
+                                 <p class="text-brand-text font-light italic mb-8 leading-loose text-sm lg:text-base uppercase tracking-wide">„Mezonet byl dechberoucí. Ticho, soukromí a nádherná zahrada hned u dveří. Určitě se vrátíme.“</p>
+                             </div>
+                             <div class="pt-6 border-t border-brand-sand/50">
+                                 <strong class="block text-brand-dark text-[0.7rem] uppercase tracking-widest mb-1">Jana K.</strong>
+                                 <span class="text-[0.6rem] text-brand-muted uppercase tracking-widest font-bold">Rodinný pobyt</span>
                              </div>
                          </div>
                      </div>
-                     <div class="bg-white p-10 rounded-[2rem] shadow-premium border border-brand-sand flex flex-col justify-between hover:-translate-y-3 transition-transform duration-500">
-                         <div>
-                             <div class="flex text-brand-caramel mb-6">
-                                 <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                             </div>
-                             <p class="text-brand-text font-light italic mb-8 leading-loose text-lg">„Zajišťovali jsme zde ubytování pro naše zaměstnance na delší dobu. Vše proběhlo bez problému, fakturace i komunikace perfektní.“</p>
-                         </div>
-                         <div class="flex items-center gap-5 border-t border-brand-sand pt-6">
-                             <div class="w-12 h-12 rounded-full bg-brand-sand flex items-center justify-center text-brand-caramel font-serif font-bold text-xl">P</div>
-                             <div>
-                                 <strong class="block text-brand-dark text-base">Petr S.</strong>
-                                 <span class="text-xs text-brand-muted uppercase tracking-widest font-bold">Firemní klient</span>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="bg-white p-10 rounded-[2rem] shadow-premium border border-brand-sand flex flex-col justify-between hover:-translate-y-3 transition-transform duration-500">
-                         <div>
-                             <div class="flex text-brand-caramel mb-6">
-                                 <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                             </div>
-                             <p class="text-brand-text font-light italic mb-8 leading-loose text-lg">„Krásný a nadstandardní mezonet! Obrovskou výhodou je chytrý check-in a vyhrazené parkování. Kousek do centra Žatce.“</p>
-                         </div>
-                         <div class="flex items-center gap-5 border-t border-brand-sand pt-6">
-                             <div class="w-12 h-12 rounded-full bg-brand-sand flex items-center justify-center text-brand-caramel font-serif font-bold text-xl">J</div>
-                             <div>
-                                 <strong class="block text-brand-dark text-base">Jana K.</strong>
-                                 <span class="text-xs text-brand-muted uppercase tracking-widest font-bold">Ověřený host</span>
-                             </div>
-                         </div>
-                     </div>
+
+                     <!-- Šipka doprava -->
+                     <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-12 w-12 h-12 bg-white rounded-full shadow-sm border border-brand-sand flex items-center justify-center text-brand-muted hover:text-brand-caramel hover:border-brand-caramel transition-all z-20 hidden md:flex"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
                  </div>
              </div>
         </section>
@@ -750,349 +752,59 @@
 
     </main>
 
-    <!-- Footer (KOMPLETNĚ PŘESTAVĚNO) -->
+    <!-- Footer -->
     <footer class="bg-brand-dark pt-32 pb-12 text-brand-offwhite/60 relative overflow-hidden">
         <div class="absolute top-[-50%] left-[-10%] w-[800px] h-[800px] bg-brand-caramel/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-white/10 pb-16 mb-8 text-center md:text-left">
-                
-                <!-- Sloupec 1: Logo a základní info -->
-                <div class="lg:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 border-b border-white/10 pb-20 mb-10 text-center md:text-left">
+                <div>
                     <span class="font-serif text-4xl text-brand-caramel block mb-6 tracking-widest">ARANKA</span>
-                    <p class="text-base font-light leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">Vaše luxusní zázemí v tiché čtvrti královského města Žatce.</p>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all text-white" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-caramel hover:border-brand-caramel transition-all text-white" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                    </div>
+                    <p class="text-base font-light leading-relaxed">Vaše luxusní zázemí v tiché čtvrti královského města Žatce.</p>
                 </div>
-
-                <!-- Sloupec 2: Kontakt -->
-                <div class="text-sm font-light leading-relaxed flex flex-col items-center md:items-start">
-                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Kontakt</h4>
-                    <p class="flex items-center gap-3 mb-3 hover:text-brand-caramel transition-colors"><i data-lucide="map-pin" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="https://maps.google.com/?q=Francouzská+1398,+Žatec" target="_blank">Francouzská 1398, 438 01 Žatec</a></p>
-                    <p class="flex items-center gap-3 mb-3 hover:text-brand-caramel transition-colors"><i data-lucide="phone" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="tel:+420776604006">+420 776 604 006</a></p>
-                    <p class="flex items-center gap-3 hover:text-brand-caramel transition-colors"><i data-lucide="mail" class="w-4 h-4 text-brand-caramel shrink-0"></i> <a href="mailto:info@arankacompany.eu">[Doplnit e-mail]</a></p>
+                <div class="text-base font-light leading-relaxed flex flex-col items-center md:items-start">
+                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Adresa & Kontakt</h4>
+                    <p class="flex items-center gap-3 mb-3"><i data-lucide="map-pin" class="w-5 h-5 text-brand-caramel"></i> Francouzská 1398, 438 01 Žatec</p>
+                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-brand-caramel"></i> +420 776 604 006</p>
                 </div>
-
-                <!-- Sloupec 3: Firemní údaje -->
                 <div class="text-sm flex flex-col items-center md:items-start font-light leading-relaxed">
                     <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Firemní údaje</h4>
-                    <p class="mb-1"><strong>Aranka company s.r.o.</strong></p>
-                    <p class="mb-1">IČO: 22366695</p>
-                    <p class="mb-1">DIČ: [Doplnit DIČ]</p>
-                    <p class="mb-3 text-xs text-white/40 leading-normal mt-2">[Doplnit spisovou značku, např. Společnost je zapsaná u Krajského soudu v Ústí nad Labem...]</p>
+                    <p>Aranka company s.r.o.<br>IČO: 22366695</p>
                 </div>
-
-                <!-- Sloupec 4: Odkazy a rezervace -->
-                <div class="text-sm flex flex-col items-center md:items-start font-light leading-relaxed">
-                    <h4 class="text-brand-caramel font-bold uppercase text-[0.65rem] tracking-[0.2em] mb-6">Užitečné odkazy</h4>
-                    <a href="#" class="mb-3 hover:text-brand-caramel transition-colors">Obchodní podmínky (VOP)</a>
-                    <a href="#" class="mb-3 hover:text-brand-caramel transition-colors">Ochrana osobních údajů (GDPR)</a>
-                    <a href="#" class="mb-8 hover:text-brand-caramel transition-colors">Zásady cookies</a>
-                    <button onclick="openBooking('all')" class="bg-brand-caramel text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-dark transition-all duration-300 px-6 py-3 rounded-full font-bold uppercase tracking-[0.2em] text-[0.65rem] flex items-center gap-2 shadow-glow w-full justify-center md:w-auto">
-                        Rezervovat pobyt
+                <div class="flex flex-col items-center md:items-start">
+                    <button onclick="openBookingCategory('')" class="bg-brand-caramel/10 border border-brand-caramel/30 text-brand-caramel hover:bg-brand-caramel hover:text-brand-dark transition-all duration-300 px-8 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[0.65rem] flex items-center gap-2">
+                        Rezervovat pobyt <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </button>
                 </div>
-
             </div>
-            <div class="text-[0.65rem] uppercase tracking-[0.2em] font-bold text-white/30 text-center flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-[0.65rem] uppercase tracking-[0.2em] font-bold text-white/30 text-center">
                 <p>© <span id="current-year"></span> Aranka Company s.r.o. Všechna práva vyhrazena.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Integrations and Logic -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            lucide.createIcons();
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            if (!localStorage.getItem('cookies_accepted')) {
-                setTimeout(() => { document.getElementById('cookie-banner').style.transform = 'translateY(0)'; }, 1500);
-            }
-
-            if (sessionStorage.getItem('aranka_auth') === 'true') {
-                const overlay = document.getElementById('password-protection');
-                overlay.style.display = 'none';
-                overlay.classList.remove('active');
-            } else {
-                // Prevent scrolling if password overlay is active
-                document.body.classList.add('overflow-y-hidden');
-            }
-
-            const checkinInput = document.getElementById('filter-checkin');
-            const checkoutInput = document.getElementById('filter-checkout');
-            if(checkinInput && checkoutInput) {
-                const today = new Date();
-                const checkoutDate = new Date();
-                checkoutDate.setDate(today.getDate() + 2);
-                checkinInput.value = today.toISOString().split('T')[0];
-                checkoutInput.value = checkoutDate.toISOString().split('T')[0];
-            }
-
-            const stickyNav = document.getElementById('site-nav');
-            const scrollProgress = document.getElementById('scroll-progress');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) stickyNav.classList.add('nav-visible', 'nav-scrolled');
-                else stickyNav.classList.remove('nav-visible', 'nav-scrolled');
-                
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                scrollProgress.style.width = (winScroll / height * 100) + "%";
-            });
-            window.dispatchEvent(new Event('scroll'));
-
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-            document.addEventListener('keydown', (e) => {
-                if(!document.getElementById('lightboxOverlay').classList.contains('active')) return;
-                if(e.key === 'Escape') closeAllOverlays();
-                if(e.key === 'ArrowRight') nextImage();
-                if(e.key === 'ArrowLeft') prevImage();
-            });
-        });
-
-        function acceptCookies(type) {
-            localStorage.setItem('cookies_accepted', type);
-            document.getElementById('cookie-banner').style.transform = 'translateY(100%)';
-        }
-
-        function checkPassword() {
-            if (document.getElementById('site-password').value.toLowerCase() === 'lukas2026') {
-                sessionStorage.setItem('aranka_auth', 'true');
-                const overlay = document.getElementById('password-protection');
-                overlay.style.opacity = '0';
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                    overlay.classList.remove('active');
-                    document.body.classList.remove('overflow-y-hidden');
-                }, 1000);
-            } else {
-                const errorMsg = document.getElementById('password-error');
-                errorMsg.style.opacity = '1';
-                setTimeout(() => { errorMsg.style.opacity = '0'; }, 3000);
-            }
-        }
-
-        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
-        function openOverlay(id) { 
-            closeAllOverlays();
-            document.getElementById(id).classList.add('active'); 
-            document.body.style.overflow='hidden'; 
-        }
-        function closeAllOverlays() { 
-            document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active')); 
-            document.body.style.overflow='auto'; 
-        }
-        
-        function openBooking(id) {
-            let url = 'https://book.trevlix.com/book/app/?cid=3998666';
-            if(id !== 'all') url += '&room_type_id=' + id;
-            document.getElementById('trevlixIframe').src = url;
-            openOverlay('bookingOverlay');
-        }
-
-        function submitB2BForm(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin mx-auto"></i> Odesílám...';
-            btn.classList.add('opacity-80', 'cursor-not-allowed');
-            lucide.createIcons();
-
-            setTimeout(() => {
-                btn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5"></i> Úspěšně odesláno!';
-                btn.classList.remove('bg-[#2a2218]', 'border-[#2a2218]');
-                btn.classList.add('bg-green-700', 'border-green-700', 'text-white');
-                lucide.createIcons();
-                setTimeout(() => {
-                    closeAllOverlays();
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.classList.remove('bg-green-700', 'border-green-700', 'opacity-80', 'cursor-not-allowed');
-                        btn.classList.add('bg-[#2a2218]', 'border-[#2a2218]');
-                        e.target.reset();
-                    }, 500);
-                }, 2000);
-            }, 1500);
-        }
-
-        let peopleCount = 2;
-        let roomsCount = 1;
-        
-        function updatePeople(c) { 
-            peopleCount = Math.max(1, Math.min(20, peopleCount + c)); 
-            document.getElementById('people-val').innerText = peopleCount; 
-        }
-        function updateRooms(c) { 
-            roomsCount = Math.max(1, Math.min(10, roomsCount + c)); 
-            document.getElementById('rooms-val').innerText = roomsCount; 
-        }
-
-        const roomsData = [
-            { id: 8300, capacity: 1, price: 790, bedrooms: 1, name: "Pokoj Standard s vyvýšeným lůžkem", photo: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=400&q=80" },
-            { id: 8301, capacity: 4, price: 1400, bedrooms: 1, name: "Velké Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=80" },
-            { id: 8302, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní a vanou", photo: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" },
-            { id: 8303, capacity: 2, price: 1000, bedrooms: 1, name: "Dvoulůžkový pokoj s vlastní koupelnou", photo: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80" },
-            { id: 8304, capacity: 1, price: 550, bedrooms: 1, name: "Pokoj Economy pro jednoho", photo: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80" },
-            { id: 8305, capacity: 3, price: 1000, bedrooms: 1, name: "Třílůžkový pokoj Economy", photo: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=400&q=80" },
-            { id: 8306, capacity: 3, price: 1750, bedrooms: 1, name: "Apartmán se společenskou místností", photo: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" },
-            { id: 8307, capacity: 2, price: 1400, bedrooms: 1, name: "Studio s vlastní kuchyní", photo: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" },
-            { id: 8308, capacity: 6, price: 3600, bedrooms: 2, name: "Velkorysý Mezonet GRAND s terasou (3+3 os.)", photo: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" },
-            { id: 8309, capacity: 2, price: 1600, bedrooms: 1, name: "Dvoulůžkový pokoj Comfort", photo: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80" },
-            { id: 8310, capacity: 6, price: 3450, bedrooms: 2, name: "Prostorný Mezonet GRAND (2+4 os.)", photo: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=400&q=80" },
-            { id: 8311, capacity: 2, price: 1700, bedrooms: 1, name: "Mezonetové Studio s vlastním venkovním posezením", photo: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=400&q=80" },
-            { id: 8312, capacity: 3, price: 2100, bedrooms: 1, name: "Mezonet COMFORT s terasou (2+1 os.)", photo: "https://images.unsplash.com/photo-1582719478250-c89fae4658c0?auto=format&fit=crop&w=400&q=80" },
-            { id: 8313, capacity: 3, price: 2350, bedrooms: 1, name: "Nadstandardní mezonet s podkrovní ložnicí a terasou", photo: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=400&q=80" },
-            { id: 8314, capacity: 4, price: 2450, bedrooms: 2, name: "Apartmán s balkonem a vanou (2+2 os.)", photo: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=400&q=80" },
-            { id: 8315, capacity: 6, price: 2880, bedrooms: 2, name: "Prostorný byt se dvěma třílůžkovými pokoji", photo: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=400&q=80" },
-            { id: 8316, capacity: 6, price: 2900, bedrooms: 2, name: "Apartmán COMFORT s balkonem", photo: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=400&q=80" },
-            { id: 8317, capacity: 6, price: 2800, bedrooms: 2, name: "Apartmán COMFORT v přízemí", photo: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=400&q=80" },
-            { id: 8318, capacity: 4, price: 2350, bedrooms: 2, name: "Mezonet se dvěma oddělenými ložnicemi (2+2 os.)", photo: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" }
-        ];
-
-        function runSmartFilter() {
-            const results = document.getElementById('filter-results');
-            results.classList.remove('hidden');
-            results.innerHTML = '<div class="flex justify-center py-12"><i data-lucide="loader-2" class="w-12 h-12 animate-spin text-brand-caramel"></i></div>';
-            lucide.createIcons();
-
-            setTimeout(() => {
-                let matches = [];
-                roomsData.forEach(r => {
-                    const totalCapacity = roomsCount * r.capacity;
-                    if (totalCapacity >= peopleCount) {
-                        matches.push({...r, units: roomsCount});
-                    }
-                });
-
-                if (matches.length === 0) {
-                    results.innerHTML = `
-                        <div class="bg-white/5 backdrop-blur-md p-16 rounded-[2rem] border border-white/10 text-center max-w-3xl mx-auto shadow-premium-dark">
-                            <i data-lucide="info" class="w-12 h-12 text-brand-caramel mx-auto mb-8"></i>
-                            <h3 class="text-3xl mb-4 font-serif text-brand-offwhite">Pro ${peopleCount} osob ve ${roomsCount} pokojích nemáme vhodnou kombinaci.</h3>
-                            <p class="text-brand-offwhite/60 mb-10 font-light text-lg">Zkuste prosím upravit počet pokojů, nebo nás kontaktujte napřímo.</p>
-                            <button onclick="openOverlay('b2bOverlay')" class="btn-premium px-12 py-5 rounded-full font-bold uppercase text-[0.7rem] tracking-[0.2em] shadow-glow">Poptat individuálně</button>
-                        </div>`;
-                } else {
-                    let html = '<h4 class="text-brand-caramel uppercase text-[0.65rem] tracking-[0.3em] font-bold mb-10 flex items-center gap-4"><div class="w-12 h-px bg-brand-caramel"></div> Volné kapacity pro Vás:</h4>';
-                    html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-8">';
-                    matches.sort((a,b) => (a.price*a.units) - (b.price*b.units)).slice(0, 4).forEach(m => {
-                        let desc = m.units > 1 ? `${m.units}x pronájem jednotky` : `1x celý apartmán`;
-                        html += `
-                            <div class="bg-white/5 backdrop-blur-md p-6 rounded-[2rem] border border-white/10 flex flex-col sm:flex-row items-center gap-8 shadow-premium-dark group transition-transform duration-500 hover:-translate-y-2 hover:border-brand-caramel/30">
-                                <div class="w-full sm:w-36 h-36 shrink-0 rounded-2xl overflow-hidden border border-white/5">
-                                    <img src="${m.photo}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                                </div>
-                                <div class="flex-grow w-full">
-                                    <h4 class="font-serif text-2xl mb-2 text-brand-offwhite">${m.name}</h4>
-                                    <p class="text-[0.65rem] text-brand-caramel uppercase font-bold tracking-[0.2em] mb-6">${desc} (max. ${m.capacity * m.units} osob)</p>
-                                    <div class="flex justify-between items-center border-t border-white/10 pt-5">
-                                        <div>
-                                            <span class="block text-[0.6rem] text-brand-offwhite/50 uppercase tracking-widest mb-1">Celkem za noc</span>
-                                            <span class="font-bold text-xl text-brand-offwhite">${(m.price * m.units).toLocaleString('cs-CZ')} Kč</span>
-                                        </div>
-                                        <button onclick="openBooking(${m.id})" class="text-brand-caramel hover:text-brand-offwhite font-bold uppercase text-[0.65rem] tracking-[0.2em] flex items-center gap-2 transition-colors">Vybrat <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
-                                    </div>
-                                </div>
-                            </div>`;
-                    });
-                    html += '</div>';
-                    results.innerHTML = html;
-                }
-                lucide.createIcons();
-            }, 1000);
-        }
-
-        function scrollSlider(px) { 
-            const slider = document.getElementById('garden-slider'); 
-            const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-            if (px > 0 && slider.scrollLeft >= maxScrollLeft - 10) slider.scrollTo({ left: 0, behavior: 'smooth' }); 
-            else if (px < 0 && slider.scrollLeft <= 10) slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' }); 
-            else slider.scrollBy({ left: px, behavior: 'smooth' }); 
-        }
-
-        let currentImgIndex = 0;
-        const galleryImagesData = [
-            { src: "https://images.unsplash.com/photo-1596243169804-245c117e33f3?auto=format&fit=crop&w=1600&q=80", title: "Zahrada - Váš prostor pro klid" },
-            { src: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=80", title: "Zákoutí stvořené pro ranní kávu" },
-            { src: "https://images.unsplash.com/photo-1523306401731-238f0317f240?auto=format&fit=crop&w=1600&q=80", title: "Sluncem zalitá privátní terasa" },
-            { src: "https://images.unsplash.com/photo-1558438832-57ee02164d1f?auto=format&fit=crop&w=1600&q=80", title: "Prosklená pergola s výhledem" },
-            { src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80", title: "Obývací prostor v apartmánu" },
-            { src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80", title: "Minimalistická prémiová ložnice" }
-        ];
-
-        function openLightbox(i) { 
-            currentImgIndex = i; 
-            updateLightbox(); 
-            openOverlay('lightboxOverlay');
-        }
-        function updateLightbox() { 
-            const img = document.getElementById('lightboxImg'); 
-            const caption = document.getElementById('lightboxCaption');
-            img.style.opacity='0.1'; 
-            img.style.transform='scale(0.95)';
-            setTimeout(()=>{ 
-                img.src = galleryImagesData[currentImgIndex].src; 
-                caption.innerText = galleryImagesData[currentImgIndex].title;
-                document.getElementById('lightboxCounter').innerText = `${currentImgIndex+1} / ${galleryImagesData.length}`; 
-                img.style.opacity='1'; 
-                img.style.transform='scale(1)';
-            }, 300); 
-        }
-        function nextImage() { currentImgIndex = (currentImgIndex + 1) % galleryImagesData.length; updateLightbox(); }
-        function prevImage() { currentImgIndex = (currentImgIndex - 1 + galleryImagesData.length) % galleryImagesData.length; updateLightbox(); }
-
-        async function generateItinerary() {
-            const container = document.getElementById('ai-result-container');
-            const resultArea = document.getElementById('ai-result');
-            const loader = document.getElementById('ai-loading');
-            const mood = document.getElementById('ai-who-footer').value;
-            
-            container.classList.remove('hidden'); 
-            resultArea.innerHTML = ''; 
-            loader.classList.remove('hidden'); 
-            loader.classList.add('flex');
-            
-            setTimeout(() => {
-                loader.classList.add('hidden'); loader.classList.remove('flex');
-                let aiText = "";
-                switch(mood) {
-                    case "pár": aiText = "Zpomalte a užijte si jeden druhého. Začněte den výběrovou kávou na náměstí. Pokračujte ruku v ruce křivolakými uličkami, vystoupejte na Chmelový maják. Večer doporučujeme zarezervovat stůl U Orloje a noc zakončit se sklenkou vína u krbu v naší zahradě."; break;
-                    case "rodina": aiText = "Žatec baví i nejmenší! Vaše první kroky by měly směřovat do Chrámu chmele a piva s 3D výtahem. Odpoledne doporučujeme nenáročnou procházku k řece Ohři a večer se těšíme, až u nás na zahradě strávíte klidný čas."; break;
-                    case "cyklista": aiText = "Ideální výchozí bod. Napojte se na novou cyklostezku podél řeky Ohře až k Nechranické přehradě. Vaše kola u nás bezpečně uschováme a věříme, že po takovém výkonu si vychutnáte správně načepovanou Žateckou sedmičku!"; break;
-                    case "pracovník": aiText = "Chápeme, že potřebujete efektivitu. Čeká na Vás rychlý check-in a stabilní Wi-Fi. Pro utřídění myšlenek po práci doporučujeme posedět v naší prosklené pergole, kde Vás nebude vůbec nic rušit."; break;
-                }
-                resultArea.innerHTML = `<p>"${aiText}"</p>`;
-            }, 1200);
-        }
-    </script>
-    
+    <!-- Integrace Tawk.to Chatu -->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    Tawk_API.customStyle = {
-        visibility : {
-            desktop : { position : 'br', xOffset : '20px', yOffset : '20px' },
-            mobile : { position : 'br', xOffset : '15px', yOffset : '90px' }
-        }
-    };
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/699c7aae593adb1c36dddd0f/1ji5juenf';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    // Ošetření pro náhledové prostředí (Canvas): Tawk.to blokuje WebSocket v iframech. 
+    // Skript se spustí pouze na ostrém webu.
+    if (window.self === window.top) {
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        Tawk_API.customStyle = {
+            visibility : {
+                desktop : { position : 'br', xOffset : '20px', yOffset : '20px' },
+                mobile : { position : 'br', xOffset : '15px', yOffset : '90px' }
+            }
+        };
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/699c7aae593adb1c36dddd0f/1ji5juenf';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    } else {
+        console.log("Tawk.to chat je v náhledu vypnutý z bezpečnostních důvodů.");
+    }
     </script>
 </body>
 </html>
